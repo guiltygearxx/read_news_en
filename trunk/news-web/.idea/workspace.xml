@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="291cbae5-d9cd-48d1-8a0b-56822baa9501" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/common/admin-lte-input-modal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/app-base.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/application-constants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/application-utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/application.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/auth-activate-guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/base-input-modal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/component-utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/confirm-dialog-modal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/error.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/formater/date-formatter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/formater/formatter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/formater/number-formatter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/group-by-wrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/http.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/i18n.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/login-activate-guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/on-change-call-back.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/pagination-params.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/request-error-handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/rest-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/result-bean.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/select-option.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/simple-object.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/sortable-table-flow.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/storage.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/support-format-input-modal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/support-on-changes-component-modal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/support-pagination-table.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/support-sorting-table.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/support-submit-form.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/support-validate-input-modal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/table-query-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/user-information.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/validate/default-errors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/validate/errors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/validate/field-error.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/validate/validate-utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/common/validate/validateable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mockup/mockup.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/b_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/b_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/b_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/b_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/card-profile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/card-profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/cards-test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/cards-test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/content-test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-about-us.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-blog-post.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-blog-posts.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-contact.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-landing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-login.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-pricing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-product.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-profile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/ex-register.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/f_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/f_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/f_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/f_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/f_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/features-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/h_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/h_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/h_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/h_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/harvard.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/m_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/m_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/microsoft.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/modernizr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/p_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/p_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/p_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/p_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/p_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/pro_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/pro_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/pro_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/pro_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/stanford.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/t_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/t_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/t_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/team_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/team_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/team_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/team_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/team_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/test1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/test2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/test3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/vertical-nav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/vertical-nav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/assets-for-demo/vodafone.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/css/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/css/material-kit.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/apple-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/arrow-left.cur" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/arrow-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/arrow-right.cur" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/arrow-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/bg9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/city.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/dg1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/dg10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/dg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/dg3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/dg6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/dg9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/blog1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/blog2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/blog3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/blog4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/blog5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/blog6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/blog7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/blog8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-blog1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-blog2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-blog3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-blog4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-blog5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-blog6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-blog8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-product1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-product2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-product3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-product4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-profile1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-profile2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-profile4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-profile5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-profile6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-profile7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-project1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-project2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-project3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-project4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-project5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/card-project6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/chris9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/city.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/color1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/color2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/color3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/dolce.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/ecommerce-header.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/ecommerce-tips2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/gucci.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/office1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/office2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/office3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/office4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/office5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/product1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/product2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/product3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/product4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/suit-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/suit-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/suit-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/suit-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/suit-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/suit-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/examples/tom-ford.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/camp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/card-profile1-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/card-profile2-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/card-profile4-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/card-profile5-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/card-profile6-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/christian.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/kendall.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/faces/marc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/AD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/AE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/AG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/AM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/AR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/AT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/AU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/BE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/BF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/BG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/BO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/BR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/CZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/DE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/DJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/DK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/DZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/EE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/EG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/ES.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/FI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/FR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/GA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/GB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/GM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/GT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/HN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/HT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/HU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/ID.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/IE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/IL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/IN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/IQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/IR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/IT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/JM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/JO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/JP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/KG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/KN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/KP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/KR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/KW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/KZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/LA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/LB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/LC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/LS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/LU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/LV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/MG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/MK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/ML.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/MM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/MT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/MX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/NA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/NE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/NG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/NI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/NL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/NO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/OM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/PA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/PE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/PG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/PK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/PL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/PT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/PY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/QA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/RO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/RU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/RW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/SA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/SE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/SG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/SL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/SN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/SO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/SV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/TD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/TJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/TL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/TR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/TZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/UA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/US.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/VE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/VN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/flags/YE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/image_placeholder.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/landing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/loading-bubbles.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/office2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/placeholder.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/presentation/components.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/presentation/components2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/product1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/product2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/product3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/profile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/sections/iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/img/sections/iphone2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/bootstrap-datetimepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/bootstrap-selectpicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/bootstrap-tagsinput.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/jasny-bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/jquery.flexisel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/material-kit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/material.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/moment.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/assets/js/nouislider.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/about-us.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/blog-post.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/blog-posts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/contact-us.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/ecommerce.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/landing-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/login-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/pricing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/product-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/profile-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/examples/signup-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/presentation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/sections.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/topic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/mockup/material-kit/tutorial-components.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/.angular-cli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/e2e/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/e2e/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/e2e/tsconfig.e2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/news-web.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/app-routing/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/common/http.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/common/pagination-params.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/common/rest-service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/common/table-query-response.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/service/index.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/content/content.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/content/content.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/content/content.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/footer/footer.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/footer/footer.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/footer/footer.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/header/header.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/header/header.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/header/header.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/index/index.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/index/index.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/index/index.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/index/news.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/topic/topic.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/topic/topic.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/app/ui-component/topic/topic.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/css/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/css/material-kit.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/camp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/card-profile1-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/card-profile2-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/card-profile4-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/card-profile5-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/card-profile6-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/christian.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/kendall.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/img/faces/marc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/bootstrap-datetimepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/bootstrap-selectpicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/bootstrap-tagsinput.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/jasny-bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/jquery.flexisel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/material-kit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/material.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/moment.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/assets/js/nouislider.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/src/typings.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../new_app_web/web/news-web/tslint.json" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/dist/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="app-base.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/common/app-base.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application-utils.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/common/application-utils.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="support-on-changes-component-modal.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/common/support-on-changes-component-modal.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="support-pagination-table.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/common/support-pagination-table.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".angular-cli.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.angular-cli.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mo</find>
+      <find>DialogService</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../../shopCamera/server" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/common/app-base.module.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.angular-cli.json" />
+        <option value="$PROJECT_DIR$/src/app/common/base-index-component.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="1750" />
+    <option name="height" value="970" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="news-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/works/AZNews/trunk/news-web/.angular-cli.json" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\works\AZNews\trunk\news-web\src\app\common" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="291cbae5-d9cd-48d1-8a0b-56822baa9501" name="Default" comment="" />
+      <created>1529736956249</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1529736956249</updated>
+      <workItem from="1529736957770" duration="1508000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1508000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.329927" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info id="npm" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.329927" />
+      <window_info id="Capture Tool" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22483222" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/app/common/application-constants.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/http.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/date-picker/date-picker.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2090">
+          <caret line="130" column="6" lean-forward="true" selection-start-line="130" selection-start-column="6" selection-end-line="130" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/confirm-dialog/confirm-dialog.component.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/confirm-dialog/confirm-dialog.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="47" lean-forward="true" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/app-base.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.angular-cli.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/base-index-component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="52" lean-forward="true" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/form-flow-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/default-detail-component-2.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/application-utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/support-on-changes-component-modal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/support-pagination-table.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
