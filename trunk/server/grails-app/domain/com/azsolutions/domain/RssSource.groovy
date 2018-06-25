@@ -1,11 +1,9 @@
 package com.azsolutions.domain
 
-import com.azsolutions.domain.BaseDomain
-
 class RssSource implements BaseDomain {
 
-    String rssUrl;
     String code;
+    String categoryId;
 
     static constraints = {
 

@@ -6,9 +6,9 @@ CREATE TABLE aznews.category
   last_modified_user varchar(255),
   last_modified_time datetime,
 
-  rss_source_id      varchar(50),
-  title              varchar(1000)
-
+  title              varchar(1000),
+  code               varchar(100),
+  parent_category_id varchar(50)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -44,9 +44,7 @@ CREATE TABLE aznews.news
   link               varchar(1000),
   pub_date           datetime,
   guid               varchar(1000),
-  description        text,
-  rss_source_id      varchar(50)
-
+  description        text
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -59,9 +57,9 @@ CREATE TABLE aznews.rss_source
   last_modified_user varchar(255),
   last_modified_time datetime,
 
-  rssUrl             varchar(1000),
-  code               varchar(100)
-
+  code               varchar(100),
+  category_id        varchar(100),
+  rss_url            varchar(1000)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -74,9 +72,37 @@ CREATE TABLE aznews.rss_config
   last_modified_user varchar(255),
   last_modified_time datetime,
 
-  rssUrl             varchar(1000),
+  rss_url            varchar(1000),
   config_json        text,
   rss_source_id      varchar(50)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+CREATE TABLE aznews.category_news
+(
+  id                 varchar(50) PRIMARY KEY NOT NULL,
+  version            bigint(20)              NOT NULL,
+  is_deleted         bit(1),
+  last_modified_user varchar(255),
+  last_modified_time datetime,
+
+  category_id        varchar(100),
+  news_id            varchar(100)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+CREATE TABLE aznews.news_rss_source
+(
+  id                 varchar(50) PRIMARY KEY NOT NULL,
+  version            bigint(20)              NOT NULL,
+  is_deleted         bit(1),
+  last_modified_user varchar(255),
+  last_modified_time datetime,
+
+  rss_source_id      varchar(100),
+  news_id            varchar(100)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -86,3 +112,14 @@ alter table aznews.news
 
 alter table aznews.image
   add index image_reference_id(reference_id);
+
+alter table aznews.category_news
+  add index category_news_category_id(category_id),
+  add index category_news_news_id(news_id);
+
+alter table aznews.news_rss_source
+  add index news_rss_source_rss_source_id(rss_source_id),
+  add index news_rss_source_news_id(news_id);
+
+alter table aznews.category
+  add index category_parent_category_id(parent_category_id);

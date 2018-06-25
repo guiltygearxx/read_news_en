@@ -1,12 +1,9 @@
 package com.azsolutions.domain
 
-class News implements BaseDomain {
+class CategoryNews implements BaseDomain {
 
-    String title;
-    String link;
-    Date pubDate;
-    String guid;
-    String description;
+    String categoryId;
+    String newsId;
 
     static constraints = {
 
