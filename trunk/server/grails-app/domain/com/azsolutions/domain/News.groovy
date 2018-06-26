@@ -13,6 +13,7 @@ class News implements BaseDomain {
         lastModifiedTime nullable: true
         lastModifiedUser nullable: true
         isDeleted nullable: true
+        description nullable: true
     }
 
     static mapping = {

@@ -1,5 +1,6 @@
 package com.azsolutions.service
 
+import com.azsolutions.ApplicationConstant
 import com.azsolutions.bean.Rss
 import com.azsolutions.domain.CategoryNews
 import com.azsolutions.domain.Image
@@ -7,6 +8,7 @@ import com.azsolutions.domain.News
 import com.azsolutions.domain.NewsRssSource
 import com.azsolutions.domain.RssConfig
 import com.azsolutions.domain.RssSource
+import grails.converters.JSON
 import grails.gorm.transactions.Transactional
 
 @Transactional
@@ -25,6 +27,8 @@ class RssCrawlerService {
                 rssConfigs ? RssSource.findAllByIsDeletedAndIdInList(false, rssConfigs.rssSourceId) : null;
 
         rssConfigs.each { RssConfig rssConfig ->
+
+//            println "RssCrawlerService.crawler: rssConfig=${rssConfig as JSON}";
 
             Rss rss = readRssService.readRss(rssConfig);
 
@@ -57,7 +61,7 @@ class RssCrawlerService {
 
                     Image image = new Image(
                             type: thumbnail.type, width: thumbnail.width, height: thumbnail.height,
-                            url: thumbnail.url, referenceId: news.id, referenceType: "NEWS",
+                            url: thumbnail.url, referenceId: news.id, referenceType: ApplicationConstant.IMAGE_REFERENCE_TYPE_NEWS,
                             isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
                     );
 

@@ -24,7 +24,7 @@ class DefaultRestfulController<T> extends RestfulController<T> {
     @Override
     def index(Integer max) {
 
-        params.max = Math.min(max ?: 10, 100);
+        params.max = Math.min(max ?: 1000, 1000);
 
         render(_search() as JSON);
     }

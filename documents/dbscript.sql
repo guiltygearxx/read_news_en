@@ -123,3 +123,20 @@ alter table aznews.news_rss_source
 
 alter table aznews.category
   add index category_parent_category_id(parent_category_id);
+
+create or replace view v_news as
+  select
+    cns.id,
+    ns.id as news_id,
+    ns.is_deleted,
+    ns.last_modified_user,
+    ns.last_modified_time,
+    ns.title,
+    ns.link,
+    ns.pub_date,
+    ns.guid,
+    ns.description,
+    cns.category_id
+  from category_news cns
+    join news ns on ns.id = cns.news_id and ns.is_deleted = false
+  where cns.is_deleted = false;

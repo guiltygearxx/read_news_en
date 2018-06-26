@@ -47,6 +47,7 @@ export const AUTHENTICATION_TYPE = 'x-auth-token';
 export const STORAGE_ACCESS_TOKEN = 'accessToken';
 export const STORAGE_USER_INFORMATION = 'userInformation';
 
-export const IMPORT_PRODUCT_TEMPLATE_CAMERA = 'camera';
-export const IMPORT_PRODUCT_TEMPLATE_DAU_GHI = 'daughi';
-export const IMPORT_PRODUCT_TEMPLATE_SECURITY = 'security';
+export const CATEGORY_ID_TINCHINH = '81a9b479e9434be6abef5c99ab669816';
+export const CATEGORY_ID_THOISU = 'c00ac37ecfd146f38ffba7399ce87181';
+
+export const IMAGE_REFERENCE_TYPE_NEWS = "NEWS";

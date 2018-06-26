@@ -9,70 +9,82 @@ import {ApplicationService} from './application.service';
 @Injectable()
 export class HttpService {
 
-  constructor(protected http: HttpClient,
-              protected applicationService: ApplicationService) {
-  }
-
-  private buildHttpHeader(httpHeaders: HttpHeaders): HttpHeaders {
-
-    let accessToken = this.applicationService.accessToken;
-
-    if (!isNullOrUndefined(accessToken))
-      httpHeaders = httpHeaders.set(AUTHENTICATION_TYPE, this.applicationService.accessToken);
-
-    return httpHeaders;
-  }
-
-  private initParams(params: any): any {
-
-    let params_ = {};
-
-    if (!isNullOrUndefined(params)) {
-
-      Object.keys(params).forEach((key) => {
-
-        let value = params[key];
-
-        if (!isNullOrUndefined(value)) params_[key] = value;
-      });
+    constructor(protected http: HttpClient,
+                protected applicationService: ApplicationService) {
     }
 
-    return params_;
-  }
+    private buildHttpHeader(httpHeaders: HttpHeaders): HttpHeaders {
 
-  get(url: string, params: any): Observable<any> {
+        let accessToken = this.applicationService.accessToken;
 
-    var url = environment.serviceBaseURL + url;
+        if (!isNullOrUndefined(accessToken))
+            httpHeaders = httpHeaders.set(AUTHENTICATION_TYPE, this.applicationService.accessToken);
 
-    let httpHeaders = this.buildHttpHeader(new HttpHeaders());
+        return httpHeaders;
+    }
 
-    return this.http.get<any>(url, {params: this.initParams(params), responseType: 'json', headers: httpHeaders});
-  }
+    private initParams(params: any): any {
 
-  post(url: string, body: any, params: any): Observable<any> {
+        let params_ = {};
 
-    var url = environment.serviceBaseURL + url;
+        if (!isNullOrUndefined(params)) {
 
-    let httpHeaders = this.buildHttpHeader(new HttpHeaders());
+            Object.keys(params).forEach((key) => {
 
-    return this.http.post<any>(url, body, {params: this.initParams(params), responseType: 'json', headers: httpHeaders});
-  }
+                let value = params[key];
 
-  put(url: string, body: any, params: any): Observable<any> {
+                if (!isNullOrUndefined(value)) params_[key] = value;
+            });
+        }
 
-    var url = environment.serviceBaseURL + url;
+        return params_;
+    }
 
-    let httpHeaders = this.buildHttpHeader(new HttpHeaders());
+    get(url: string, params: any): Observable<any> {
 
-    return this.http.put<any>(url, body, {params: this.initParams(params), responseType: 'json', headers: httpHeaders});
-  }
+        var url = environment.serviceBaseURL + url;
 
-  delete(url: string, params: any): Observable<any> {
+        let httpHeaders = this.buildHttpHeader(new HttpHeaders());
 
-    var url = environment.serviceBaseURL + url;
+        return this.http.get<any>(url, {params: this.initParams(params), responseType: 'json', headers: httpHeaders});
+    }
 
-    let httpHeaders = this.buildHttpHeader(new HttpHeaders());
+    post(url: string, body: any, params: any): Observable<any> {
 
-    return this.http.delete<any>(url, {params: this.initParams(params), responseType: 'json', headers: httpHeaders});
-  }
+        var url = environment.serviceBaseURL + url;
+
+        let httpHeaders = this.buildHttpHeader(new HttpHeaders());
+
+        return this.http.post<any>(url, body, {
+            params: this.initParams(params),
+            responseType: 'json',
+            headers: httpHeaders
+        });
+    }
+
+    put(url: string, body: any, params: any): Observable<any> {
+
+        var url = environment.serviceBaseURL + url;
+
+        let httpHeaders = this.buildHttpHeader(new HttpHeaders());
+
+        return this.http.put<any>(url, body, {
+            params: this.initParams(params),
+            responseType: 'json',
+            headers: httpHeaders
+        });
+    }
+
+    delete(url: string, params: any): Observable<any> {
+
+        var url = environment.serviceBaseURL + url;
+
+        let httpHeaders = this.buildHttpHeader(new HttpHeaders());
+
+        return this.http.delete<any>(url, {
+            params: this.initParams(params),
+            responseType: 'json',
+            headers: httpHeaders
+        });
+    }
 }

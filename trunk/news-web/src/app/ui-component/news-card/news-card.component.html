@@ -1,0 +1,22 @@
+<div class="card card-plain card-blog">
+    <div class="card-image card-image-square">
+
+        <a href="#pablo" class="min-height-40vh">
+            <img class="img img-raised img-big" [src]="image?.url"/>
+        </a>
+
+        <span class="label label-confix-content">Dân trí</span>
+
+        <div class="card-title .font-size-title-big-header headline-title">
+            {{news?.title}}
+        </div>
+
+        <div class="card-title .font-size-title-big-header headline-sub-title">
+                            <span class="hightlight-text-headline">
+                                {{news?.pubDate | displayNewsTime : now}}
+                            </span>
+            {{news?.description}}
+        </div>
+
+    </div>
+</div>
