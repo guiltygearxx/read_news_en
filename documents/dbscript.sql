@@ -34,32 +34,34 @@ CREATE TABLE aznews.image
 
 CREATE TABLE aznews.news
 (
-  id                 varchar(50) PRIMARY KEY NOT NULL,
-  version            bigint(20)              NOT NULL,
-  is_deleted         bit(1),
-  last_modified_user varchar(255),
-  last_modified_time datetime,
+  id                  varchar(50) PRIMARY KEY NOT NULL,
+  version             bigint(20)              NOT NULL,
+  is_deleted          bit(1),
+  last_modified_user  varchar(255),
+  last_modified_time  datetime,
 
-  title              varchar(1000),
-  link               varchar(1000),
-  pub_date           datetime,
-  guid               varchar(1000),
-  description        text
+  title               varchar(1000),
+  link                varchar(1000),
+  pub_date            datetime,
+  guid                varchar(1000),
+  description         text,
+  rss_source_group_id varchar(50)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
 CREATE TABLE aznews.rss_source
 (
-  id                 varchar(50) PRIMARY KEY NOT NULL,
-  version            bigint(20)              NOT NULL,
-  is_deleted         bit(1),
-  last_modified_user varchar(255),
-  last_modified_time datetime,
+  id                  varchar(50) PRIMARY KEY NOT NULL,
+  version             bigint(20)              NOT NULL,
+  is_deleted          bit(1),
+  last_modified_user  varchar(255),
+  last_modified_time  datetime,
 
-  code               varchar(100),
-  category_id        varchar(100),
-  rss_url            varchar(1000)
+  code                varchar(100),
+  category_id         varchar(100),
+  rss_url             varchar(1000),
+  rss_source_group_id varchar(50)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -107,6 +109,19 @@ CREATE TABLE aznews.news_rss_source
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
+CREATE TABLE aznews.rss_source_group
+(
+  id                 varchar(50) PRIMARY KEY NOT NULL,
+  version            bigint(20)              NOT NULL,
+  is_deleted         bit(1),
+  last_modified_user varchar(255),
+  last_modified_time datetime,
+
+  title              varchar(100)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
 alter table aznews.news
   add index news_guid(guid);
 
@@ -127,7 +142,7 @@ alter table aznews.category
 create or replace view v_news as
   select
     cns.id,
-    ns.id as news_id,
+    ns.id     as news_id,
     ns.is_deleted,
     ns.last_modified_user,
     ns.last_modified_time,
@@ -136,7 +151,10 @@ create or replace view v_news as
     ns.pub_date,
     ns.guid,
     ns.description,
-    cns.category_id
+    ns.rss_source_group_id,
+    cns.category_id,
+    rsg.title as rss_source_group_title
   from category_news cns
     join news ns on ns.id = cns.news_id and ns.is_deleted = false
+    join rss_source_group rsg on rsg.id = ns.rss_source_group_id and rsg.is_deleted = false
   where cns.is_deleted = false;

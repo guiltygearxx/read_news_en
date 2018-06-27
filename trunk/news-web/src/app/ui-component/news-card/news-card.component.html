@@ -5,16 +5,16 @@
             <img class="img img-raised img-big" [src]="image?.url"/>
         </a>
 
-        <span class="label label-confix-content">Dân trí</span>
+        <span class="label label-confix-content">{{news?.rssSourceGroupTitle}}</span>
 
         <div class="card-title .font-size-title-big-header headline-title">
             {{news?.title}}
         </div>
 
         <div class="card-title .font-size-title-big-header headline-sub-title">
-                            <span class="hightlight-text-headline">
-                                {{news?.pubDate | displayNewsTime : now}}
-                            </span>
+            <span class="hightlight-text-headline">
+                {{news?.pubDate | displayNewsTime : now}}
+            </span>
             {{news?.description}}
         </div>
 

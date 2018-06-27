@@ -4,6 +4,8 @@ class RssSource implements BaseDomain {
 
     String code;
     String categoryId;
+    String rssUrl;
+    String rssSourceGroupId;
 
     static constraints = {
 

@@ -7,6 +7,7 @@ class News implements BaseDomain {
     Date pubDate;
     String guid;
     String description;
+    String rssSourceGroupId;
 
     static constraints = {
 

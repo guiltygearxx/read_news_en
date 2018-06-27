@@ -9,6 +9,8 @@ class NewsView implements BaseDomain {
     String guid;
     String description;
     String newsId;
+    String rssSourceGroupId;
+    String rssSourceGroupTitle;
 
     static constraints = {
     }

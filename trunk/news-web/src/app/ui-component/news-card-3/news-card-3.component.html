@@ -3,7 +3,7 @@
         <a href="#pablo">
             <img class="img img-raised" [src]="image?.url" width="500" height="400"/>
         </a>
-        <span class="label label-confix-content">Vietnam {{news?.pubDate | displayNewsTime : now}}</span>
+        <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>
     </div>
 
     <div class="card-content">

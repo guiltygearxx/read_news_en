@@ -5,7 +5,7 @@
             <a href="#pablo">
                 <img class="img img-raised" [src]="image?.url"/>
             </a>
-            <span class="label label-danger label-confix-content">Sài gòn đầu tư</span>
+            <span class="label label-danger label-confix-content">{{news?.rssSourceGroupTitle}}</span>
         </div>
     </div>
     <div class="col-md-9 social-networking">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="col-md-12">
-            <a href="#pablo" class="source-news">Chứng khoán - {{news?.pubDate | displayNewsTime : now}}</a>
+            <a href="#pablo" class="source-news">{{news?.rssSourceGroupTitle}} - {{news?.pubDate | displayNewsTime : now}}</a>
         </div>
 
         <p class="col-md-12 card-description text-dark">

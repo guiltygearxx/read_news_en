@@ -5,7 +5,7 @@
             <img class="img img-raised img-content" [src]="image?.url" width="500" height="400"/>
         </a>
 
-        <span class="label label-confix-content">Dân trí {{news?.pubDate | displayNewsTime : now}}</span>
+        <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>
 
         <div class="card-title fix-font-size-title underline-title">
             {{news?.title}}
