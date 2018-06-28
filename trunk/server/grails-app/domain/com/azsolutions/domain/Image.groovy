@@ -17,6 +17,7 @@ class Image implements BaseDomain {
 
         height nullable: true
         width nullable: true
+        type nullable: true
     }
 
     static mapping = {

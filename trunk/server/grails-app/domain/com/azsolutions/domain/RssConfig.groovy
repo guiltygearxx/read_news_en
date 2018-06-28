@@ -5,6 +5,8 @@ class RssConfig implements BaseDomain {
     String rssUrl;
     String configJson;
     String rssSourceId;
+    String dateFormat;
+    String timeZone;
 
     static constraints = {
 

@@ -29,4 +29,7 @@ export const i18n = {
 
     'newTimes.lessThan1Hour': "{0} phút trước",
     'newTimes.moreThan1Hour': "{0} tiếng trước",
+    'newTimes.moreThan1Day': "{0} ngày trước",
+    'newTimes.moreThan1Week': "{0} tuần trước",
+    'newTimes.moreThan1Month': "{0} tháng trước",
 };

@@ -76,7 +76,9 @@ CREATE TABLE aznews.rss_config
 
   rss_url            varchar(1000),
   config_json        text,
-  rss_source_id      varchar(50)
+  rss_source_id      varchar(50),
+  date_format        varchar(50),
+  time_zone          varchar(50)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;

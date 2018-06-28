@@ -21,8 +21,18 @@ export class DisplayNewsTimePipe implements PipeTransform {
 
         let diff = now.diff(date, "minute");
 
-        return (diff < 60) ?
-            this.applicationUtils.message("newTimes.lessThan1Hour", [diff]) :
-            this.applicationUtils.message("newTimes.moreThan1Hour", [Math.round(diff / 60)]);
+        if (diff < 60)
+            return this.applicationUtils.message("newTimes.lessThan1Hour", [diff]);
+
+        if (diff < 60 * 24)
+            return this.applicationUtils.message("newTimes.moreThan1Hour", [Math.round(diff / 60)]);
+
+        if (diff < 60 * 24 * 7)
+            return this.applicationUtils.message("newTimes.moreThan1Day", [Math.round(diff / 60 / 24)]);
+
+        if (diff < 60 * 24 * 30)
+            return this.applicationUtils.message("newTimes.moreThan1Week", [Math.round(diff / 60 / 24 / 7)]);
+
+        return this.applicationUtils.message("newTimes.moreThan1Month", [Math.round(diff / 60 / 24 / 30)]);
     }
 }

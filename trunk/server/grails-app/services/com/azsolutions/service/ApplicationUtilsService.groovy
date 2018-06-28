@@ -15,12 +15,14 @@ class ApplicationUtilsService {
         return target;
     }
 
-    Date parseRssDate(String dateStr) {
+    Date parseRssDate(String dateStr, String format, String timeZone) {
 
         if (!dateStr) return null;
 
-        SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.ENGLISH);
 
-        format.parse(dateStr);
+        (timeZone) && (sdf.setTimeZone(TimeZone.getTimeZone(timeZone)));
+
+        return sdf.parse(dateStr);
     }
 }

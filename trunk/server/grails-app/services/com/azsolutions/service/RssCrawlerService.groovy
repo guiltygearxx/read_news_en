@@ -42,9 +42,13 @@ class RssCrawlerService {
                  */
                 if (news) return news;
 
+                def pubDate = applicationUtilsService.parseRssDate(
+                        item.pubDate, rssConfig.dateFormat, rssConfig.timeZone
+                );
+
                 news = new News(
                         title: item.title, link: item.link,
-                        pubDate: applicationUtilsService.parseRssDate(item.pubDate),
+                        pubDate: pubDate,
                         guid: item.guid, description: item.description, rssSourceId: rssConfig.rssSourceId,
                         rssSourceGroupId: rssSource.rssSourceGroupId,
                         isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now,

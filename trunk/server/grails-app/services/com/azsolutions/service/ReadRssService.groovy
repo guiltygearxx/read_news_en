@@ -4,6 +4,7 @@ import com.azsolutions.bean.Rss
 import com.azsolutions.domain.RssConfig
 import grails.converters.JSON
 import grails.gorm.transactions.Transactional
+import org.xml.sax.InputSource
 
 @Transactional
 class ReadRssService {
@@ -70,7 +71,7 @@ class ReadRssService {
 
             String path = propertyConfig["path"];
 
-            def childNodes = getChildNodes(node, path);
+            def childNodes = path ? getChildNodes(node, path) : node;
 
             String convertType = getConvertType(mappingPath + "." + key);
 
@@ -85,9 +86,13 @@ class ReadRssService {
                     break;
 
                 case "list":
-                    bean."${key}" = childNodes.collect {
-                        return parseXML(propertyConfig["config"], it, mappingPath + "." + key);
-                    }
+
+                    def propertyConfig_config = propertyConfig["config"];
+
+                    bean."${key}" = !propertyConfig_config ? null : childNodes.collect {
+                        return parseXML(propertyConfig_config, it, mappingPath + "." + key);
+                    };
+
                     break;
 
                 default:
@@ -103,9 +108,15 @@ class ReadRssService {
 
         String url = rssConfig.rssUrl;
 
+        println "ReadRssService.readRss: url=${url}";
+
         Map mappingConfig = JSON.parse(rssConfig.configJson);
 
-        def channel = new XmlSlurper().parse(url).channel;
+        XmlSlurper parser = new XmlSlurper();
+
+        BufferedReader reader = url.toURL().newReader(requestProperties: ['User-Agent': 'AZNews']);
+
+        def channel = parser.parse(reader).channel;
 
         return parseXML(mappingConfig, channel, "root");
     }

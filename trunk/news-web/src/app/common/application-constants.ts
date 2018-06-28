@@ -47,7 +47,7 @@ export const AUTHENTICATION_TYPE = 'x-auth-token';
 export const STORAGE_ACCESS_TOKEN = 'accessToken';
 export const STORAGE_USER_INFORMATION = 'userInformation';
 
-export const CATEGORY_ID_TINCHINH = '81a9b479e9434be6abef5c99ab669816';
-export const CATEGORY_ID_THOISU = 'c00ac37ecfd146f38ffba7399ce87181';
+export const CATEGORY_ID_TINCHINH = '978144c6-bea2-42ed-abb7-f1b407eb5a70';
+export const CATEGORY_ID_THOISU = '12f577d2-557b-405b-a418-0610cbded825';
 
 export const IMAGE_REFERENCE_TYPE_NEWS = "NEWS";
