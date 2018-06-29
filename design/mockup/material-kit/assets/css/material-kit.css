@@ -3928,18 +3928,18 @@ h2.title {
 }
 
 .carousel .carousel-indicators {
-    bottom: 5px;
+    bottom: -30px;
 }
 
 .carousel .carousel-indicators li,
 .carousel .carousel-indicators .active {
-    margin: 11px 10px;
+    margin: 0px 4px;
 }
 
 .carousel .carousel-indicators li {
-    background: #FFFFFF;
+    background: #000;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    border-radius: 2px;
+    /* border-radius: 2px; */
 }
 
 .carousel .carousel-indicators .active {
@@ -3953,7 +3953,7 @@ h2.title {
 }
 
 .carousel .carousel-caption {
-    padding-bottom: 45px;
+    padding-bottom: 0px;
 }
 
 .carousel .carousel-caption .material-icons {

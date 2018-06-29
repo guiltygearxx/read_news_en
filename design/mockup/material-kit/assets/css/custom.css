@@ -92,15 +92,6 @@
     box-shadow: 2px 2px 4px 2px rgba(88,90,94,1);
 }
 
-.label-confix-content-video {
-    bottom: 4px;
-    position: absolute;
-    right: 4px;
-    z-index: 2;
-    background-color: #0006 !important;
-    padding: 3px 3px !important;
-}
-
 .image-shadow{
     box-shadow: 1px 4px 4px 0px rgba(0, 0, 0, 0.77) !important;
 }
@@ -160,7 +151,7 @@
     background: #fff;
 }
 
-.border-radius-fix .card-image{
+.item-new-confix-square .card-image{
     position: relative;
     margin: 2%;
     overflow: hidden;
@@ -201,20 +192,8 @@
     height: 416px !important;
 }
 
-.img-big-vh{
-    height: 60vh !important;
-}
-
 .img-content{
     height: 200px !important;
-}
-
-.img-content-vh{
-    height: 28.9vh !important;
-}
-
-.img-content-md-3{
-    height: 130px !important;
 }
 
 .img-flash-link{
@@ -280,4 +259,8 @@
   .fb-page span, 
   .fb-page span iframe[style] { 
       width: 100% !important; 
+  }
+
+  .line-dot-dot{
+    border-top:1px dotted #eee !important;
   }
