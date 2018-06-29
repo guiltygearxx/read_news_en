@@ -4542,7 +4542,7 @@
     position:relative;
     width:100%;
     overflow:hidden;
-    border-radius: 8px;
+    border-radius: 4px;
    }
    .carousel-inner>.item {
     position:relative;
@@ -4685,8 +4685,8 @@
    }
    .carousel-indicators li {
     display:inline-block;
-    width:10px;
-    height:10px;
+    width:6px;
+    height:6px;
     margin:1px;
     text-indent:-999px;
     cursor:pointer;
@@ -4696,15 +4696,15 @@
     border-radius:10px
    }
    .carousel-indicators .active {
-    width:12px;
-    height:12px;
+    width:8px;
+    height:8px;
     margin:0;
     background-color:#fff
    }
    .carousel-caption {
     position:absolute;
     right:15%;
-    bottom:20px;
+    bottom:10px;
     left:15%;
     z-index:10;
     padding-top:20px;
@@ -4730,8 +4730,8 @@
      margin-right:-10px
     }
     .carousel-caption {
-     right:20%;
-     left:20%;
+     right:2%;
+     left:2%;
      padding-bottom:30px
     }
     .carousel-indicators {

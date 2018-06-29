@@ -151,7 +151,7 @@
     background: #fff;
 }
 
-.border-radius-fix .card-image{
+.item-new-confix-square .card-image{
     position: relative;
     margin: 2%;
     overflow: hidden;
@@ -192,16 +192,12 @@
     height: 416px !important;
 }
 
+.img-content-width{
+    width: 100% !important;
+}
+
 .img-content{
     height: 200px !important;
-}
-
-.img-content-card-4{
-    min-height: 120px !important;
-}
-
-.img-content-card-5{
-    min-height: 130px !important;
 }
 
 .img-flash-link{
@@ -269,11 +265,6 @@
       width: 100% !important; 
   }
 
-.label-confix-content-video {
-    bottom: 4px;
-    position: absolute;
-    right: 4px;
-    z-index: 2;
-    background-color: #0006 !important;
-    padding: 3px 3px !important;
-}
+  .line-dot-dot{
+    border-top:1px dotted #eee !important;
+  }
