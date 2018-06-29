@@ -1,3 +1,5 @@
+use aznews;
+
 CREATE TABLE aznews.category
 (
   id                 varchar(50) PRIMARY KEY NOT NULL,

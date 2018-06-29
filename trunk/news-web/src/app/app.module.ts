@@ -31,6 +31,7 @@ import { NewsCard3Component } from './ui-component/news-card-3/news-card-3.compo
 import { NewsCard4Component } from './ui-component/news-card-4/news-card-4.component';
 import { NewsCard5Component } from './ui-component/news-card-5/news-card-5.component';
 import { NewsCard6Component } from './ui-component/news-card-6/news-card-6.component';
+import { NewsCardVideoSmallComponent } from './ui-component/news-card-video-small/news-card-video-small.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { NewsCard6Component } from './ui-component/news-card-6/news-card-6.compo
         NewsCard3Component,
         NewsCard4Component,
         NewsCard5Component,
-        NewsCard6Component
+        NewsCard6Component,
+        NewsCardVideoSmallComponent
     ],
     imports: [
         BrowserModule,

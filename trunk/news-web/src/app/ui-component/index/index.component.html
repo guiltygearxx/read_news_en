@@ -36,21 +36,24 @@
 
         <div class="col-md-4">
 
-            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(3))" [news]="getTinChinhNews2(3)" [now]="now">
+            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(3))" [news]="getTinChinhNews2(3)"
+                             [now]="now">
             </app-news-card-3>
 
         </div>
 
         <div class="col-md-4">
 
-            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(4)" [now]="now">
+            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(4)"
+                             [now]="now">
             </app-news-card-3>
 
         </div>
 
         <div class="col-md-4">
 
-            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(5)" [now]="now">
+            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(5)"
+                             [now]="now">
             </app-news-card-3>
 
         </div>
@@ -79,24 +82,13 @@
 
     <div class="col-sm-3 col-md-3 border-radius-fix" style="background: #fff">
 
-        <h5 style="font-weight: bold;margin-bottom: 0px;">Thời sự</h5>
-
-        <hr class="col-md-12"/>
-
-        <ng-container *ngFor="let news of getThoiSuNewsList();">
-            <app-news-card-6 [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
-            </app-news-card-6>
-        </ng-container>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12 nopadding">
+        <div class="col-md-12" style="margin-top: 8px;">
             <ul class="nav nav-pills nav-pills-square">
                 <li class="active">
-                    <a href="#pill1" data-toggle="tab">Đọc nhiều</a>
+                    <a href="#pill1" data-toggle="tab">Tin mới</a>
                 </li>
                 <li>
-                    <a href="#pill2" data-toggle="tab">Tin mới</a>
+                    <a href="#pill2" data-toggle="tab">Tin nóng</a>
                 </li>
             </ul>
             <div class="tab-content tab-space">
@@ -466,40 +458,26 @@
 
         <hr class="col-md-12"/>
 
+        <h5 style="font-weight: bold;margin-bottom: 0px;">Thời sự</h5>
+
+        <hr class="col-md-12"/>
+
+        <ng-container *ngFor="let news of getThoiSuNewsList();">
+            <app-news-card-6 [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
+            </app-news-card-6>
+        </ng-container>
+
+        <hr class="col-md-12"/>
+
+
         <h5 style="font-weight: bold;margin-bottom: 0px;">Video</h5>
 
         <hr class="col-md-12"/>
 
-        <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-            <div class="row ">
-                <div class="col-md-3">
-                    <div class="card-image">
-                        <a href="#pablo ">
-                            <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                 src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                 width="500" height="400">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <h6 class="card-title no-margin no-uppercase">
-                        <a href="#pablo ">Nghịch lý giá cổ phiếu “vua”</a>
-                    </h6>
-                    <div>
-                        <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                            Dân trí
-                        </a>
-
-                        <span class="time-news-title" datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                        <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ng-container *ngFor="let news of getThoiSuNewsList();">
+            <app-news-card-video-small [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
+            </app-news-card-video-small>
+        </ng-container>
 
         <hr class="col-md-12"/>
 

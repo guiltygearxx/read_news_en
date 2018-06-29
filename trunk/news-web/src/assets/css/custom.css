@@ -196,6 +196,14 @@
     height: 200px !important;
 }
 
+.img-content-card-4{
+    min-height: 120px !important;
+}
+
+.img-content-card-5{
+    min-height: 130px !important;
+}
+
 .img-flash-link{
     min-height:65px !important;
     min-width: 65px !important;
@@ -260,3 +268,12 @@
   .fb-page span iframe[style] { 
       width: 100% !important; 
   }
+
+.label-confix-content-video {
+    bottom: 4px;
+    position: absolute;
+    right: 4px;
+    z-index: 2;
+    background-color: #0006 !important;
+    padding: 3px 3px !important;
+}
