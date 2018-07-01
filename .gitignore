@@ -1,3 +1,7 @@
 node_modules
 /trunk/news-web/package-lock.json
 /trunk/news-web/.idea
+trunk/news-web/src/assets/css/custom_REMOTE_5080.css
+trunk/news-web/src/assets/css/custom_LOCAL_5080.css
+trunk/news-web/src/assets/css/custom_BASE_5080.css
+trunk/news-web/src/assets/css/custom_BACKUP_5080.css

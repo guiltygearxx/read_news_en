@@ -1,13 +1,5 @@
-.img-content-card-4{
-    min-height: 135px !important;
-}
-
-.img-content-card-4.hover-element-li:hover{
+.hover-element-li:hover{
     background: #ffffff1a;
-}
-
-.img-content-card-5{
-    min-height: 125px !important;
 }
 
 .section-line{
@@ -200,8 +192,8 @@
     height: 416px !important;
 }
 
-.img-content-width{
-    width: 100% !important;
+.img-content-md-3{
+    height: 130px !important;
 }
 
 .img-content{

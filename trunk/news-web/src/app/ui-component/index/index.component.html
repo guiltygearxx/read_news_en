@@ -6,7 +6,9 @@
 
     </div>
 
-    <div infinite-scroll class="col-sm-7 col-md-7" (scrolled)="showMore()" [infiniteScrollDistance]="1">
+    <!--phan tin tuc chinh-->
+    <div *ngIf="!isLoadingTinChinh()" infinite-scroll class="col-sm-7 col-md-7" (scrolled)="showMore()"
+         [infiniteScrollDistance]="1">
 
         <!--phan 7 card tin tuc chinh tren trang chu-->
         <div class="col-md-12 nopadding" style="background: #fff">
@@ -32,7 +34,6 @@
 
             </div>
         </div>
-
 
         <div class="col-md-4">
 
@@ -65,7 +66,7 @@
             <ng-container *ngIf="(newsIndex % 10 < 6)">
                 <hr class="col-md-12"/>
 
-                <app-news-card-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now" >
+                <app-news-card-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
                 </app-news-card-4>
             </ng-container>
 
@@ -79,6 +80,48 @@
         </ng-container>
 
     </div>
+    <!--phan tin tuc chinh:end-->
+
+    <!--phan loading cho tin chinh-->
+    <div *ngIf="isLoadingTinChinh()" class="col-sm-7 col-md-7">
+
+        <div class="col-md-12 nopadding" style="background: #fff">
+
+            <div class="col-md-8 fake-cusor">
+                <app-news-loading-card></app-news-loading-card>
+            </div>
+
+            <div class="col-md-4">
+                <app-news-loading-card-2></app-news-loading-card-2>
+            </div>
+
+            <div class="col-md-4">
+                <app-news-loading-card-2></app-news-loading-card-2>
+            </div>
+
+            <div class="col-md-4">
+                <app-news-loading-card-2></app-news-loading-card-2>
+            </div>
+
+            <div class="col-md-4">
+                <app-news-loading-card-2></app-news-loading-card-2>
+            </div>
+
+            <div class="col-md-4">
+                <app-news-loading-card-2></app-news-loading-card-2>
+            </div>
+
+            <hr class="col-md-12"/>
+
+            <app-news-loading-card-4></app-news-loading-card-4>
+
+            <hr class="col-md-12"/>
+
+            <app-news-loading-card-4></app-news-loading-card-4>
+
+        </div>
+    </div>
+    <!--phan loading cho tin chinh:end-->
 
     <div class="col-sm-3 col-md-3 border-radius-fix" style="background: #fff">
 
@@ -468,7 +511,6 @@
         </ng-container>
 
         <hr class="col-md-12"/>
-
 
         <h5 style="font-weight: bold;margin-bottom: 0px;">Video</h5>
 
