@@ -268,3 +268,12 @@
   .line-dot-dot{
     border-top:1px dotted #eee !important;
   }
+
+.label-confix-content-video {
+    bottom: 4px;
+    position: absolute;
+    right: 4px;
+    z-index: 2;
+    background-color: #0006 !important;
+    padding: 3px 3px !important;
+}
