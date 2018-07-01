@@ -1,0 +1,32 @@
+================DA LAM
+1d71f736-8294-4f47-a407-defd60c8d57b		Báo Kiến thức
+c82927ee-11b4-4f2f-b99f-1de47a3f66b0		Thanh niên
+adcea372-17dd-4249-8e64-94322d6aba96		Dân việt
+cf2f0080-a7d0-438f-a466-7823872eeb80		Tuổi trẻ
+0dbdc216-d4e2-4fbd-8637-4601847bdf6d		VOV
+e0d43eef-18ad-47b3-8dbd-7413ba9fca23		Tiền Phong
+
+=================CHUA LAM=================================
+
+06e9ceb3-a518-42bf-920b-f4b44e62a00c		Giáo dục thời đại
+0d2426ec-1358-4db4-a66a-fa9e55eb3514		Công an nhân dân
+
+148359d0-a2b4-40a0-aed6-f81c0b8468db		VTC
+1aa3c687-467a-4d61-94c5-043009e76a08		Info Net
+22743849-d9f4-45cb-ac0d-f26c08737543		An ninh thủ đô
+35f8f475-f4c6-4e86-92d9-ab451654fbf6		Bnews
+386b9bd6-1fe5-4c38-91d8-8c2bbb3866a5		Lao Động Online
+45d48537-cd83-44f1-adbe-d36ee773dd09		Dân trí điện tử
+513e4ec1-7b17-4f32-9ce7-754021de1bff		Sài gòn giải phóng
+52dc5458-20c0-4732-beab-fec7b5820e63		Đời sống pháp luật
+691dd3b4-85b3-4e70-a7e7-1b3b2b7d092d		Người đưa tin
+6c7ab451-247d-492d-86fb-fe1122291f2a		Báo tin tức
+
+becf40d5-7f71-4a53-88ac-f19d50f38176		VietNamNet 
+c73f98f2-3012-4151-90e8-ad894ee1378d		Tạp chí giao thông
+
+c8b1337f-47be-4ce7-9bc2-b5846d48f33b		PLO
+cc3af1bb-230e-4b86-b749-b3b08c29816e		Việt báo
+
+
+f37cc038-e1e2-45e2-bbcf-513fc31f864b		Người tiêu dùng
