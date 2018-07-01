@@ -298,7 +298,7 @@
     background: url(../img/playicon.png) bottom repeat-x;
 }
 
-.video-icon:hover{
+.hover-element-type:hover .video-icon{
     opacity: 1;
     transition: all 0.2s;
     background: url(../img/playicon.png) bottom repeat-x;

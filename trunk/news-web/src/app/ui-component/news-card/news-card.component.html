@@ -1,4 +1,4 @@
-<div class="card card-plain card-blog">
+<div class="card card-plain card-blog hover-element-type">
     <div class="card-image card-image-square">
 
         <a href="#pablo" class="min-height-40vh">
@@ -6,6 +6,8 @@
         </a>
 
         <span class="label label-confix-content">{{news?.rssSourceGroupTitle}}</span>
+
+        <span class="video-icon" onclick="player.play(); this.parentNode.style.display = 'none'; return false;"></span>
 
         <div class="card-title .font-size-title-big-header headline-title">
             {{news?.title}}
