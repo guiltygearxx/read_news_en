@@ -20,6 +20,8 @@ export class IndexComponent implements OnInit {
      */
     fixedTinChinhNews: NewsView[];
 
+    tinChinhNews: NewsView[];
+
     newsViewsGroupByCategoryId: { [categoryId: string]: NewsView[] };
 
     imagesGroupByCategoryId: { [categoryId: string]: Image[] };
@@ -82,6 +84,13 @@ export class IndexComponent implements OnInit {
         return image;
     }
 
+    showMore(): void {
+
+        let newsList = this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH];
+
+        this.tinChinhNews.splice(0, 10).forEach(item => newsList.push(item));
+    }
+
     protected loadNewsByCategories(): void {
 
         [
@@ -110,22 +119,13 @@ export class IndexComponent implements OnInit {
 
     protected afterLoadTinChinhNews(newsViews: NewsView[]): void {
 
-        console.log("afterLoadTinChinhNews");
-
-        console.log(newsViews.length);
-
         let allNews = newsViews.slice(0);
 
-        if (newsViews && newsViews.length >= 6) {
+        this.tinChinhNews = newsViews;
 
-            this.fixedTinChinhNews = newsViews.splice(0, 6);
+        this.fixedTinChinhNews = newsViews.splice(0, 6);
 
-            console.log(this.fixedTinChinhNews.length);
-        }
-
-        this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH] = newsViews;
-
-        console.log(newsViews.length);
+        this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH] = newsViews.splice(0, 10);
 
         this.loadImages(allNews)
             .subscribe(images => this.imagesGroupByCategoryId[CATEGORY_ID_TINCHINH] = images);

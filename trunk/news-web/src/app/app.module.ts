@@ -32,6 +32,7 @@ import { NewsCard4Component } from './ui-component/news-card-4/news-card-4.compo
 import { NewsCard5Component } from './ui-component/news-card-5/news-card-5.component';
 import { NewsCard6Component } from './ui-component/news-card-6/news-card-6.component';
 import { NewsCardVideoSmallComponent } from './ui-component/news-card-video-small/news-card-video-small.component';
+import {InfiniteScrollModule} from "angular2-infinite-scroll";
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { NewsCardVideoSmallComponent } from './ui-component/news-card-video-smal
         HttpClientModule,
         BrowserAnimationsModule,
         FormsModule,
+        InfiniteScrollModule
     ],
     providers: [
         NewsViewService,
