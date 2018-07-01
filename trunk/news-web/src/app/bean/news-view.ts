@@ -16,4 +16,5 @@ export class NewsView implements BaseDomain {
     newsId: string;
     rssSourceGroupId: string;
     rssSourceGroupTitle: string;
+    typeContent: string;
 }

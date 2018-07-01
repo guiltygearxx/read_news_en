@@ -1,5 +1,13 @@
-.hover-element-li:hover{
+.img-content-card-4{
+    min-height: 135px !important;
+}
+
+.img-content-card-4.hover-element-li:hover{
     background: #ffffff1a;
+}
+
+.img-content-card-5{
+    min-height: 125px !important;
 }
 
 .section-line{
@@ -269,11 +277,20 @@
     border-top:1px dotted #eee !important;
   }
 
+  /*======================================*/
+/*Xu ly card-content-video*/
+
+.hover-element-type:hover .label-confix-content-video .fa-play-circle-o:before{
+    content: "\f144"
+}
+
 .label-confix-content-video {
-    bottom: 4px;
+    bottom: 4px !important;
     position: absolute;
     right: 4px;
     z-index: 2;
+    border-radius: 8px;
     background-color: #0006 !important;
     padding: 3px 3px !important;
 }
+

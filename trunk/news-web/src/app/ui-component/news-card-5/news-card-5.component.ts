@@ -22,6 +22,8 @@ export class NewsCard5Component implements OnInit {
     }
 
     ngOnInit(): void {
+
+        this.news.typeContent = "video";
     }
 }
 
