@@ -5,17 +5,18 @@ adcea372-17dd-4249-8e64-94322d6aba96		Dân việt
 cf2f0080-a7d0-438f-a466-7823872eeb80		Tuổi trẻ
 0dbdc216-d4e2-4fbd-8637-4601847bdf6d		VOV
 e0d43eef-18ad-47b3-8dbd-7413ba9fca23		Tiền Phong
-
+148359d0-a2b4-40a0-aed6-f81c0b8468db		VTC
+386b9bd6-1fe5-4c38-91d8-8c2bbb3866a5		Lao Động 
 =================CHUA LAM=================================
 
 06e9ceb3-a518-42bf-920b-f4b44e62a00c		Giáo dục thời đại
 0d2426ec-1358-4db4-a66a-fa9e55eb3514		Công an nhân dân
 
-148359d0-a2b4-40a0-aed6-f81c0b8468db		VTC
+
 1aa3c687-467a-4d61-94c5-043009e76a08		Info Net
 22743849-d9f4-45cb-ac0d-f26c08737543		An ninh thủ đô
 35f8f475-f4c6-4e86-92d9-ab451654fbf6		Bnews
-386b9bd6-1fe5-4c38-91d8-8c2bbb3866a5		Lao Động Online
+Online
 45d48537-cd83-44f1-adbe-d36ee773dd09		Dân trí điện tử
 513e4ec1-7b17-4f32-9ce7-754021de1bff		Sài gòn giải phóng
 52dc5458-20c0-4732-beab-fec7b5820e63		Đời sống pháp luật
