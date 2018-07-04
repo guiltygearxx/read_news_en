@@ -128,7 +128,7 @@ export class IndexComponent implements OnInit {
 
     protected loadMoreTinChinh(): void {
 
-        this.isLoadingMoreTinChinh = true;
+        this.stopLoadMoreTinChinh = true;
 
         this.loadNewsViews(CATEGORY_ID_TINCHINH, 50, this.newsTinChinhOffset).subscribe(newsViews => {
 
