@@ -193,7 +193,11 @@
 }
 
 .img-content-md-3{
-    height: 130px !important;
+    height: 140px !important;
+}
+
+.img-content-card-5{
+    height: 125px !important;
 }
 
 .img-content{

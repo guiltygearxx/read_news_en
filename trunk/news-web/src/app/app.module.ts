@@ -36,6 +36,8 @@ import {InfiniteScrollModule} from "angular2-infinite-scroll";
 import { NewsLoadingCardComponent } from './ui-component/news-loading-card/news-loading-card.component';
 import { NewsLoadingCard2Component } from './ui-component/news-loading-card-2/news-loading-card-2.component';
 import { NewsLoadingCard4Component } from './ui-component/news-loading-card-4/news-loading-card-4.component';
+import { NewsLoadingCard3Component } from './ui-component/news-loading-card-3/news-loading-card-3.component';
+import { NewsLoadingCard5Component } from './ui-component/news-loading-card-5/news-loading-card-5.component';
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import { NewsLoadingCard4Component } from './ui-component/news-loading-card-4/ne
         NewsLoadingCardComponent,
         NewsLoadingCard2Component,
         NewsLoadingCard4Component,
+        NewsLoadingCard3Component,
+        NewsLoadingCard5Component,
     ],
     imports: [
         BrowserModule,
