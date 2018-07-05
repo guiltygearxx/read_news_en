@@ -4,6 +4,7 @@ import {Image} from "../../bean/image";
 import {Router} from "@angular/router";
 import {ApplicationUtils} from "../../common/application-utils";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {timeout} from "rxjs/operator/timeout";
 
 @Component({
     selector: 'app-news-card',
@@ -11,9 +12,9 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     styleUrls: ['./news-card.component.css'],
     animations: [
         trigger("readyStateChanged", [
-            state('yes', style({opacity: 0})),
+            state('yes', style({opacity: 0, display: 'none'})),
             state('no', style({opacity: 1})),
-            transition('* => *', animate('0.5s'))
+            transition('no => yes', animate('0.75s'))
         ])
     ]
 })
