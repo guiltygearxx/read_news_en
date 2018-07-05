@@ -27,17 +27,19 @@ import {ImageService} from "./service/image.service";
 import {DisplayNewsTimePipe} from "./pipe/display-news-time.pipe";
 import {NewsCardComponent} from './ui-component/news-card/news-card.component';
 import {NewsCard2Component} from './ui-component/news-card-2/news-card-2.component';
-import { NewsCard3Component } from './ui-component/news-card-3/news-card-3.component';
-import { NewsCard4Component } from './ui-component/news-card-4/news-card-4.component';
-import { NewsCard5Component } from './ui-component/news-card-5/news-card-5.component';
-import { NewsCard6Component } from './ui-component/news-card-6/news-card-6.component';
-import { NewsCardVideoSmallComponent } from './ui-component/news-card-video-small/news-card-video-small.component';
+import {NewsCard3Component} from './ui-component/news-card-3/news-card-3.component';
+import {NewsCard4Component} from './ui-component/news-card-4/news-card-4.component';
+import {NewsCard5Component} from './ui-component/news-card-5/news-card-5.component';
+import {NewsCard6Component} from './ui-component/news-card-6/news-card-6.component';
+import {NewsCardVideoSmallComponent} from './ui-component/news-card-video-small/news-card-video-small.component';
 import {InfiniteScrollModule} from "angular2-infinite-scroll";
-import { NewsLoadingCardComponent } from './ui-component/news-loading-card/news-loading-card.component';
-import { NewsLoadingCard2Component } from './ui-component/news-loading-card-2/news-loading-card-2.component';
-import { NewsLoadingCard4Component } from './ui-component/news-loading-card-4/news-loading-card-4.component';
-import { NewsLoadingCard3Component } from './ui-component/news-loading-card-3/news-loading-card-3.component';
-import { NewsLoadingCard5Component } from './ui-component/news-loading-card-5/news-loading-card-5.component';
+import {NewsLoadingCardComponent} from './ui-component/news-loading-card/news-loading-card.component';
+import {NewsLoadingCard2Component} from './ui-component/news-loading-card-2/news-loading-card-2.component';
+import {NewsLoadingCard4Component} from './ui-component/news-loading-card-4/news-loading-card-4.component';
+import {NewsLoadingCard3Component} from './ui-component/news-loading-card-3/news-loading-card-3.component';
+import {NewsLoadingCard5Component} from './ui-component/news-loading-card-5/news-loading-card-5.component';
+import {NewsDetailComponent} from './ui-component/news-detail/news-detail.component';
+import {RedirectLinkPipe} from "./pipe/redirect-link.pipe";
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import { NewsLoadingCard5Component } from './ui-component/news-loading-card-5/ne
         IndexComponent,
         TopicComponent,
         DisplayNewsTimePipe,
+        RedirectLinkPipe,
         NewsCardComponent,
         NewsCard2Component,
         NewsCard3Component,
@@ -61,12 +64,12 @@ import { NewsLoadingCard5Component } from './ui-component/news-loading-card-5/ne
         NewsLoadingCard4Component,
         NewsLoadingCard3Component,
         NewsLoadingCard5Component,
+        NewsDetailComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserModule,
-        AppRoutingModule,
         AppBaseModule,
         HttpClientModule,
         BrowserAnimationsModule,

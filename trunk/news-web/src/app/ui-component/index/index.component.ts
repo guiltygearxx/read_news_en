@@ -143,12 +143,12 @@ export class IndexComponent implements OnInit {
 
             this.isLoadingMoreTinChinh = false;
 
-            this.loadImages(newsViews).subscribe(images => {
+            (newsViews && newsViews.length) && (this.loadImages(newsViews).subscribe(images => {
 
                 let tinChinhImages = this.imagesGroupByCategoryId[CATEGORY_ID_TINCHINH];
 
                 images.forEach((image) => tinChinhImages.push(image));
-            });
+            }));
         });
     }
 
@@ -174,8 +174,14 @@ export class IndexComponent implements OnInit {
                         break;
 
                     case CATEGORY_ID_THOISU:
-                        this.loadImages(this.newsViewsGroupByCategoryId[categoryId] = newsViews)
-                            .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images);
+
+                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
+
+                        (newsViews && newsViews.length) && (
+                            this.loadImages(newsViews)
+                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
+                        );
+
                         break;
                 }
             });
@@ -194,8 +200,10 @@ export class IndexComponent implements OnInit {
 
         this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH] = newsViews.splice(0, 10);
 
-        this.loadImages(allNews)
-            .subscribe(images => this.imagesGroupByCategoryId[CATEGORY_ID_TINCHINH] = images);
+        (allNews && allNews.length) && (
+            this.loadImages(allNews)
+                .subscribe(images => this.imagesGroupByCategoryId[CATEGORY_ID_TINCHINH] = images)
+        )
     }
 
     protected loadNewsViews(categoryId: string, max: number, offset: number): Observable<NewsView[]> {
