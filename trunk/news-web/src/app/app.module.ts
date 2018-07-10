@@ -40,6 +40,7 @@ import {NewsLoadingCard3Component} from './ui-component/news-loading-card-3/news
 import {NewsLoadingCard5Component} from './ui-component/news-loading-card-5/news-loading-card-5.component';
 import {NewsDetailComponent} from './ui-component/news-detail/news-detail.component';
 import {RedirectLinkPipe} from "./pipe/redirect-link.pipe";
+import { NewCardCarouselComponent } from './ui-component/new-card-carousel/new-card-carousel.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import {RedirectLinkPipe} from "./pipe/redirect-link.pipe";
         NewsLoadingCard3Component,
         NewsLoadingCard5Component,
         NewsDetailComponent,
+        NewCardCarouselComponent,
     ],
     imports: [
         BrowserModule,

@@ -37,147 +37,58 @@
     <div class="col-sm-1 col-md-1">
 
     </div>
-
-    <div class="col-sm-7 col-md-7">
+    <!--phan tin tuc chinh-->
+    <div *ngIf="!isLoadingTinChinh()" infinite-scroll class="col-sm-7 col-md-7" (scrolled)="showMore()"
+         [infiniteScrollDistance]="1">
         <div class="col-md-12 nopadding" style="background: #fff">
             <div class="col-md-4">
-                <div class="col-md-12">
-                    <div class="card card-plain card-blog">
-                        <div class="card-image">
-                            <a href="#pablo" class="min-height-20vh">
-                                <img class="img img-raised img-content"
-                                     src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                     width="500" height="400"/>
-                            </a>
-                            <span class="label label-confix-content">Dân trí 40 phút trước</span>
-                            <div class="card-title fix-font-size-title underline-title">
-                                This Summer Will be Awesome Summer Will be
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-12 nopadding">
+                    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(1))" [news]="getTinChinhNews2(1)"
+                                     [now]="now">
+                    </app-news-card-2>
                 </div>
-                <div class="col-md-12">
-                    <div class="card card-plain card-blog">
-                        <div class="card-image">
-                            <a href="#pablo" class="min-height-20vh">
-                                <img class="img img-raised img-content"
-                                     src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                     width="500" height="400"/>
-                            </a>
-                            <span class="label label-confix-content">Dân trí 40 phút trước</span>
-                            <div class="card-title fix-font-size-title underline-title">
-                                This Summer Will be Awesome Summer Will be
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-12 nopadding">
+                    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(1)"
+                                     [now]="now">
+                    </app-news-card-2>
                 </div>
             </div>
 
             <div class="col-md-4 fake-cusor">
-                <div class="card card-plain card-blog">
-                    <div class="card-image card-image-square">
-                        <a href="#pablo" class="min-height-40vh">
-                            <img class="img img-raised img-big"
-                                 src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/61/26564343/4_43715.jpg"
-                            />
-                        </a>
-                        <span class="label label-confix-content">Dân trí 40 phút trước</span>
-                        <div class="card-title fix-font-size-title underline-title">
-                            This Summer Will be Awesome Summer Will be
-                        </div>
-                    </div>
-                </div>
+                <app-news-card [image]="getTinChinhNewsImage(getTinChinhNews2(0))" [news]="getTinChinhNews2(0)"
+                               [now]="now">
+                </app-news-card>
             </div>
             <div class="col-md-4">
-                <div class="col-md-12">
-                    <div class="card card-plain card-blog">
-                        <div class="card-image">
-                            <a href="#pablo" class="min-height-20vh">
-                                <img class="img img-raised img-content"
-                                     src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                     width="500" height="400"/>
-                            </a>
-                            <span class="label label-confix-content">Dân trí 40 phút trước</span>
-                            <div class="card-title fix-font-size-title underline-title">
-                                This Summer Will be Awesome Summer Will be
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-12 nopadding">
+                    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(1)"
+                                     [now]="now">
+                    </app-news-card-2>
                 </div>
-                <div class="col-md-12">
-                    <div class="card card-plain card-blog">
-                        <div class="card-image">
-                            <a href="#pablo" class="min-height-20vh">
-                                <img class="img img-raised img-content"
-                                     src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                     width="500" height="400"/>
-                            </a>
-                            <span class="label label-confix-content">Dân trí 40 phút trước</span>
-                            <div class="card-title fix-font-size-title underline-title">
-                                This Summer Will be Awesome Summer Will be
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-12 nopadding">
+                    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(1)"
+                                     [now]="now">
+                    </app-news-card-2>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h4 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h4>
-
-                </div>
-            </div>
+            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(3))" [news]="getTinChinhNews2(3)"
+                             [now]="now">
+            </app-news-card-3>
         </div>
 
         <div class="col-md-4">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/61/26564343/4_43715.jpg"/>
-                    </a>
-                    <span class="label label-confix-content">Zing 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h4 class="card-title">
-                        <a href="#pablo">Đại gia 9X chi hơn 1.700 tỷ đồng mua cổ phiếu VPBank</a>
-                    </h4>
-                </div>
-            </div>
+            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(3)"
+                             [now]="now">
+            </app-news-card-3>
         </div>
 
         <div class="col-md-4">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-2-td.zadn.vn/w300_r3x2/18/06/18/308/26563093/2_124795.jpg"/>
-                    </a>
-                    <span class="label label-confix-content">Tài chính 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h4 class="card-title">
-                        <a href="#pablo">Hôm nay 18/6/2018: Giá Bitcoin xuống dưới ngưỡng 6.500 USD</a>
-                    </h4>
-
-                </div>
-            </div>
+            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(3)"
+                             [now]="now">
+            </app-news-card-3>
         </div>
 
 
@@ -189,906 +100,88 @@
             </a>
         </div>
 
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
+        <ng-container *ngFor="let news of getTinChinhNewsList(); let newsIndex = index">
 
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
+            <ng-container *ngIf="(newsIndex % 10 < 6)">
+                <hr class="col-md-12"/>
 
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
+                <app-news-card-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
+                </app-news-card-4>
+            </ng-container>
 
-                    <p class="col-md-12 card-description text-dark">
+            <ng-container *ngIf="(newsIndex % 10 >= 6)">
 
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
+                <app-news-card-5 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
+                </app-news-card-5>
 
-        <hr class="col-md-12"/>
+            </ng-container>
 
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                        <a data-number="4" href="" class="">
-                            <span class="cd-dot"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                        <a data-number="4" href="" class="">
-                            <span class="cd-dot"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                        <a data-number="4" href="" class="">
-                            <span class="cd-dot"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                        <a data-number="4" href="" class="">
-                            <span class="cd-dot"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-3">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h5 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h5>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h5 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h5>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h5 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h5>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h5 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h5>
-
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                        <a data-number="4" href="" class="">
-                            <span class="cd-dot"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                        <a data-number="4" href="" class="">
-                            <span class="cd-dot"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                        <a data-number="4" href="" class="">
-                            <span class="cd-dot"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <div class="card card-plain card-blog">
-
-                <div class="col-md-3" style="padding-left: 0px">
-                    <div class="card-image">
-                        <a href="#pablo">
-                            <img class="img img-raised"
-                                 src="https://baomoi-photo-3-td.zadn.vn/w300_r3x2/18/06/18/232/26561288/1_69883.jpg"/>
-                        </a>
-                        <span class="label label-danger label-confix-content">Sài gòn đầu tư </span>
-                    </div>
-                </div>
-                <div class="col-md-9 social-networking">
-                    <div class="col-md-8 social-networking-title">
-                        <h5 class="card-title" style="margin-bottom: 0px">
-                            <a href="#pablo">Nghịch lý giá cổ phiếu “vua”</a>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                            <i class="fa fa-star"></i>
-                        </a>
-                        <a data-number="4" href="" class="">
-                            <span class="cd-dot"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="#pablo" class="source-news">Chứng khoán - 2 giờ trước</a>
-                    </div>
-
-                    <p class="col-md-12 card-description text-dark">
-
-                        Với kết quả kinh doanh liên tục được cải thiện, nhóm ngân hàng (NH) đang dần lấy lại vị thế của
-                        CP “vua” trên TTCK. Thế nhưng,
-                        không chỉ có sự kỳ vọng, nhóm CP NH cũng là nỗi thất vọng của không ít NĐT bởi sự bất hợp lý về
-                        mức giá giữa các NH
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-3">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h5 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h5>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h5 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h5>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h5 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h5>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card card-plain card-blog">
-                <div class="card-image">
-                    <a href="#pablo">
-                        <img class="img img-raised"
-                             src="https://baomoi-photo-1-td.zadn.vn/w300_r3x2/18/06/18/229/26565513/3_63381.jpg"
-                             width="500"
-                             height="400"/>
-                    </a>
-                    <span class="label label-confix-content">Vietnam 10 phút trước</span>
-                </div>
-
-                <div class="card-content">
-                    <h5 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h5>
-
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12"/>
+        </ng-container>
 
     </div>
+    <!--phan tin tuc chinh:end-->
+
+    <!--phan loading cho tin chinh-->
+    <div *ngIf="isLoadingTinChinh()" class="col-sm-7 col-md-7">
+
+        <div class="col-md-12 nopadding" style="background: #fff">
+
+
+
+            <div class="col-md-4">
+                <div class="col-md-12 nopadding">
+                    <app-news-loading-card-2></app-news-loading-card-2>
+                </div>
+
+                <div class="col-md-12 nopadding">
+                    <app-news-loading-card-2></app-news-loading-card-2>
+                </div>
+            </div>
+
+            <div class="col-md-4 fake-cusor">
+                <app-news-loading-card></app-news-loading-card>
+            </div>
+
+            <div class="col-md-4">
+                <div class="col-md-12 nopadding">
+                    <app-news-loading-card-2></app-news-loading-card-2>
+                </div>
+
+                <div class="col-md-12 nopadding">
+                    <app-news-loading-card-2></app-news-loading-card-2>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <app-news-loading-card-3></app-news-loading-card-3>
+            </div>
+
+            <div class="col-md-4">
+                <app-news-loading-card-3></app-news-loading-card-3>
+            </div>
+
+            <div class="col-md-4">
+                <app-news-loading-card-3></app-news-loading-card-3>
+            </div>
+
+            <hr class="col-md-12"/>
+
+            <app-news-loading-card-4></app-news-loading-card-4>
+
+            <hr class="col-md-12"/>
+
+            <app-news-loading-card-4></app-news-loading-card-4>
+
+        </div>
+    </div>
+    <!--phan loading cho tin chinh:end-->
 
     <div class="col-sm-3 col-md-3" style="background: #fff">
 
-        <h5 style="font-weight: bold;margin-bottom: 0px; margin-top: 4px">Nổi bật 24h qua</h5>
-        <hr class="col-md-12"/>
+        <!--Hien thi card dang slider tu dong  -->
+        <app-new-card-carousel></app-new-card-carousel>
 
-        <!--         carousel  -->
-        <div class="col-md-12 nopadding">
-            <!-- Carousel Card -->
-            <div class="card-carousel" style="padding-bottom: 10px">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <div class="carousel slide" data-ride="carousel">
-
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item hover-element-type active">
-                                <div class="animationLoading img-content">
-                                    <div id="container">
-                                        <div id="one"></div>
-                                        <div id="two"></div>
-                                        <div id="three"></div>
-                                    </div>
-                                    <div id="four"></div>
-                                    <div id="five"></div>
-                                    <div id="six"></div>
-                                </div>
-                                <div class="carousel-caption">
-                                    <h4>
-                                        <i class="material-icons">location_on</i> Yellowstone National Park, United
-                                        States</h4>
-                                </div>
-                                <span class="label label-confix-content-video"><i class="fa fa-play-circle-o fa-2x"></i></span>
-                            </div>
-                            <div class="item hover-element-type">
-                                <img src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                     alt="Awesome Image" class="img-content img-content-width">
-                                <div class="carousel-caption">
-                                    <h4>
-                                        <i class="material-icons">location_on</i> Somewhere Beyond, United States</h4>
-                                </div>
-                                <span class="label label-confix-content-video"><i class="fa fa-play-circle-o fa-2x"></i></span>
-                            </div>
-                            <div class="item">
-                                <img src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                     alt="Awesome Image" class="img-content img-content-width">
-                                <div class="carousel-caption">
-                                    <h4>
-                                        <i class="material-icons">location_on</i> Yellowstone National Park, United
-                                        States</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Carousel Card -->
-
-        </div>
-        <!--         end carousel -->
-
+        <!--Hien thi tin tuc - Tin nong-->
         <h5 style="font-weight: bold;margin-bottom: 0px;">Tin nóng</h5>
 
         <hr class="col-md-12"/>
@@ -1096,127 +189,35 @@
         <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
             <div class="row ">
                 <div class="col-md-3">
-                    <div class="card-image">
-                        <a href="#pablo ">
-                            <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                 src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                 width="500" height="400">
-                        </a>
+                    <div class="">
+                        <div class="animationLoading img-flash-link">
+                            <div id="container">
+                                <div id="one"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <h6 class="card-title no-margin no-uppercase">
-                        <a href="#pablo ">Nghịch lý giá cổ phiếu “vua”</a>
-                    </h6>
-                    <div>
-                        <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                            Dân trí
-                        </a>
-
-                        <span class="time-news-title" datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                        <!--<a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>-->
-
-                    </div>
+                    <div id="four" style="height: 10px; top: 5px;"></div>
+                    <div id="five" style="height: 10px; top: 10px;"></div>
                 </div>
             </div>
         </div>
 
+        <ng-container *ngFor="let news of getThoiSuNewsList();">
+            <app-news-card-6 [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
+            </app-news-card-6>
+        </ng-container>
 
+        <!--Hien thi tin tuc  - Dang video -->
         <h5 style="font-weight: bold;margin-bottom: 0px;">Video nóng trong ngày</h5>
 
         <hr class="col-md-12"/>
 
-        <div class="col-md-12 nopadding ">
-            <div class="card card-plain card-blog hover-element-type">
-                <div class="card-image">
-                    <div class="animationLoading img-content">
-                        <div id="container">
-                            <div id="one"></div>
-                            <div id="two"></div>
-                            <div id="three"></div>
-                        </div>
-                        <div id="four"></div>
-                        <div id="five"></div>
-                        <div id="six"></div>
-                    </div>
-                    <span class="label label-confix-content-video"><i class="fa fa-play-circle-o fa-2x"></i></span>
-                </div>
-
-                <div class="">
-                    <h4 class="card-title">
-                        <a href="#pablo">Giá vàng hôm nay 18/6: Vàng hồi phục và tăng mạnh phiên đầu tuần</a>
-                    </h4>
-
-                </div>
-            </div>
-        </div>
-
-        <hr class="col-md-12 line-dot-dot"/>
-
-        <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-            <div class="row ">
-                <div class="col-md-3">
-                    <div class="card-image">
-                        <a href="#pablo ">
-                            <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                 src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                 width="500" height="400">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <h6 class="card-title no-margin no-uppercase">
-                        <a href="#pablo ">Nghịch lý giá cổ phiếu “vua”</a>
-                    </h6>
-                    <div>
-                        <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                            Dân trí
-                        </a>
-
-                        <span class="time-news-title" datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                        <!--<a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>-->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-            <div class="row ">
-                <div class="col-md-3">
-                    <div class="card-image">
-                        <a href="#pablo ">
-                            <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                 src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                 width="500" height="400">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <h6 class="card-title no-margin no-uppercase">
-                        <a href="#pablo ">Nghịch lý giá cổ phiếu “vua”</a>
-                    </h6>
-                    <div>
-                        <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                            Dân trí
-                        </a>
-
-                        <span class="time-news-title" datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                        <!--<a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>-->
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ng-container *ngFor="let news of getThoiSuNewsList();">
+            <app-news-card-video-small [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
+            </app-news-card-video-small>
+        </ng-container>
 
         <hr class="col-md-12"/>
 
@@ -1260,6 +261,7 @@
         <hr class="col-md-12"/>
 
     </div>
+
     <div class="col-sm-1 col-md-1">
 
     </div>
