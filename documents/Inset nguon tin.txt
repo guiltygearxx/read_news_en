@@ -1,2 +1,0 @@
-INSERT INTO aznews.rss_source (id, version, is_deleted, last_modified_user, last_modified_time, code, category_id, rss_url, rss_source_group_id) VALUES ('785eec50-b281-45af-bc71-77da371fc50a', 0, false, 'admin', '2018-06-27 14:13:39', 'laodong.phapluat', 'f0b2ebb7-83ab-4087-ab9a-9ec38d14bfc8', 'https://laodong.vn/rss/phap-luat.rss', '386b9bd6-1fe5-4c38-91d8-8c2bbb3866a5');
-

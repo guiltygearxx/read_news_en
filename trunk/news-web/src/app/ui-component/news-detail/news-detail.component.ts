@@ -50,8 +50,6 @@ export class NewsDetailComponent
 
     private redirectToNewsDetail(): void {
 
-        alert("1");
-
-        window.location = this.news.link;
+        window.location.href = this.news.link;
     }
 }

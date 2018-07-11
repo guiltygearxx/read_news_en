@@ -1,8 +1,8 @@
-<div class="card card-plain card-blog hover-element-type">
+<div class="card card-plain card-blog hover-element-type" (click)="viewNewsDetail($event)">
 
     <div  id="container123" class="col-md-3" style="padding-left: 0px">
         <div class="card-image">
-            <a href="#pablo">
+            <a [href]="news | redirectLink">
                 <img class="img img-raised img-content-card-4" [src]="image?.url"/>
             </a>
             <span class="label label-danger label-confix-content">{{news?.rssSourceGroupTitle}}</span>
@@ -12,20 +12,8 @@
     <div class="col-md-9 social-networking">
         <div class="col-md-8 social-networking-title">
             <h5 class="card-title" style="margin-bottom: 0px">
-                <a href="#pablo">{{news?.title}}</a>
+                <a [href]="news | redirectLink">{{news?.title}}</a>
             </h5>
-        </div>
-
-        <div class="col-md-4 card-title social-networking-content" style="text-align: right;">
-            <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                <i class="fa fa-facebook"></i>
-            </a>
-            <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                <i class="fa fa-google"></i>
-            </a>
-            <a href="#pablo" class="btn btn-just-icon btn-basic btn-simple btn-social-confix">
-                <i class="fa fa-instagram"></i>
-            </a>
         </div>
 
         <div class="col-md-12">
@@ -33,7 +21,7 @@
         </div>
 
         <p class="col-md-12 card-description text-dark">
-            {{news?.description}}
+            <a [href]="news | redirectLink"> {{news?.description}} </a>
         </p>
     </div>
 

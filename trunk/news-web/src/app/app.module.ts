@@ -66,7 +66,7 @@ import {NewCardCarouselComponent} from './ui-component/new-card-carousel/new-car
         NewsLoadingCard3Component,
         NewsLoadingCard5Component,
         NewsDetailComponent,
-        NewCardCarouselComponent,
+        NewCardCarouselComponent
     ],
     imports: [
         BrowserModule,
@@ -76,7 +76,7 @@ import {NewCardCarouselComponent} from './ui-component/new-card-carousel/new-car
         HttpClientModule,
         BrowserAnimationsModule,
         FormsModule,
-        InfiniteScrollModule
+        InfiniteScrollModule,
     ],
     providers: [
         NewsViewService,
