@@ -1,7 +1,6 @@
 import {Pipe, PipeTransform} from "@angular/core";
 import * as moment from "moment";
 import {ApplicationUtils} from "../common/application-utils";
-import BigNumber from "bignumber.js";
 
 @Pipe({name: 'displayNewsTime'})
 export class DisplayNewsTimePipe implements PipeTransform {

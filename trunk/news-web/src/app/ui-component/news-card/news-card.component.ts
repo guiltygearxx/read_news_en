@@ -1,24 +1,20 @@
-import {AfterViewChecked, AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterContentInit, Component, Input, OnInit} from '@angular/core';
 import {NewsView} from "../../bean/news-view";
 import {Image} from "../../bean/image";
 import {Router} from "@angular/router";
 import {ApplicationUtils} from "../../common/application-utils";
-import {animate, state, style, transition, trigger} from "@angular/animations";
-import {timeout} from "rxjs/operator/timeout";
+import {TIMEOUT_APPLY_EFFECT} from "../../common/application-constants";
+import {newsCardAppearAnimation, SupportNewsCardAppearAnimation} from "../common/news-card-appear-animation";
+import {NewsCardCommon} from "../common/news-card-common";
 
 @Component({
     selector: 'app-news-card',
     templateUrl: './news-card.component.html',
     styleUrls: ['./news-card.component.css'],
-    animations: [
-        trigger("readyStateChanged", [
-            state('yes', style({opacity: 0, display: 'none'})),
-            state('no', style({opacity: 1})),
-            transition('no => yes', animate('0.75s'))
-        ])
-    ]
+    animations: [newsCardAppearAnimation]
 })
-export class NewsCardComponent implements OnInit, AfterViewInit {
+export class NewsCardComponent
+    implements OnInit, AfterContentInit, SupportNewsCardAppearAnimation, NewsCardCommon {
 
     @Input()
     news: NewsView;
@@ -42,13 +38,11 @@ export class NewsCardComponent implements OnInit, AfterViewInit {
 
         $event.preventDefault();
 
-        let title: string = this.applicationUtils.convertTitleToURLParam(this.news.title);
-
-        this.router.navigate(['/newsDetail/', title, this.news.id]).then();
+        this.applicationUtils.viewNewsDetail(this);
     }
 
-    ngAfterViewInit(): void {
+    ngAfterContentInit(): void {
 
-        this.readyState = "yes";
+        setTimeout(() => this.readyState = "yes", TIMEOUT_APPLY_EFFECT);
     }
 }

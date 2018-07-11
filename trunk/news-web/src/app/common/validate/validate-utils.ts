@@ -3,34 +3,33 @@ import {Validateable} from './validateable';
 import {isNullOrUndefined, isString} from 'util';
 import {DefaultErrors} from './default-errors';
 import {
-  CONSTRAIN_BLANK,
-  CONSTRAIN_EMAIL,
-  CONSTRAIN_INLIST,
-  CONSTRAIN_MATCHES,
-  CONSTRAIN_MAX,
-  CONSTRAIN_MAXSIZE,
-  CONSTRAIN_MIN,
-  CONSTRAIN_MINSIZE,
-  CONSTRAIN_NOTEQUAL,
-  CONSTRAIN_NULLABLE,
-  CONSTRAIN_SIZE,
-  EMAIL_REGEX,
-  ERROR_EMAIL,
-  ERROR_INLIST,
-  ERROR_MATCHES,
-  ERROR_MAX,
-  ERROR_MAXSIZE,
-  ERROR_MIN,
-  ERROR_MINSIZE,
-  ERROR_NOTEQUAL,
-  ERROR_NULLABLE,
-  ERROR_SIZE_TOOBIG,
-  ERROR_SIZE_TOOSMALL
+    CONSTRAIN_BLANK,
+    CONSTRAIN_EMAIL,
+    CONSTRAIN_INLIST,
+    CONSTRAIN_MATCHES,
+    CONSTRAIN_MAX,
+    CONSTRAIN_MAXSIZE,
+    CONSTRAIN_MIN,
+    CONSTRAIN_MINSIZE,
+    CONSTRAIN_NOTEQUAL,
+    CONSTRAIN_NULLABLE,
+    CONSTRAIN_SIZE,
+    EMAIL_REGEX,
+    ERROR_EMAIL,
+    ERROR_INLIST,
+    ERROR_MATCHES,
+    ERROR_MAX,
+    ERROR_MAXSIZE,
+    ERROR_MIN,
+    ERROR_MINSIZE,
+    ERROR_NOTEQUAL,
+    ERROR_NULLABLE,
+    ERROR_SIZE_TOOBIG,
+    ERROR_SIZE_TOOSMALL
 } from '../application-constants';
 import {ApplicationUtils} from '../application-utils';
 import {Errors} from './errors';
 import {FieldError} from './field-error';
-import BigNumber from 'bignumber.js';
 
 type ErrorHandleFnType = ((value: any, errorCode: string, args: any[]) => void);
 

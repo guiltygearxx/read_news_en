@@ -4,9 +4,15 @@ import {DATE_FORMAT, DATE_TIME_FORMAT} from "./application-constants";
 import * as moment from "moment";
 import BigNumber from "bignumber.js";
 import {i18n} from "./i18n";
+import {NewsView} from "../bean/news-view";
+import {Router} from "@angular/router";
+import {NewsCardCommon} from "../ui-component/common/news-card-common";
 
 @Injectable()
 export class ApplicationUtils {
+
+    constructor(protected router: Router) {
+    }
 
     randomNumber(): number {
 
@@ -165,5 +171,14 @@ export class ApplicationUtils {
     convertTitleToURLParam(title: string): string {
 
         return this.removeUnicode(title).split(/\s+/).join("-");
+    }
+
+    viewNewsDetail(newsCard: NewsCardCommon): void {
+
+        let news: NewsView = newsCard.news;
+
+        let title: string = this.convertTitleToURLParam(news.title);
+
+        this.router.navigate(['/newsDetail/', title, news.id]).then();
     }
 }
