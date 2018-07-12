@@ -10,7 +10,7 @@ import {NewsDetailComponent} from "../ui-component/news-detail/news-detail.compo
             {path: '', redirectTo: 'trangChu', pathMatch: 'full'},
             {path: 'trangChu', component: IndexComponent},
             {path: 'newsDetail/:title/:id', component: NewsDetailComponent},
-            {path: 'chuDe', component: TopicComponent}
+            {path: 'chuDe/:categoryId', component: TopicComponent}
         ])
     ],
     declarations: [],
