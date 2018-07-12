@@ -22,7 +22,7 @@ class RssCrawlerService {
 
         rssConfigs.each { RssConfig rssConfig ->
 
-//            println "RssCrawlerService.crawler: rssConfig=${rssConfig as JSON}";
+            println "================ RssCrawlerService.crawler: rssConfig.id=${rssConfig.id}";
 
             Rss rss = readRssService.readRss(rssConfig);
 
@@ -54,7 +54,7 @@ class RssCrawlerService {
                         isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now,
                 );
 
-                news.save();
+                news.save(flush: true);
 
                 item?.thumbnails.each { Rss.Thumbnail thumbnail ->
 
@@ -65,7 +65,7 @@ class RssCrawlerService {
                             isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
                     );
 
-                    image.save();
+                    image.save(flush: true);
                 }
 
                 return news;
