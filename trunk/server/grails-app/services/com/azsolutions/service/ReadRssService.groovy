@@ -4,6 +4,7 @@ import com.azsolutions.bean.Rss
 import com.azsolutions.domain.RssConfig
 import grails.converters.JSON
 import grails.gorm.transactions.Transactional
+import groovy.util.slurpersupport.NodeChildren
 import org.xml.sax.InputSource
 
 @Transactional
@@ -96,7 +97,7 @@ class ReadRssService {
                     break;
 
                 default:
-                    bean."${key}" = childNodes;
+                    bean."${key}" = childNodes.text().trim();
                     break;
             }
         }
@@ -108,7 +109,7 @@ class ReadRssService {
 
         String url = rssConfig.rssUrl;
 
-        println "ReadRssService.readRss: url=${url}";
+//        println "ReadRssService.readRss: url=${url}";
 
         Map mappingConfig = JSON.parse(rssConfig.configJson);
 
