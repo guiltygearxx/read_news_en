@@ -122,11 +122,9 @@
     <!--phan tin tuc chinh:end-->
 
     <!--phan loading cho tin chinh-->
-    <div *ngIf="isLoadingTinChinh()" class="col-sm-7">
+    <div *ngIf="isLoadingTinChinh()" class="col-sm-7 col-md-7">
 
         <div class="col-md-12 nopadding" style="background: #fff">
-
-
 
             <div class="col-md-4">
                 <div class="col-md-12 nopadding">
@@ -186,26 +184,8 @@
 
         <hr class="col-md-12"/>
 
-        <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-            <div class="row ">
-                <div class="col-md-3">
-                    <div class="">
-                        <div class="animationLoading img-flash-link">
-                            <div id="container">
-                                <div id="one"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div id="four" style="height: 10px; top: 5px;"></div>
-                    <div id="five" style="height: 10px; top: 10px;"></div>
-                </div>
-            </div>
-        </div>
-
-        <ng-container *ngFor="let news of getThoiSuNewsList();">
-            <app-news-card-6 [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
+        <ng-container *ngFor="let news of getTinNongNewsList();">
+            <app-news-card-6 [image]="getTinNongNewsImage(news)" [news]="news" [now]="now">
             </app-news-card-6>
         </ng-container>
 
@@ -214,8 +194,8 @@
 
         <hr class="col-md-12"/>
 
-        <ng-container *ngFor="let news of getThoiSuNewsList();">
-            <app-news-card-video-small [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
+        <ng-container *ngFor="let news of getVideoNewsList();">
+            <app-news-card-video-small [image]="getVideoNewsImage(news)" [news]="news" [now]="now">
             </app-news-card-video-small>
         </ng-container>
 
@@ -224,35 +204,41 @@
         <div class="col-md-12 nopadding">
             <ul class="nav nav-pills nav-pills-warning">
                 <li class="active">
-                    <a href="#pillThoiTiet" data-toggle="tab">Thời tiết</a>
+                    <a href="#pillThoiTiet" data-toggle="tab">BTC</a>
                 </li>
                 <li>
                     <a href="#pillGiaVang" data-toggle="tab">Giá vàng</a>
                 </li>
                 <li>
-                    <a href="#pillSoSo" data-toggle="tab">Sổ số</a>
+                    <a href="#pillSoSo" data-toggle="tab">Ngoại tệ</a>
                 </li>
             </ul>
             <div class="tab-content tab-space">
                 <div class="tab-pane active" id="pillThoiTiet">
                     <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            Thông tin thời tiết
-                        </div>
+
+                        <iframe id="fr75" style="border: none;width:100%"
+                                src="//www.tygia.com/api.php?column=2&amp;title=0&amp;chart=1&amp;gold=0&amp;rate=1&amp;expand=2&amp;color=284C84&amp;nganhang=Crypto&amp;fontsize=80&amp;change=2&amp;limit_rate=100&amp;ngoaite=BTC"
+                                width="320" height="900"></iframe>
                     </div>
                 </div>
                 <div class="tab-pane" id="pillGiaVang">
                     <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            Giá vàng trong nước
+
+                        <div class="col-sm-12">
+                            <iframe id="fr5" style="border: none;"
+                                    src="//www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=1&amp;rate=1&amp;expand=0&amp;color=1D4C75&amp;nganhang=VIETCOM&amp;ngoaite=usd,jpy,chf,eur,gbp,aud&amp;fontsize=80&amp;change=0"
+                                    width="320" height="400"></iframe>
                         </div>
+
                     </div>
                 </div>
                 <div class="tab-pane" id="pillSoSo">
                     <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            So so 3 mien
-                        </div>
+
+                        <iframe id="fr2" style="border: none;"
+                                src="//www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=0&amp;rate=1&amp;expand=1&amp;color=aa1111&amp;nganhang=VIETCOM&amp;fontsize=80&amp;ngay="
+                                width="320" height="400"></iframe>
                     </div>
                 </div>
             </div>

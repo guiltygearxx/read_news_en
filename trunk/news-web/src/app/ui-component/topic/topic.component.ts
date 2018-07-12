@@ -1,7 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsView} from "../../bean/news-view";
 import {NewsViewService} from "../../service/news-view.service";
-import {CATEGORY_ID_THOISU, CATEGORY_ID_TINCHINH, IMAGE_REFERENCE_TYPE_NEWS} from "../../common/application-constants";
+import {
+    CATEGORY_ID_THOISU,
+    CATEGORY_ID_TINCHINH, CATEGORY_ID_TINNONG,
+    CATEGORY_ID_VIDEO,
+    IMAGE_REFERENCE_TYPE_NEWS
+} from "../../common/application-constants";
 import {ImageService} from "../../service/image.service";
 import {Image} from "../../bean/image";
 import {Observable} from "rxjs/Observable";
@@ -71,6 +76,16 @@ export class TopicComponent implements OnInit {
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_THOISU];
     }
 
+    getTinNongNewsList(): NewsView[] {
+
+        return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNONG];
+    }
+
+    getVideoNewsList(): NewsView[] {
+
+        return this.newsViewsGroupByCategoryId[CATEGORY_ID_VIDEO];
+    }
+
     getTinChinhNews2(index: number): NewsView {
 
         let news = this.fixedTinChinhNews;
@@ -93,6 +108,16 @@ export class TopicComponent implements OnInit {
     getThoiSuNewsImage(news: NewsView): Image {
 
         return this.getNewsImage(CATEGORY_ID_THOISU, news);
+    }
+
+    getTinNongNewsImage(news: NewsView): Image {
+
+        return this.getNewsImage(CATEGORY_ID_TINNONG, news);
+    }
+
+    getVideoNewsImage(news: NewsView): Image {
+
+        return this.getNewsImage(CATEGORY_ID_VIDEO, news);
     }
 
     getNewsImage(categoryId: string, news: NewsView): Image {
@@ -157,6 +182,8 @@ export class TopicComponent implements OnInit {
         [
             {categoryId: CATEGORY_ID_TINCHINH, max: 26, offset: 0},
             {categoryId: CATEGORY_ID_THOISU, max: 5, offset: 0},
+            {categoryId: CATEGORY_ID_TINNONG, max: 5, offset: 0},
+            {categoryId: CATEGORY_ID_VIDEO, max: 5, offset: 0},
         ].forEach(options => {
 
             let categoryId = options.categoryId;
@@ -174,6 +201,28 @@ export class TopicComponent implements OnInit {
                         break;
 
                     case CATEGORY_ID_THOISU:
+
+                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
+
+                        (newsViews && newsViews.length) && (
+                            this.loadImages(newsViews)
+                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
+                        );
+
+                        break;
+
+                    case CATEGORY_ID_TINNONG:
+
+                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
+
+                        (newsViews && newsViews.length) && (
+                            this.loadImages(newsViews)
+                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
+                        );
+
+                        break;
+
+                    case CATEGORY_ID_VIDEO:
 
                         this.newsViewsGroupByCategoryId[categoryId] = newsViews;
 
