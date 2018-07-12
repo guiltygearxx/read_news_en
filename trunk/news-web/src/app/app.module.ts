@@ -69,7 +69,6 @@ import { NewsLoadingCard6Component } from './ui-component/news-loading-card-6/ne
         NewsDetailComponent,
         NewCardCarouselComponent,
         NewsLoadingCard6Component
-        NewsLoadingCard6Component,
     ],
     imports: [
         BrowserModule,
