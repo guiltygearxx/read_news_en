@@ -76,6 +76,10 @@ export class IndexComponent implements OnInit {
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_THOISU];
     }
 
+    getVideoNewsList(): NewsView[] {
+
+        return this.newsViewsGroupByCategoryId[CATEGORY_ID_VIDEO];
+    }
     getTinNongNewsList(): NewsView[] {
 
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNONG];
@@ -85,12 +89,6 @@ export class IndexComponent implements OnInit {
 
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNOIBAT];
     }
-
-    getVideoNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_VIDEO];
-    }
-
     getTinChinhNews2(index: number): NewsView {
 
         let news = this.fixedTinChinhNews;
@@ -115,6 +113,10 @@ export class IndexComponent implements OnInit {
         return this.getNewsImage(CATEGORY_ID_THOISU, news);
     }
 
+    getVideoNewsImage(news: NewsView): Image {
+
+        return this.getNewsImage(CATEGORY_ID_VIDEO, news);
+    }
     getTinNoiBatNewsImage(news: NewsView): Image {
 
         return this.getNewsImage(CATEGORY_ID_TINNOIBAT, news);
@@ -123,11 +125,6 @@ export class IndexComponent implements OnInit {
     getTinNongNewsImage(news: NewsView): Image {
 
         return this.getNewsImage(CATEGORY_ID_TINNONG, news);
-    }
-
-    getVideoNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_VIDEO, news);
     }
 
     getNewsImage(categoryId: string, news: NewsView): Image {
@@ -159,6 +156,16 @@ export class IndexComponent implements OnInit {
     isLoadingTinChinh(): boolean {
 
         return this._isLoading(CATEGORY_ID_TINCHINH);
+    }
+
+    isLoadingThoiSu(): boolean {
+
+        return this._isLoading(CATEGORY_ID_THOISU);
+    }
+
+    isLoadingVideo(): boolean {
+
+        return this._isLoading(CATEGORY_ID_VIDEO);
     }
 
     protected loadMoreTinChinh(): void {

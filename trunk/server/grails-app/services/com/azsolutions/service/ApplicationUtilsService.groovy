@@ -25,4 +25,9 @@ class ApplicationUtilsService {
 
         return sdf.parse(dateStr);
     }
+
+    public static void main(String[] args) {
+
+        println new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss").format(new Date());
+    }
 }
