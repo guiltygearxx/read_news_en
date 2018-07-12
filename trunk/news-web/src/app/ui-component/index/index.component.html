@@ -491,9 +491,19 @@
 
         <hr class="col-md-12"/>
 
-        <ng-container *ngFor="let news of getThoiSuNewsList();">
-            <app-news-card-6 [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
-            </app-news-card-6>
+        <ng-container *ngIf="isLoadingThoiSu()">
+            <app-news-loading-card-6></app-news-loading-card-6>
+            <app-news-loading-card-6></app-news-loading-card-6>
+            <app-news-loading-card-6></app-news-loading-card-6>
+            <app-news-loading-card-6></app-news-loading-card-6>
+            <app-news-loading-card-6></app-news-loading-card-6>
+        </ng-container>
+
+        <ng-container *ngIf="!isLoadingThoiSu()">
+            <ng-container *ngFor="let news of getThoiSuNewsList();">
+                <app-news-card-6 [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
+                </app-news-card-6>
+            </ng-container>
         </ng-container>
 
         <hr class="col-md-12"/>
@@ -502,9 +512,19 @@
 
         <hr class="col-md-12"/>
 
-        <ng-container *ngFor="let news of getThoiSuNewsList();">
-            <app-news-card-video-small [image]="getThoiSuNewsImage(news)" [news]="news" [now]="now">
-            </app-news-card-video-small>
+        <ng-container *ngIf="isLoadingVideo()">
+            <app-news-loading-card-6></app-news-loading-card-6>
+            <app-news-loading-card-6></app-news-loading-card-6>
+            <app-news-loading-card-6></app-news-loading-card-6>
+            <app-news-loading-card-6></app-news-loading-card-6>
+            <app-news-loading-card-6></app-news-loading-card-6>
+        </ng-container>
+
+        <ng-container *ngIf="!isLoadingVideo()">
+            <ng-container *ngFor="let news of getVideoNewsList();">
+                <app-news-card-6 [image]="getVideoNewsImage(news)" [news]="news" [now]="now">
+                </app-news-card-6>
+            </ng-container>
         </ng-container>
 
         <hr class="col-md-12"/>

@@ -1,7 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsView} from "../../bean/news-view";
 import {NewsViewService} from "../../service/news-view.service";
-import {CATEGORY_ID_THOISU, CATEGORY_ID_TINCHINH, IMAGE_REFERENCE_TYPE_NEWS} from "../../common/application-constants";
+import {
+    CATEGORY_ID_THOISU,
+    CATEGORY_ID_TINCHINH,
+    CATEGORY_ID_VIDEO,
+    IMAGE_REFERENCE_TYPE_NEWS
+} from "../../common/application-constants";
 import {ImageService} from "../../service/image.service";
 import {Image} from "../../bean/image";
 import {Observable} from "rxjs/Observable";
@@ -71,6 +76,11 @@ export class IndexComponent implements OnInit {
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_THOISU];
     }
 
+    getVideoNewsList(): NewsView[] {
+
+        return this.newsViewsGroupByCategoryId[CATEGORY_ID_VIDEO];
+    }
+
     getTinChinhNews2(index: number): NewsView {
 
         let news = this.fixedTinChinhNews;
@@ -93,6 +103,11 @@ export class IndexComponent implements OnInit {
     getThoiSuNewsImage(news: NewsView): Image {
 
         return this.getNewsImage(CATEGORY_ID_THOISU, news);
+    }
+
+    getVideoNewsImage(news: NewsView): Image {
+
+        return this.getNewsImage(CATEGORY_ID_VIDEO, news);
     }
 
     getNewsImage(categoryId: string, news: NewsView): Image {
@@ -126,6 +141,16 @@ export class IndexComponent implements OnInit {
         return this._isLoading(CATEGORY_ID_TINCHINH);
     }
 
+    isLoadingThoiSu(): boolean {
+
+        return this._isLoading(CATEGORY_ID_THOISU);
+    }
+
+    isLoadingVideo(): boolean {
+
+        return this._isLoading(CATEGORY_ID_VIDEO);
+    }
+
     protected loadMoreTinChinh(): void {
 
         this.stopLoadMoreTinChinh = true;
@@ -157,6 +182,7 @@ export class IndexComponent implements OnInit {
         [
             {categoryId: CATEGORY_ID_TINCHINH, max: 26, offset: 0},
             {categoryId: CATEGORY_ID_THOISU, max: 5, offset: 0},
+
         ].forEach(options => {
 
             let categoryId = options.categoryId;
