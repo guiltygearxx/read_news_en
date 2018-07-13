@@ -31,8 +31,8 @@ class RssCrawlerService {
             List<Future> futures = [];
 
             RssSourceGroup
-                    .findAllByIsDeleted(false)
-//                    .findAllByIdInList(["adcea372-17dd-4249-8e64-94322d6aba96"])
+//                    .findAllByIsDeleted(false)
+                    .findAllByIdInList(["adcea372-17dd-4249-8e64-94322d6aba96"])
                     .each { RssSourceGroup rssSourceGroup ->
 
                 List<RssSource> rssSources =
@@ -68,6 +68,8 @@ class RssCrawlerService {
 
             try {
 
+                List<String> checkedGuids = [];
+
                 Rss rss = readRssService.readRss(rssConfig);
 
                 RssSource rssSource = rssSources.find { it.id == rssConfig.rssSourceId };
@@ -76,14 +78,20 @@ class RssCrawlerService {
 
                 List<News> existNewsList = guidList ? News.findAllByIsDeletedAndGuidInList(false, guidList) : null;
 
-                List<News> crawledNewsList = rss?.items.collect { Rss.Item item ->
+                List<News> crawledNewsList = [];
+
+                rss?.items.each { Rss.Item item ->
+
+                    if (checkedGuids.contains(item.guid)) return;
+
+                    checkedGuids << item.guid;
 
                     News news = existNewsList?.find { it.guid == item.guid };
 
                     /**
                      * neu news da duoc dong bo thi khong dong bo nua;
                      */
-                    if (news) return news;
+                    if (news) return (crawledNewsList << news);
 
                     def pubDate = applicationUtilsService.parseRssDate(
                             item.pubDate, rssConfig.dateFormat, rssConfig.timeZone
@@ -111,7 +119,7 @@ class RssCrawlerService {
                         image.save(flush: true);
                     }
 
-                    return news;
+                    return (crawledNewsList << news);
                 }
 
                 if (crawledNewsList) {
