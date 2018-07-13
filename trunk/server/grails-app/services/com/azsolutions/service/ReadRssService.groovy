@@ -10,6 +10,9 @@ import org.xml.sax.InputSource
 @Transactional
 class ReadRssService {
 
+    def applicationUtilsService;
+    def jsoupUtilsService;
+
     private Object getChildNodes(def node, String path) {
 
         path.split("\\.").each { node = node?."${it}"; };
@@ -62,6 +65,12 @@ class ReadRssService {
         }
     }
 
+    private Object runExpression(def childNodes, String expression) {
+
+        return !expression ? childNodes :
+                applicationUtilsService.runExpression(expression, [childNodes: childNodes, utils: jsoupUtilsService]);
+    }
+
     private Object parseXML(Map config, def node, String mappingPath) {
 
         def bean = initNewBean(mappingPath);
@@ -71,6 +80,8 @@ class ReadRssService {
             Map propertyConfig = config[key];
 
             String path = propertyConfig["path"];
+
+            String expression = (propertyConfig["expression"] as String)?.trim();
 
             def childNodes = path ? getChildNodes(node, path) : node;
 
@@ -90,14 +101,15 @@ class ReadRssService {
 
                     def propertyConfig_config = propertyConfig["config"];
 
-                    bean."${key}" = !propertyConfig_config ? null : childNodes.collect {
+                    bean."${key}" = !propertyConfig_config ? null : runExpression(childNodes, expression).collect {
+
                         return parseXML(propertyConfig_config, it, mappingPath + "." + key);
                     };
 
                     break;
 
                 default:
-                    bean."${key}" = childNodes.text().trim();
+                    bean."${key}" = expression ? runExpression(childNodes, expression) : childNodes?.text()?.trim();
                     break;
             }
         }
@@ -107,11 +119,13 @@ class ReadRssService {
 
     Rss readRss(RssConfig rssConfig) {
 
+        String json = rssConfig.configJson;
+
         String url = rssConfig.rssUrl;
 
 //        println "ReadRssService.readRss: url=${url}";
 
-        Map mappingConfig = JSON.parse(rssConfig.configJson);
+        Map mappingConfig = JSON.parse(json);
 
         XmlSlurper parser = new XmlSlurper();
 

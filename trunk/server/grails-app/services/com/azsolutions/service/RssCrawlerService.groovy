@@ -15,7 +15,7 @@ import java.util.concurrent.Future
 @Transactional
 class RssCrawlerService {
 
-    public static final int READ_RSS_THREAD_POOL_SIZE = 10;
+    public static final int READ_RSS_THREAD_POOL_SIZE = 1;
 
     def readRssService;
     def applicationUtilsService;
@@ -31,8 +31,8 @@ class RssCrawlerService {
             List<Future> futures = [];
 
             RssSourceGroup
-                    .findAllByIsDeleted(false)
-//                    .findAllByIdInList(["adcea372-17dd-4249-8e64-94322d6aba96"])
+//                    .findAllByIsDeleted(false)
+                    .findAllByIdInList(["adcea372-17dd-4249-8e64-94322d6aba96"])
                     .each { RssSourceGroup rssSourceGroup ->
 
                 List<RssSource> rssSources =
@@ -174,7 +174,7 @@ class RssCrawlerService {
 
                 println "RssCrawlerService.crawler: error| rssConfig.id=${rssConfig.id}";
 
-                println ex.getMessage();
+                ex.printStackTrace();
             }
         }
     }

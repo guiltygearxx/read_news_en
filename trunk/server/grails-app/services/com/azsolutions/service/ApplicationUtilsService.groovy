@@ -26,8 +26,25 @@ class ApplicationUtilsService {
         return sdf.parse(dateStr);
     }
 
+    def runExpression(String expression, Map variableValueMap) {
+
+        Binding binding = new Binding();
+
+        variableValueMap.each { def name, def value ->
+
+            binding.setVariable(name, value);
+        }
+
+        GroovyShell shell = new GroovyShell(binding);
+
+        return shell.evaluate(expression);
+    }
+
+
     public static void main(String[] args) {
 
         println new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss").format(new Date());
     }
+
+
 }
