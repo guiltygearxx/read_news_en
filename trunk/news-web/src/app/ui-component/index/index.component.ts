@@ -163,6 +163,16 @@ export class IndexComponent implements OnInit {
         return this._isLoading(CATEGORY_ID_THOISU);
     }
 
+    isLoadingTinNoiBat(): boolean {
+
+        return this._isLoading(CATEGORY_ID_TINNOIBAT);
+    }
+
+    isLoadingTinNong(): boolean {
+
+        return this._isLoading(CATEGORY_ID_TINNONG);
+    }
+
     isLoadingVideo(): boolean {
 
         return this._isLoading(CATEGORY_ID_VIDEO);

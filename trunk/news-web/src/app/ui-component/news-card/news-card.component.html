@@ -5,19 +5,12 @@
             <img class="img img-raised img-big" [src]="image?.url"/>
         </a>
 
-        <span class="label label-confix-content">{{news?.rssSourceGroupTitle}}</span>
+        <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>
 
         <span class="video-icon" onclick="player.play(); this.parentNode.style.display = 'none'; return false;"></span>
 
-        <div class="card-title .font-size-title-big-header headline-title">
-            {{news?.title}}
-        </div>
-
-        <div class="card-title .font-size-title-big-header headline-sub-title">
-            <span class="hightlight-text-headline">
-                {{news?.pubDate | displayNewsTime : now}}
-            </span>
-            {{news?.description}}
+        <div class="card-title fix-font-size-title underline-title" style="right: 15px !important;">
+            <a [href]="news | redirectLink" style="font-size: 3.0rem !important; line-height: 3.4rem !important;"> {{news?.title}}</a>
         </div>
 
     </div>
