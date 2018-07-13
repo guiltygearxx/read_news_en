@@ -136,350 +136,36 @@
             </ul>
             <div class="tab-content tab-space">
                 <div class="tab-pane active" id="pill1">
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="">
-                                    <div class="animationLoading img-flash-link">
-                                        <div id="container">
-                                            <div id="one"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div id="four" style="height: 10px; top: 5px;"></div>
-                                <div id="five" style="height: 10px; top: 10px;"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <ng-container *ngIf="isLoadingTinNoiBat()">
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                    </ng-container>
 
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://baomoi-photo-2-td.zadn.vn/w300_r3x2/18/06/19/7/26571520/1_21300.jpg"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">'Trùm' khoáng sản TKV báo lãi 2017 tăng gấp 3 lần lên 3.000 tỷ,
-                                        tổng nợ gần 100.000 tỷ</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        Báo mới
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">Nghịch lý giá cổ phiếu “vua”</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        Dân trí
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://media.laodong.vn/Storage/NewsPortal/2018/6/18/613661/977885804.jpg?w=888&h=592&crop=auto&scale=both"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">'Trùm' khoáng sản TKV báo lãi 2017 tăng gấp 3 lần lên 3.000 tỷ,
-                                        tổng nợ gần 100.000 tỷ</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        Người đưa tin
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://baomoi-photo-2-td.zadn.vn/w300_r3x2/18/06/18/61/26571259/2_103265.jpg"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">Sau 5 năm 'quy ẩn', bà Đặng Thị Hoàng Yến có trở lại Tân Tạo?</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        VOV
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://baomoi-photo-2-td.zadn.vn/w300_r3x2/18/06/19/7/26571520/1_21300.jpg"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">'Trùm' khoáng sản TKV báo lãi 2017 tăng gấp 3 lần lên 3.000 tỷ,
-                                        tổng nợ gần 100.000 tỷ</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        Báo mới
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ng-container *ngIf="!isLoadingTinNoiBat()">
+                        <ng-container *ngFor="let news of getTinNoiBatNewsList();">
+                            <app-news-card-6 [image]="getTinNoiBatNewsImage(news)" [news]="news" [now]="now">
+                            </app-news-card-6>
+                        </ng-container>
+                    </ng-container>
                 </div>
                 <div class="tab-pane" id="pill2">
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://media.laodong.vn/Storage/NewsPortal/2018/6/18/613661/977885804.jpg?w=888&h=592&crop=auto&scale=both"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">'Trùm' khoáng sản TKV báo lãi 2017 tăng gấp 3 lần lên 3.000 tỷ,
-                                        tổng nợ gần 100.000 tỷ</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
+                    <ng-container *ngIf="isLoadingTinNong()">
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                        <app-news-loading-card-6></app-news-loading-card-6>
+                    </ng-container>
 
-                                        Người đưa tin
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://baomoi-photo-2-td.zadn.vn/w300_r3x2/18/06/18/61/26571259/2_103265.jpg"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">Sau 5 năm 'quy ẩn', bà Đặng Thị Hoàng Yến có trở lại Tân Tạo?</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        VOV
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://baomoi-photo-2-td.zadn.vn/w300_r3x2/18/06/19/7/26571520/1_21300.jpg"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">'Trùm' khoáng sản TKV báo lãi 2017 tăng gấp 3 lần lên 3.000 tỷ,
-                                        tổng nợ gần 100.000 tỷ</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        Báo mới
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://www.gannett-cdn.com/-mm-/5494bd34e43fd11e356a584b68d087ad53524129/c=607-0-5587-3744&r=x404&c=534x401/local/-/media/2018/06/13/USATODAY/USATODAY/636645111678692526-XXX-IMG-1-SPACE-NEEDLE-ON-TH-1-1-VTM2KRS2.JPG"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">Nghịch lý giá cổ phiếu “vua”</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        Dân trí
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a href="#pablo ">
-                                        <img class="img-rounded img-responsive img-flash-link" alt="Rounded Image"
-                                             src="https://media.laodong.vn/Storage/NewsPortal/2018/6/18/613661/977885804.jpg?w=888&h=592&crop=auto&scale=both"
-                                             width="500" height="400">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6 class="card-title no-margin no-uppercase">
-                                    <a href="#pablo ">'Trùm' khoáng sản TKV báo lãi 2017 tăng gấp 3 lần lên 3.000 tỷ,
-                                        tổng nợ gần 100.000 tỷ</a>
-                                </h6>
-                                <div>
-                                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
-
-                                        Người đưa tin
-                                    </a>
-
-                                    <span class="time-news-title"
-                                          datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
-
-
-                                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ng-container *ngIf="!isLoadingTinNong()">
+                        <ng-container *ngFor="let news of getTinNongNewsList();">
+                            <app-news-card-6 [image]="getTinNongNewsImage(news)" [news]="news" [now]="now">
+                            </app-news-card-6>
+                        </ng-container>
+                    </ng-container>
                 </div>
 
             </div>
@@ -522,8 +208,8 @@
 
         <ng-container *ngIf="!isLoadingVideo()">
             <ng-container *ngFor="let news of getVideoNewsList();">
-                <app-news-card-6 [image]="getVideoNewsImage(news)" [news]="news" [now]="now">
-                </app-news-card-6>
+                <app-news-card-video-small [image]="getVideoNewsImage(news)" [news]="news" [now]="now">
+                </app-news-card-video-small>
             </ng-container>
         </ng-container>
 
@@ -532,42 +218,29 @@
         <div class="col-md-12 nopadding">
             <ul class="nav nav-pills nav-pills-warning">
                 <li class="active">
-                    <a href="#pillThoiTiet" data-toggle="tab">Thời tiết</a>
+                    <a href="#pillThoiTiet" data-toggle="tab">BTC</a>
                 </li>
                 <li>
                     <a href="#pillGiaVang" data-toggle="tab">Giá vàng</a>
                 </li>
                 <li>
-                    <a href="#pillSoSo" data-toggle="tab">Sổ số</a>
+                    <a href="#pillSoSo" data-toggle="tab">Ngoại tệ</a>
                 </li>
             </ul>
             <div class="tab-content tab-space">
                 <div class="tab-pane active" id="pillThoiTiet">
                     <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            Thông tin thời tiết
-                        </div>
+                        <iframe id="fr75" style="border: none;width:100%" src="//www.tygia.com/api.php?column=2&amp;title=0&amp;chart=1&amp;gold=0&amp;rate=1&amp;expand=2&amp;color=284C84&amp;nganhang=Crypto&amp;fontsize=80&amp;change=2&amp;limit_rate=100&amp;ngoaite=BTC" width="320" height="900"></iframe>
                     </div>
                 </div>
                 <div class="tab-pane" id="pillGiaVang">
                     <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                Vàng SJC 1L->10L 36,710-30 36,890-30 Nhẫn 9999 1c->5c 35,740-100 36,140-100 Vàng nữ
-                                trang 9999 35,390-100 36,090-100 Vàng
-                                nữ trang 24K 34,933-99 35,733-99 Vàng nữ trang 18K 25,820-75 27,220-75 Vàng nữ trang 14K
-                                19,793-58 21,193-58 Vàng
-                                nữ trang 10K 13,801-42 15,201-42
-                            </div>
-
-                        </div>
+                        <iframe id="fr5" style="border: none;" src="//www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=1&amp;rate=1&amp;expand=0&amp;color=1D4C75&amp;nganhang=VIETCOM&amp;ngoaite=usd,jpy,chf,eur,gbp,aud&amp;fontsize=80&amp;change=0" width="320" height="320"></iframe>
                     </div>
                 </div>
                 <div class="tab-pane" id="pillSoSo">
                     <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <div class="row ">
-                            So so 3 mien
-                        </div>
+                        <iframe id="fr2" style="border: none;" src="//www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=0&amp;rate=1&amp;expand=1&amp;color=aa1111&amp;nganhang=VIETCOM&amp;fontsize=80&amp;ngay=" width="320" height="400"></iframe>
                     </div>
                 </div>
             </div>
