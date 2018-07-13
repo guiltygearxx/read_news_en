@@ -31,8 +31,8 @@ class RssCrawlerService {
             List<Future> futures = [];
 
             RssSourceGroup
-//                    .findAllByIsDeleted(false)
-                    .findAllByIdInList(["adcea372-17dd-4249-8e64-94322d6aba96"])
+                    .findAllByIsDeleted(false)
+//                    .findAllByIdInList(["adcea372-17dd-4249-8e64-94322d6aba96"])
                     .each { RssSourceGroup rssSourceGroup ->
 
                 List<RssSource> rssSources =
