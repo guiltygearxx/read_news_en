@@ -2,7 +2,7 @@
     <div class="card-image">
 
         <a [href]="news | redirectLink" class="min-height-20vh">
-            <img class="img img-raised img-content" [src]="image?.url" width="500" height="400"/>
+            <img class="img img-raised img-content cover-img" [src]="image?.url" width="500" height="400"/>
         </a>
 
         <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>
