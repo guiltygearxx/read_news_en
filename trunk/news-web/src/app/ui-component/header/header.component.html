@@ -1,160 +1,100 @@
 <nav class="navbar navbar-rose navbar-transparent navbar-fixed-top navbar-color-on-scroll" color-on-scroll="100">
 
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand logo-color prkl-element" href="../presentation.html">
-      </a>
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo-color prkl-element" href="../presentation.html">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="hover-element-li">
+                    <a href="topic.html">
+                        <i class="material-icons">home</i>
+                    </a>
+                </li>
+
+                <ng-container *ngFor="let category of getCategories(null)">
+
+                    <ng-container *ngIf="isHasSubCategories(category); then menuHasSubMenus else menu">
+                    </ng-container>
+
+                    <ng-template #menuHasSubMenus>
+
+                        <li class="dropdown hover-element-li">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                {{category.title}}
+                                <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <li *ngFor="let subCategory of getCategories(category)">
+                                    <a>{{subCategory.title}}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ng-template>
+
+                    <ng-template #menu>
+
+                        <li class="hover-element-li">
+                            <a>{{category.title}}</a>
+                        </li>
+
+                    </ng-template>
+
+                </ng-container>
+
+                <li class="hover-element-li">
+                    <a data-toggle="modal" data-target="#loginModal">
+                        <i class="material-icons">search</i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
     </div>
-
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-
-        <li class="hover-element-li">
-          <a href="topic.html">
-            <i class="material-icons">home</i>
-          </a>
-        </li>
-
-        <li class="dropdown hover-element-li">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Xã hội
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu dropdown-with-icons">
-            <li>
-              <a href="../sections.html#headers">
-                <i class="material-icons">dns</i> Headers
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="dropdown hover-element-li">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Thế giới
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu dropdown-with-icons">
-            <li>
-              <a href="../examples/about-us.html">
-                <i class="material-icons">account_balance</i> About Us
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Văn hóa
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Kinh tế
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Giáo dục
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Thể thao
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Giải trí
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Pháp luật
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Công nghệ
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Khoa học
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Đời sống
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Xe cộ
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a href="../index.html">
-            Nhà đất
-          </a>
-        </li>
-
-        <li class="hover-element-li">
-          <a data-toggle="modal" data-target="#loginModal">
-            <i class="material-icons">search</i>
-          </a>
-        </li>
-
-      </ul>
-    </div>
-  </div>
 </nav>
 
 
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-login">
-    <div class="modal-content">
-      <div class="card card-signup card-plain">
-        <div class="modal-header">
-          <button type="button" class="close header-primary" data-dismiss="modal" aria-hidden="true" style="margin-top: -16px;">
-            <i class="material-icons">clear</i>
-          </button>
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+                <div class="modal-header">
+                    <button type="button" class="close header-primary" data-dismiss="modal" aria-hidden="true"
+                            style="margin-top: -16px;">
+                        <i class="material-icons">clear</i>
+                    </button>
 
-        </div>
-        <div class="modal-body">
-          <div class="card-content">
+                </div>
+                <div class="modal-body">
+                    <div class="card-content">
 
-            <div class="input-group">
+                        <div class="input-group">
 								<span class="input-group-addon">
 									<i class="material-icons">search</i>
 								</span>
-              <input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm...">
+                            <input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm...">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Tìm</a>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="modal-footer text-center">
-          <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Tìm</a>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 <!--  End Modal -->

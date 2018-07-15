@@ -3,14 +3,18 @@ import {NewsView} from "../../bean/news-view";
 import {NewsViewService} from "../../service/news-view.service";
 import {
     CATEGORY_ID_THOISU,
-    CATEGORY_ID_TINCHINH, CATEGORY_ID_TINNOIBAT,
-    CATEGORY_ID_TINNONG, CATEGORY_ID_VIDEO,
+    CATEGORY_ID_TINCHINH,
+    CATEGORY_ID_TINNOIBAT,
+    CATEGORY_ID_TINNONG,
+    CATEGORY_ID_VIDEO,
     IMAGE_REFERENCE_TYPE_NEWS
 } from "../../common/application-constants";
 import {ImageService} from "../../service/image.service";
 import {Image} from "../../bean/image";
 import {Observable} from "rxjs/Observable";
 import {isNullOrUndefined} from "util";
+import {Category} from "../../bean/category";
+import {ALL_CATEGORIES} from "../../service/category-fixed-datasource";
 
 @Component({
     selector: 'app-index',
@@ -80,6 +84,7 @@ export class IndexComponent implements OnInit {
 
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_VIDEO];
     }
+
     getTinNongNewsList(): NewsView[] {
 
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNONG];
@@ -89,6 +94,7 @@ export class IndexComponent implements OnInit {
 
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNOIBAT];
     }
+
     getTinChinhNews2(index: number): NewsView {
 
         let news = this.fixedTinChinhNews;
@@ -117,6 +123,7 @@ export class IndexComponent implements OnInit {
 
         return this.getNewsImage(CATEGORY_ID_VIDEO, news);
     }
+
     getTinNoiBatNewsImage(news: NewsView): Image {
 
         return this.getNewsImage(CATEGORY_ID_TINNOIBAT, news);
