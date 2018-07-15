@@ -4004,7 +4004,7 @@ h2.title {
     left: 15px;
     color: #fff;
     font-size: 1.3em;
-    text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5);
+    text-shadow: 0 2px 5px rgba(0, 0, 0);
 }
 
 .card .card-image .colored-shadow {
