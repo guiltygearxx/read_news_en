@@ -195,16 +195,32 @@
     /*height: 416px !important;*/
 }
 
+.img-big-loading {
+    height: 416px !important;
+}
+
 .img-content-md-3 {
     /*height: 140px !important;*/
 }
 
+.img-content-md-3-loading {
+    height: 140px !important;
+}
+
 .img-content-card-5 {
-    /*height: 125px !important;*/
+    height: 125px !important;
+}
+
+.img-content-card-5-loading {
+    height: 125px !important;
 }
 
 .img-content {
     /*height: 200px !important;*/
+}
+
+.img-content-loading {
+    height: 200px !important;
 }
 
 .img-flash-link {
