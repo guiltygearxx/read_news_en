@@ -3,7 +3,8 @@ import {NewsView} from "../../bean/news-view";
 import {NewsViewService} from "../../service/news-view.service";
 import {
     CATEGORY_ID_THOISU,
-    CATEGORY_ID_TINCHINH, CATEGORY_ID_TINNONG,
+    CATEGORY_ID_TINCHINH,
+    CATEGORY_ID_TINNONG,
     CATEGORY_ID_VIDEO,
     IMAGE_REFERENCE_TYPE_NEWS
 } from "../../common/application-constants";

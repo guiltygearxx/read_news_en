@@ -42,6 +42,12 @@ import {NewsDetailComponent} from './ui-component/news-detail/news-detail.compon
 import {RedirectLinkPipe} from "./pipe/redirect-link.pipe";
 import {NewCardCarouselComponent} from './ui-component/new-card-carousel/new-card-carousel.component';
 import {NewsLoadingCard6Component} from './ui-component/news-loading-card-6/news-loading-card-6.component';
+import {DeviceDetectorModule} from "ngx-device-detector";
+import {DesktopComponent} from './ui-component/desktop/desktop.component';
+import {MobileComponent} from './ui-mobile-component/mobile/mobile.component';
+import {IndexMobileComponent} from './ui-mobile-component/index-mobile/index-mobile.component';
+import {DesktopCanActivate} from "./app-routing/desktop-can-activate";
+import {MobileCanActivate} from "./app-routing/mobile-can-activate";
 
 
 @NgModule({
@@ -69,6 +75,9 @@ import {NewsLoadingCard6Component} from './ui-component/news-loading-card-6/news
         NewsDetailComponent,
         NewCardCarouselComponent,
         NewsLoadingCard6Component,
+        DesktopComponent,
+        MobileComponent,
+        IndexMobileComponent,
     ],
     imports: [
         BrowserModule,
@@ -79,6 +88,7 @@ import {NewsLoadingCard6Component} from './ui-component/news-loading-card-6/news
         BrowserAnimationsModule,
         FormsModule,
         InfiniteScrollModule,
+        DeviceDetectorModule.forRoot()
     ],
     providers: [
         NewsViewService,
@@ -93,7 +103,9 @@ import {NewsLoadingCard6Component} from './ui-component/news-loading-card-6/news
         StorageService,
         LoginActivateGuard,
         AuthActivateGuard,
-        ImageService
+        ImageService,
+        DesktopCanActivate,
+        MobileCanActivate
     ],
     bootstrap: [AppComponent]
 })

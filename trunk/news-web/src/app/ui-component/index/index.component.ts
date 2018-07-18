@@ -13,8 +13,6 @@ import {ImageService} from "../../service/image.service";
 import {Image} from "../../bean/image";
 import {Observable} from "rxjs/Observable";
 import {isNullOrUndefined} from "util";
-import {Category} from "../../bean/category";
-import {ALL_CATEGORIES} from "../../service/category-fixed-datasource";
 
 @Component({
     selector: 'app-index',
