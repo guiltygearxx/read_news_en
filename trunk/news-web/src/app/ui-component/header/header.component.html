@@ -29,9 +29,9 @@
 
                     <ng-template #menuHasSubMenus>
 
-                        <li class="dropdown hover-element-li">
+                        <li class="dropdown hover-element-li" (mouseenter)="openSubMenus($event)">
 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
                                 {{category.title}}
                                 <b class="caret"></b>
                             </a>

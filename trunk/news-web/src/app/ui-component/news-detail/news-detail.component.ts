@@ -1,4 +1,4 @@
-import {AfterContentChecked, AfterViewChecked, Component, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewChecked, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {NewsViewService} from "../../service/news-view.service";
 import {NewsView} from "../../bean/news-view";
@@ -11,7 +11,7 @@ declare var window: any;
     styleUrls: ['./news-detail.component.css']
 })
 export class NewsDetailComponent
-    implements OnInit, AfterContentChecked, AfterViewChecked {
+    implements OnInit, AfterContentInit, AfterViewChecked {
 
     protected id: string;
 
@@ -28,7 +28,7 @@ export class NewsDetailComponent
         this.id = this.route.snapshot.paramMap.get('id');
     }
 
-    ngAfterContentChecked(): void {
+    ngAfterContentInit(): void {
 
         this.newsViewService.getById(this.id).subscribe((news) => {
 

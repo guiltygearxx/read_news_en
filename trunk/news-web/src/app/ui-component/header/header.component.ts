@@ -3,6 +3,8 @@ import {Category} from "../../bean/category";
 import {ALL_CATEGORIES} from "../../service/category-fixed-datasource";
 import {isNullOrUndefined} from "util";
 
+declare var $: any;
+
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -34,6 +36,10 @@ export class HeaderComponent implements OnInit {
         let subCategory = this.categories.find(item => item.parentCategoryId == parentCategoryId);
 
         return !isNullOrUndefined(subCategory);
+    }
+
+    openSubMenus(event: any): void {
+
     }
 
     protected loadCategories(): void {
