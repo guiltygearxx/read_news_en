@@ -1,26 +1,25 @@
-import {Component, OnInit} from '@angular/core';
-import {IndexComponent} from "../../ui-component/index/index.component";
-import {NewsViewService} from "../../service/news-view.service";
-import {ImageService} from "../../service/image.service";
-import {NewsView} from "../../bean/news-view";
-import {Image} from "../../bean/image";
+import {AfterContentChecked, Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {isNullOrUndefined} from "util";
+import {Image} from "../../bean/image";
+import {NewsViewService} from "../../service/news-view.service";
+import {NewsView} from "../../bean/news-view";
+import {Observable} from "rxjs/Observable";
+import {ImageService} from "../../service/image.service";
 import {
     CATEGORY_ID_THOISU,
     CATEGORY_ID_TINCHINH,
     CATEGORY_ID_TINNOIBAT, CATEGORY_ID_TINNONG,
-    CATEGORY_ID_VIDEO, IMAGE_REFERENCE_TYPE_NEWS
+    CATEGORY_ID_VIDEO,
+    IMAGE_REFERENCE_TYPE_NEWS
 } from "../../common/application-constants";
-import {Observable} from "rxjs/Observable";
-import {Router} from "@angular/router";
-import {ApplicationUtils} from "../../common/application-utils";
 
 @Component({
-  selector: 'app-index-mobile',
-  templateUrl: './index-mobile.component.html',
-  styleUrls: ['./index-mobile.component.css']
+    selector: 'app-m-topic',
+    templateUrl: './m-topic.component.html',
+    styleUrls: ['./m-topic.component.css']
 })
-export class IndexMobileComponent implements OnInit {
+export class MTopicComponent implements OnInit, AfterContentChecked {
 
     now: Date;
 
@@ -41,12 +40,16 @@ export class IndexMobileComponent implements OnInit {
 
     isLoadingMoreTinChinh: boolean;
 
+    tinChinhTopic: string;
+
     /**
      * = true neu nhu so luong tin chinh load qua nhieu hoac khong con tin tuc de load nua;
      */
     stopLoadMoreTinChinh: boolean;
 
-    constructor(protected newsViewService: NewsViewService,
+    constructor(private router: Router,
+                protected route: ActivatedRoute,
+                protected newsViewService: NewsViewService,
                 protected imageService: ImageService) {
     }
 
@@ -69,9 +72,18 @@ export class IndexMobileComponent implements OnInit {
         this.loadNewsByCategories();
     }
 
+    ngAfterContentChecked(): void {
+
+        let currentNewsId: string = this.route.snapshot.paramMap.get("idTopic");
+
+        this.tinChinhTopic = currentNewsId;
+
+        console.log(currentNewsId);
+    }
+
     getTinChinhNewsList(): NewsView[] {
 
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH];
+        return this.newsViewsGroupByCategoryId[this.tinChinhTopic];
     }
 
     getThoiSuNewsList(): NewsView[] {
@@ -103,14 +115,14 @@ export class IndexMobileComponent implements OnInit {
 
     getTinChinhNews(index: number): NewsView {
 
-        let news = this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH];
+        let news = this.newsViewsGroupByCategoryId[this.tinChinhTopic];
 
         return news ? news[index] : null;
     }
 
     getTinChinhNewsImage(news: NewsView): Image {
 
-        return this.getNewsImage(CATEGORY_ID_TINCHINH, news);
+        return this.getNewsImage(this.tinChinhTopic, news);
     }
 
     getThoiSuNewsImage(news: NewsView): Image {
@@ -144,7 +156,7 @@ export class IndexMobileComponent implements OnInit {
 
     showMore(): void {
 
-        let newsList = this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH];
+        let newsList = this.newsViewsGroupByCategoryId[this.tinChinhTopic];
 
         this.tinChinhNews.splice(0, 10).forEach(item => newsList.push(item));
 
@@ -161,7 +173,7 @@ export class IndexMobileComponent implements OnInit {
 
     isLoadingTinChinh(): boolean {
 
-        return this._isLoading(CATEGORY_ID_TINCHINH);
+        return this._isLoading(this.tinChinhTopic);
     }
 
     isLoadingThoiSu(): boolean {
@@ -188,7 +200,7 @@ export class IndexMobileComponent implements OnInit {
 
         this.stopLoadMoreTinChinh = true;
 
-        this.loadNewsViews(CATEGORY_ID_TINCHINH, 50, this.newsTinChinhOffset).subscribe(newsViews => {
+        this.loadNewsViews(this.tinChinhTopic, 50, this.newsTinChinhOffset).subscribe(newsViews => {
 
             newsViews.forEach((news) => this.tinChinhNews.push(news));
 
@@ -203,7 +215,7 @@ export class IndexMobileComponent implements OnInit {
 
             (newsViews && newsViews.length) && (this.loadImages(newsViews).subscribe(images => {
 
-                let tinChinhImages = this.imagesGroupByCategoryId[CATEGORY_ID_TINCHINH];
+                let tinChinhImages = this.imagesGroupByCategoryId[this.tinChinhTopic];
 
                 images.forEach((image) => tinChinhImages.push(image));
             }));
@@ -213,7 +225,7 @@ export class IndexMobileComponent implements OnInit {
     protected loadNewsByCategories(): void {
 
         [
-            {categoryId: CATEGORY_ID_TINCHINH, max: 26, offset: 0},
+            {categoryId: this.tinChinhTopic, max: 26, offset: 0},
             {categoryId: CATEGORY_ID_THOISU, max: 5, offset: 0},
             {categoryId: CATEGORY_ID_TINNONG, max: 5, offset: 0},
             {categoryId: CATEGORY_ID_TINNOIBAT, max: 5, offset: 0},
@@ -230,7 +242,7 @@ export class IndexMobileComponent implements OnInit {
 
                 switch (categoryId) {
 
-                    case CATEGORY_ID_TINCHINH:
+                    case this.tinChinhTopic:
                         this.afterLoadTinChinhNews(newsViews);
                         break;
 
@@ -291,11 +303,11 @@ export class IndexMobileComponent implements OnInit {
 
         this.fixedTinChinhNews = newsViews.splice(0, 6);
 
-        this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH] = newsViews.splice(0, 10);
+        this.newsViewsGroupByCategoryId[this.tinChinhTopic] = newsViews.splice(0, 10);
 
         (allNews && allNews.length) && (
             this.loadImages(allNews)
-                .subscribe(images => this.imagesGroupByCategoryId[CATEGORY_ID_TINCHINH] = images)
+                .subscribe(images => this.imagesGroupByCategoryId[this.tinChinhTopic] = images)
         )
     }
 

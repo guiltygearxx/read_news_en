@@ -5,7 +5,6 @@
             <a [href]="news | redirectLink">
                 <img class="img img-raised img-content-card-4 cover-img" [src]="image?.url"/>
             </a>
-            <span class="label label-danger label-confix-content">{{news?.rssSourceGroupTitle}}</span>
             <span class="label label-confix-content-video" *ngIf="news.typeContent == 'video'"><i class="fa fa-play-circle-o fa-2x"></i></span>
         </div>
     </div>

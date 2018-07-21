@@ -8,6 +8,7 @@ import {MobileComponent} from "../ui-mobile-component/mobile/mobile.component";
 import {IndexMobileComponent} from "../ui-mobile-component/index-mobile/index-mobile.component";
 import {DesktopCanActivate} from "./desktop-can-activate";
 import {MobileCanActivate} from "./mobile-can-activate";
+import {MTopicComponent} from "../ui-mobile-component/m-topic/m-topic.component";
 
 @NgModule({
     imports: [
@@ -33,10 +34,12 @@ import {MobileCanActivate} from "./mobile-can-activate";
 
                     {path: '', redirectTo: 'trangChu', pathMatch: 'full'},
                     {path: 'trangChu', component: IndexMobileComponent},
+                    {path: 'chuyenMuc', component: MTopicComponent},
                 ],
             },
 
             {path: 'newsDetail/:title/:id', component: NewsDetailComponent},
+            {path: 'chuyenMuc/:idTopic', component: MTopicComponent}
         ])
     ],
     declarations: [],

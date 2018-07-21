@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
 
     now: Date;
 
-    /**
+    /**loadingFlagByCategoryId
      * 7 tin tuc se hien o phan card chinh cua trang chu;
      */
     fixedTinChinhNews: NewsView[];

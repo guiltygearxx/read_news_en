@@ -8,6 +8,8 @@ import {NewsView} from "../bean/news-view";
 import {Router} from "@angular/router";
 import {NewsCardCommon} from "../ui-component/common/news-card-common";
 
+declare var $: any;
+
 @Injectable()
 export class ApplicationUtils {
 
@@ -180,5 +182,10 @@ export class ApplicationUtils {
         let title: string = this.convertTitleToURLParam(news.title);
 
         this.router.navigate(['/newsDetail/', title, news.id]).then();
+    }
+
+    scrollTopTop(completeFn ?: (() => void)): void {
+
+        $("html, body").stop().animate({scrollTop: 0}, 500, 'swing', completeFn);
     }
 }

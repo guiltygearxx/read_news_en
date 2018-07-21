@@ -1,0 +1,71 @@
+<app-m-header></app-m-header>
+
+<div class="section-space-home"></div>
+
+<div class="col-md-12 change-background-web-page">
+
+  <!--phan tin tuc chinh-->
+  <div *ngIf="!isLoadingTinChinh()" infinite-scroll class="col-sm-12 col-md-12" (scrolled)="showMore()"
+       [infiniteScrollDistance]="1">
+
+    <!--phan 7 card tin tuc chinh tren trang chu-->
+
+    <div class="col-md-3 col-xs-12 nopadding">
+
+      <app-m-news-card-header [image]="getTinChinhNewsImage(getTinChinhNews2(0))" [news]="getTinChinhNews2(3)"
+                              [now]="now">
+      </app-m-news-card-header>
+
+    </div>
+
+    <!--end:phan 7 card tin tuc chinh tren trang chu-->
+
+    <ng-container *ngFor="let news of getTinChinhNewsList(); let newsIndex = index">
+
+      <ng-container *ngIf="(newsIndex % 6 < 5)">
+
+        <app-m-news-card-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
+        </app-m-news-card-4>
+
+      </ng-container>
+
+      <ng-container *ngIf="(newsIndex % 6 >= 5)">
+
+        <app-m-news-card-multi-img-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
+        </app-m-news-card-multi-img-4>
+      </ng-container>
+
+    </ng-container>
+
+  </div>
+  <!--phan tin tuc chinh:end-->
+
+  <!--phan loading cho tin chinh-->
+  <div *ngIf="isLoadingTinChinh()" class="col-sm-12 col-md-12">
+
+    <div class="col-md-12 col-xs-12">
+      <app-news-loading-card-3></app-news-loading-card-3>
+    </div>
+
+    <hr class="col-md-12 fixed-margin-m"/>
+
+    <app-m-news-loading-card-4></app-m-news-loading-card-4>
+
+    <hr class="col-md-12 fixed-margin-m"/>
+
+    <app-m-news-loading-card-4></app-m-news-loading-card-4>
+
+    <hr class="col-md-12 fixed-margin-m"/>
+
+    <app-m-news-loading-card-4></app-m-news-loading-card-4>
+
+    <hr class="col-md-12 fixed-margin-m"/>
+
+    <app-m-news-loading-card-4></app-m-news-loading-card-4>
+
+  </div>
+  <!--phan loading cho tin chinh:end-->
+
+</div>
+
+<app-footer></app-footer>

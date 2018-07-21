@@ -453,3 +453,51 @@ export const ALL_CATEGORIES: Category[] = [
     }
 ];
 
+export const ALL_CATEGORIES_MOBILE: Category[] = [
+    {
+        "id": "6a494fbc-0f09-4ab0-95a3-12c1b7e02945",
+        "isDeleted": false,
+        "code": "xahoi",
+        "lastModifiedUser": "admin",
+        "title": "Xã hội",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "12f577d2-557b-405b-a418-0610cbded825",
+        "isDeleted": false,
+        "code": "ThoiSu",
+        "lastModifiedUser": "admin",
+        "title": "Thời sự",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "2556fab6-1139-4dd7-bc52-c124aebbc40d",
+        "isDeleted": false,
+        "code": "giaothong",
+        "lastModifiedUser": "admin",
+        "title": "Giao thông",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "6e93de2b-09bf-4e1b-a804-ea0b877dfb01",
+        "isDeleted": false,
+        "code": "chinhtri",
+        "lastModifiedUser": "admin",
+        "title": "Chính trị",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "5e483401-2466-45b2-a521-bbf22ea7bde2",
+        "isDeleted": false,
+        "code": "moitruong",
+        "lastModifiedUser": "admin",
+        "title": "Môi trường",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    }
+];
+

@@ -1,0 +1,111 @@
+<nav class="navbar navbar-rose navbar-transparent navbar-fixed-top navbar-color-on-scroll fixed-header-m"
+     color-on-scroll="100">
+
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle fixed-padding-m" data-toggle="collapse"
+                    data-target="#navigation-example">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!--CATEGORY_ID_TINNONG = 'af66aeeb-b351-4260-a682-8de551b15d05';-->
+            <a class="navbar-brand fixed-padding-m fixed-height-m fixed-button-active-m" (click)="viewNewsTopic($event, 'af66aeeb-b351-4260-a682-8de551b15d05')">Nóng</a>
+            <!--CATEGORY_ID_TINNOIBAT = 'bfec4714-3824-43a1-9ee1-17efbd099c26';-->
+            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, 'bfec4714-3824-43a1-9ee1-17efbd099c26')">Mới
+                <span class="label label-confix-content-video-m">9999</span>
+            </a>
+            <!--</a>CATEGORY_ID_VIDEO = '6050fc8f-9d17-4960-bf5d-4aa652501b82';-->
+            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, '6050fc8f-9d17-4960-bf5d-4aa652501b82')">Video</a>
+                <!--CATEGORY_ID_THOISU = '12f577d2-557b-405b-a418-0610cbded825';-->
+            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, '12f577d2-557b-405b-a418-0610cbded825')">Chủ đề</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="hover-element-li">
+                    <div class="fixed-input-m">
+                        <input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm...">
+                    </div>
+                </li>
+
+                <ng-container *ngFor="let category of getCategories(null)">
+
+                    <ng-container *ngIf="isHasSubCategories(category); then menuHasSubMenus else menu">
+                    </ng-container>
+
+                    <ng-template #menuHasSubMenus>
+
+                        <li class="dropdown hover-element-li" (mouseenter)="openSubMenus($event)">
+
+                            <a class="dropdown-toggle" data-toggle="dropdown" (click)="viewNewsTopic($event, category.id)">
+                                {{category.title}}
+                                <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <li *ngFor="let subCategory of getCategories(category)">
+                                    <a (click)="viewNewsTopic($event, subCategory.id)">{{subCategory.title}}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ng-template>
+
+                    <ng-template #menu>
+
+                        <li class="hover-element-li">
+                            <a (click)="viewNewsTopic($event, category.id)">{{category.title}}</a>
+                        </li>
+
+                    </ng-template>
+
+                </ng-container>
+
+                <li class="hover-element-li">
+                    <a data-toggle="modal" data-target="#loginModal">
+                        <i class="material-icons">search</i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+                <div class="modal-header">
+                    <button type="button" class="close header-primary" data-dismiss="modal" aria-hidden="true"
+                            style="margin-top: -16px;">
+                        <i class="material-icons">clear</i>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="card-content">
+
+                        <div class="input-group">
+								<span class="input-group-addon">
+									<i class="material-icons">search</i>
+								</span>
+                            <input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm...">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Tìm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  End Modal -->
