@@ -10,7 +10,7 @@ import {
     CATEGORY_ID_THOISU,
     CATEGORY_ID_TINCHINH,
     CATEGORY_ID_TINNOIBAT, CATEGORY_ID_TINNONG,
-    CATEGORY_ID_VIDEO,
+    CATEGORY_ID_VIDEO, CATEGORY_NAME_CHUDE, CATEGORY_NAME_TINMOI, CATEGORY_NAME_TINNONG, CATEGORY_NAME_VIDEO,
     IMAGE_REFERENCE_TYPE_NEWS
 } from "../../common/application-constants";
 
@@ -74,11 +74,22 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
     ngAfterContentChecked(): void {
 
-        let currentNewsId: string = this.route.snapshot.paramMap.get("idTopic");
+        let currentNewsName: string = this.route.snapshot.paramMap.get("idTopic");
 
-        this.tinChinhTopic = currentNewsId;
-
-        console.log(currentNewsId);
+        switch (currentNewsName) {
+            case CATEGORY_NAME_TINNONG:
+                this.tinChinhTopic = CATEGORY_ID_TINNONG;
+                break;
+            case CATEGORY_NAME_TINMOI:
+                this.tinChinhTopic = CATEGORY_ID_TINNOIBAT;
+                break;
+            case CATEGORY_NAME_VIDEO:
+                this.tinChinhTopic = CATEGORY_ID_VIDEO;
+                break;
+            case CATEGORY_NAME_CHUDE:
+                this.tinChinhTopic = CATEGORY_ID_TINNONG;
+                break;
+        }
     }
 
     getTinChinhNewsList(): NewsView[] {

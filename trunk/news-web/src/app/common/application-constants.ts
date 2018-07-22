@@ -99,6 +99,12 @@ export const CATEGORY_ID_PHAPLUAT = 'f0b2ebb7-83ab-4087-ab9a-9ec38d14bfc8';
 export const CATEGORY_ID_HOAHAU = 'f523a69b-d855-4dca-bcf9-fad33ff12410';
 export const CATEGORY_ID_DIENDAN = 'f766b734-2141-452f-b509-3b016476cf30';
 
+export const CATEGORY_NAME_TINNONG = 'tinNong';
+export const CATEGORY_NAME_TINMOI = 'tinMoi';
+export const CATEGORY_NAME_VIDEO = 'video';
+export const CATEGORY_NAME_CHUDE = 'chuDe';
+
+
 
 export const IMAGE_REFERENCE_TYPE_NEWS = "NEWS";
 export const TIMEOUT_APPLY_EFFECT = 100;

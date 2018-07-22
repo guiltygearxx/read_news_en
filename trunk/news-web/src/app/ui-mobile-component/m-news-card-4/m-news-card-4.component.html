@@ -1,25 +1,28 @@
-<div class="card-m card-plain card-blog hover-element-type fixed-width-m col-md-3 nopadding" (click)="viewNewsDetail($event)">
+<div class="card-m card-plain card-blog hover-element-type col-md-3 nopadding" (click)="viewNewsDetail($event)">
 
-  <div  id="container123" class="col-md-12 col-xs-4" style="padding-left: 0px; margin-top: 4px">
-    <div class="card-image fixed-border-m">
-      <a [href]="news | redirectLink">
-        <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
-      </a>
-      <span class="label label-confiprkl-element x-content-video" *ngIf="news.typeContent == 'video'"><i class="fa fa-play-circle-o fa-2x"></i></span>
+    <div id="container123" class="col-md-12 col-xs-4" style="padding-left: 0px; margin-top: 4px">
+        <div class="card-image fixed-border-m">
+            <a [href]="news | redirectLink">
+                <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
+            </a>
+            <span class="label label-confix-content-video" *ngIf="news.typeContent != 'video'"><i
+                    class="fa fa-picture-o"></i></span>
+
+        </div>
     </div>
-  </div>
-  <div class="col-md-12 col-xs-8 social-networking nopadding">
-    <div class="social-networking-title">
-      <h5 class="card-title fixed-font-m" style="margin-bottom: 0px">
-        <a [href]="news | redirectLink">{{news?.title}}</a>
-      </h5>
+    <div class="col-md-12 col-xs-8 social-networking nopadding">
+        <div class="social-networking-title">
+            <h5 class="card-title fixed-font-m" style="margin-bottom: 0px">
+                <a [href]="news | redirectLink">{{news?.title}}</a>
+            </h5>
+        </div>
+
+        <div class="col-md-12">
+            <a href="#pablo" class="source-news">{{news?.rssSourceGroupTitle}} - {{news?.pubDate | displayNewsTime :
+                now}}</a>
+        </div>
+
     </div>
 
-    <div class="col-md-12">
-      <a href="#pablo" class="source-news">{{news?.rssSourceGroupTitle}} - {{news?.pubDate | displayNewsTime : now}}</a>
-    </div>
-
-  </div>
-
-  <div class="affect-on-div" [@readyStateChanged]="readyState"></div>
+    <div class="affect-on-div" [@readyStateChanged]="readyState"></div>
 </div>

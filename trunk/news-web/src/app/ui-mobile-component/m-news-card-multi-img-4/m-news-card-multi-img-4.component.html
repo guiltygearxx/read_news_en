@@ -13,7 +13,7 @@
       <a [href]="news | redirectLink">
         <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
       </a>
-      <span class="label label-confix-content-video" *ngIf="news.typeContent =='video'"><i class="fa fa-play-circle-o fa-2x"></i></span>
+      <span class="label label-confix-content-video" *ngIf="news.typeContent !='video'"><i class="fa fa-video-camera"></i></span>
     </div>
   </div>
 
