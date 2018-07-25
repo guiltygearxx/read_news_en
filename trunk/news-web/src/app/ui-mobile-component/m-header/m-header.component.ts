@@ -50,7 +50,7 @@ export class MHeaderComponent implements OnInit {
 
         $event.preventDefault();
 
-        this.router.navigate(['chuyenMuc', idTopic]);
+        this.router.navigate(['mobile/chuDe', idTopic]);
     }
 
     protected loadCategories(): void {

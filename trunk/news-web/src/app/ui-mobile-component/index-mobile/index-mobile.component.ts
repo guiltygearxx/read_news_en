@@ -1,33 +1,25 @@
 import {Component, OnInit} from '@angular/core';
-import {IndexComponent} from "../../ui-component/index/index.component";
 import {NewsViewService} from "../../service/news-view.service";
 import {ImageService} from "../../service/image.service";
 import {NewsView} from "../../bean/news-view";
 import {Image} from "../../bean/image";
 import {isNullOrUndefined} from "util";
-import {
-    CATEGORY_ID_THOISU,
-    CATEGORY_ID_TINCHINH,
-    CATEGORY_ID_TINNOIBAT, CATEGORY_ID_TINNONG,
-    CATEGORY_ID_VIDEO, IMAGE_REFERENCE_TYPE_NEWS
-} from "../../common/application-constants";
+import {CATEGORY_ID_TINCHINH, IMAGE_REFERENCE_TYPE_NEWS} from "../../common/application-constants";
 import {Observable} from "rxjs/Observable";
-import {Router} from "@angular/router";
-import {ApplicationUtils} from "../../common/application-utils";
 
 @Component({
-  selector: 'app-index-mobile',
-  templateUrl: './index-mobile.component.html',
-  styleUrls: ['./index-mobile.component.css']
+    selector: 'app-index-mobile',
+    templateUrl: './index-mobile.component.html',
+    styleUrls: ['./index-mobile.component.css']
 })
 export class IndexMobileComponent implements OnInit {
 
     now: Date;
 
-    /**loadingFlagByCategoryId
-     * 7 tin tuc se hien o phan card chinh cua trang chu;
+    /**
+     * phần tin to nhất trên trang mobile;
      */
-    fixedTinChinhNews: NewsView[];
+    fixedTinChinhNews: NewsView;
 
     tinChinhNews: NewsView[];
 
@@ -74,26 +66,6 @@ export class IndexMobileComponent implements OnInit {
         return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH];
     }
 
-    getThoiSuNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_THOISU];
-    }
-
-    getVideoNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_VIDEO];
-    }
-
-    getTinNongNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNONG];
-    }
-
-    getTinNoiBatNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNOIBAT];
-    }
-
     getTinChinhNews2(index: number): NewsView {
 
         let news = this.fixedTinChinhNews;
@@ -111,26 +83,6 @@ export class IndexMobileComponent implements OnInit {
     getTinChinhNewsImage(news: NewsView): Image {
 
         return this.getNewsImage(CATEGORY_ID_TINCHINH, news);
-    }
-
-    getThoiSuNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_THOISU, news);
-    }
-
-    getVideoNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_VIDEO, news);
-    }
-
-    getTinNoiBatNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_TINNOIBAT, news);
-    }
-
-    getTinNongNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_TINNONG, news);
     }
 
     getNewsImage(categoryId: string, news: NewsView): Image {
@@ -164,26 +116,6 @@ export class IndexMobileComponent implements OnInit {
         return this._isLoading(CATEGORY_ID_TINCHINH);
     }
 
-    isLoadingThoiSu(): boolean {
-
-        return this._isLoading(CATEGORY_ID_THOISU);
-    }
-
-    isLoadingTinNoiBat(): boolean {
-
-        return this._isLoading(CATEGORY_ID_TINNOIBAT);
-    }
-
-    isLoadingTinNong(): boolean {
-
-        return this._isLoading(CATEGORY_ID_TINNONG);
-    }
-
-    isLoadingVideo(): boolean {
-
-        return this._isLoading(CATEGORY_ID_VIDEO);
-    }
-
     protected loadMoreTinChinh(): void {
 
         this.stopLoadMoreTinChinh = true;
@@ -213,11 +145,7 @@ export class IndexMobileComponent implements OnInit {
     protected loadNewsByCategories(): void {
 
         [
-            {categoryId: CATEGORY_ID_TINCHINH, max: 26, offset: 0},
-            {categoryId: CATEGORY_ID_THOISU, max: 5, offset: 0},
-            {categoryId: CATEGORY_ID_TINNONG, max: 5, offset: 0},
-            {categoryId: CATEGORY_ID_TINNOIBAT, max: 5, offset: 0},
-            {categoryId: CATEGORY_ID_VIDEO, max: 5, offset: 0},
+            {categoryId: CATEGORY_ID_TINCHINH, max: 21, offset: 0},
         ].forEach(options => {
 
             let categoryId = options.categoryId;
@@ -233,49 +161,6 @@ export class IndexMobileComponent implements OnInit {
                     case CATEGORY_ID_TINCHINH:
                         this.afterLoadTinChinhNews(newsViews);
                         break;
-
-                    case CATEGORY_ID_THOISU:
-
-                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
-
-                        (newsViews && newsViews.length) && (
-                            this.loadImages(newsViews)
-                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
-                        );
-
-                        break;
-
-                    case CATEGORY_ID_TINNONG:
-
-                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
-
-                        (newsViews && newsViews.length) && (
-                            this.loadImages(newsViews)
-                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
-                        );
-
-                        break;
-                    case CATEGORY_ID_TINNOIBAT:
-
-                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
-
-                        (newsViews && newsViews.length) && (
-                            this.loadImages(newsViews)
-                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
-                        );
-
-                        break;
-
-                    case CATEGORY_ID_VIDEO:
-
-                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
-
-                        (newsViews && newsViews.length) && (
-                            this.loadImages(newsViews)
-                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
-                        );
-
-                        break;
                 }
             });
         });
@@ -289,7 +174,7 @@ export class IndexMobileComponent implements OnInit {
 
         this.tinChinhNews = newsViews;
 
-        this.fixedTinChinhNews = newsViews.splice(0, 6);
+        this.fixedTinChinhNews = newsViews.splice(0, 1)[0];
 
         this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH] = newsViews.splice(0, 10);
 

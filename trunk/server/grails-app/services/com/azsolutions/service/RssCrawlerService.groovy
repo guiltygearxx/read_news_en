@@ -31,12 +31,12 @@ class RssCrawlerService {
             List<Future> futures = [];
 
             RssSourceGroup
-//                    .findAllByIsDeleted(false)
-                    .findAllByIdInList(["0dbdc216-d4e2-4fbd-8637-4601847bdf6d", "148359d0-a2b4-40a0-aed6-f81c0b8468db",
-                                        "1d71f736-8294-4f47-a407-defd60c8d57b", "35f8f475-f4c6-4e86-92d9-ab451654fbf6",
-                                        "513e4ec1-7b17-4f32-9ce7-754021de1bff", "52dc5458-20c0-4732-beab-fec7b5820e63",
-                                        "c73f98f2-3012-4151-90e8-ad894ee1378d", "e0d43eef-18ad-47b3-8dbd-7413ba9fca23",
-                                        "c8b1337f-47be-4ce7-9bc2-b5846d48f33b"])
+                    .findAllByIsDeleted(false)
+//                    .findAllByIdInList(["0dbdc216-d4e2-4fbd-8637-4601847bdf6d", "148359d0-a2b4-40a0-aed6-f81c0b8468db",
+//                                        "1d71f736-8294-4f47-a407-defd60c8d57b", "35f8f475-f4c6-4e86-92d9-ab451654fbf6",
+//                                        "513e4ec1-7b17-4f32-9ce7-754021de1bff", "52dc5458-20c0-4732-beab-fec7b5820e63",
+//                                        "c73f98f2-3012-4151-90e8-ad894ee1378d", "e0d43eef-18ad-47b3-8dbd-7413ba9fca23",
+//                                        "c8b1337f-47be-4ce7-9bc2-b5846d48f33b"])
                     .each { RssSourceGroup rssSourceGroup ->
 
                 List<RssSource> rssSources =

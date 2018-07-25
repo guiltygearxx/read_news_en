@@ -4,6 +4,7 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+
             <button type="button" class="navbar-toggle fixed-padding-m" data-toggle="collapse"
                     data-target="#navigation-example">
                 <span class="sr-only">Toggle navigation</span>
@@ -12,11 +13,13 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand fixed-padding-m fixed-height-m fixed-button-active-m" (click)="viewNewsTopic($event, 'tinNong')">NÓNG</a>
-            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, 'tinMoi')">MỚI
-                <span class="label label-confix-content-video-m">9999</span>
-            </a>
+            <a class="navbar-brand fixed-padding-m fixed-height-m fixed-button-active-m"
+               (click)="viewNewsTopic($event, 'tinNong')">NÓNG</a>
+
+            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, 'tinMoi')">MỚI</a>
+
             <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, 'video')">VIDEO</a>
+
             <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, 'chuDe')">CHỦ ĐỀ</a>
 
         </div>
@@ -39,7 +42,8 @@
 
                         <li class="dropdown hover-element-li" (mouseenter)="openSubMenus($event)">
 
-                            <a class="dropdown-toggle" data-toggle="dropdown" (click)="viewNewsTopic($event, category.id)">
+                            <a class="dropdown-toggle" data-toggle="dropdown"
+                               (click)="viewNewsTopic($event, category.id)">
                                 {{category.title}}
                                 <b class="caret"></b>
                             </a>

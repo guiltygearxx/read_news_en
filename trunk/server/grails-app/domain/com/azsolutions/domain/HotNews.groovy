@@ -1,21 +1,14 @@
 package com.azsolutions.domain
 
-class News implements BaseDomain {
+class HotNews implements BaseDomain {
 
-    String title;
-    String link;
-    Date pubDate;
-    String guid;
-    String description;
-    String rssSourceGroupId;
+    String newsId;
 
     static constraints = {
 
         lastModifiedTime nullable: true
         lastModifiedUser nullable: true
         isDeleted nullable: true
-        description nullable: true
-        rssSourceGroupId nullable: true
     }
 
     static mapping = {

@@ -7,6 +7,7 @@ class ExampleController {
 
     def readRssService;
     def rssCrawlerService;
+    def hotNewsCrawlerService;
 
     def crawler() {
 
@@ -18,5 +19,12 @@ class ExampleController {
     def example() {
 
         render([isSuccess: true, result: readRssService.readRss(RssConfig.get("15af7393-e4ca-450e-8b39-2bc02c99dee6"))] as JSON);
+    }
+
+    def example2() {
+
+        this.hotNewsCrawlerService.crawler();
+
+        render([isSuccess: true] as JSON);
     }
 }
