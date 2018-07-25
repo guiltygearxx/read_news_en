@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Category} from "../../bean/category";
 import {ALL_CATEGORIES} from "../../service/category-fixed-datasource";
 import {isNullOrUndefined} from "util";
+import {Router} from "@angular/router";
 
 declare var $: any;
 
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
     categories: Category[];
 
-    constructor() {
+    constructor(protected router: Router) {
     }
 
     ngOnInit() {
@@ -38,14 +39,33 @@ export class HeaderComponent implements OnInit {
         return !isNullOrUndefined(subCategory);
     }
 
-    openSubMenus(event: any): void {
+    openMenu(event: any): void {
 
+        setTimeout(() => {
+
+            $(event.target).is(":hover") && $(event.target).addClass("open");
+
+        }, 100)
+    }
+
+    closeMenu(event: any): void {
+
+        setTimeout(() => {
+
+            !$(event.target).is(":hover") && $(event.target).removeClass("open");
+
+        }, 100)
+    }
+
+    openCategory(event: any, category: Category): void {
+
+        event.stopPropagation();
+
+        this.router.navigate(['desktop/chuDe/', category.id]);
     }
 
     protected loadCategories(): void {
 
         this.categories = ALL_CATEGORIES;
     }
-
-
 }

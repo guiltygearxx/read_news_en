@@ -3,7 +3,6 @@
 <div class="col-md-12 change-background-web-page">
 
     <div class="col-sm-1 col-md-1">
-
     </div>
 
     <!--phan tin tuc chinh-->
@@ -58,7 +57,6 @@
             </app-news-card-3>
 
         </div>
-
         <!--end:phan 7 card tin tuc chinh tren trang chu-->
 
         <ng-container *ngFor="let news of getTinChinhNewsList(); let newsIndex = index">
@@ -216,40 +214,9 @@
         <hr class="col-md-12"/>
 
         <div class="col-md-12 nopadding">
-            <ul class="nav nav-pills nav-pills-warning">
-                <li class="active">
-                    <a href="#pillThoiTiet" data-toggle="tab">BTC</a>
-                </li>
-                <li>
-                    <a href="#pillGiaVang" data-toggle="tab">Giá vàng</a>
-                </li>
-                <li>
-                    <a href="#pillSoSo" data-toggle="tab">Ngoại tệ</a>
-                </li>
-            </ul>
-            <div class="tab-content tab-space">
-                <div class="tab-pane active" id="pillThoiTiet">
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <iframe id="fr75" style="border: none;width:100%"
-                                src="//www.tygia.com/api.php?column=2&amp;title=0&amp;chart=1&amp;gold=0&amp;rate=1&amp;expand=2&amp;color=284C84&amp;nganhang=Crypto&amp;fontsize=80&amp;change=2&amp;limit_rate=100&amp;ngoaite=BTC"
-                                width="300" height="900"></iframe>
-                    </div>
-                </div>
-                <div class="tab-pane" id="pillGiaVang">
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <iframe id="fr5" style="border: none;"
-                                src="//www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=1&amp;rate=1&amp;expand=0&amp;color=1D4C75&amp;nganhang=VIETCOM&amp;ngoaite=usd,jpy,chf,eur,gbp,aud&amp;fontsize=80&amp;change=0"
-                                width="300" height="400"></iframe>
-                    </div>
-                </div>
-                <div class="tab-pane" id="pillSoSo">
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <iframe id="fr2" style="border: none;"
-                                src="//www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=0&amp;rate=1&amp;expand=1&amp;color=aa1111&amp;nganhang=VIETCOM&amp;fontsize=80&amp;ngay="
-                                width="300" height="400"></iframe>
-                    </div>
-                </div>
-            </div>
+
+            <app-tin-tuc-phu></app-tin-tuc-phu>
+
         </div>
 
         <hr class="col-md-12"/>
