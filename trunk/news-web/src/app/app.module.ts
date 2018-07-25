@@ -55,6 +55,7 @@ import { MNewsLoadingCard4Component } from './ui-mobile-component/m-news-loading
 import { MNewsLoadingCardMulti4Component } from './ui-mobile-component/m-news-loading-card-multi-4/m-news-loading-card-multi-4.component';
 import { MHeaderComponent } from './ui-mobile-component/m-header/m-header.component';
 import { MTopicComponent } from './ui-mobile-component/m-topic/m-topic.component';
+import { MNewsCard3Component } from './ui-mobile-component/m-news-card-3/m-news-card-3.component';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { MTopicComponent } from './ui-mobile-component/m-topic/m-topic.component
         MNewsLoadingCardMulti4Component,
         MHeaderComponent,
         MTopicComponent,
+        MNewsCard3Component,
     ],
     imports: [
         BrowserModule,

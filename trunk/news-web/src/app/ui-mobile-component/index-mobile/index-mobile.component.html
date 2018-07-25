@@ -10,6 +10,7 @@
 
         <div class="col-md-3 col-xs-12 nopadding">
 
+
             <app-m-news-card-header [image]="getTinChinhNewsImage(getTinChinhNews2(0))" [news]="getTinChinhNews2(0)"
                                     [now]="now">
             </app-m-news-card-header>
@@ -23,21 +24,23 @@
 
         <ng-container *ngFor="let news of getTinChinhNewsList(); let newsIndex = index">
 
-            <ng-container *ngIf="(newsIndex % 6 < 5)">
-
-                <hr class="col-md-12 fixed-margin-m"/>
+            <ng-container *ngIf="(newsIndex % 8 < 5)">
 
                 <app-m-news-card-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
                 </app-m-news-card-4>
 
-            </ng-container>
-
-            <ng-container *ngIf="(newsIndex % 6 >= 5)">
-
                 <hr class="col-md-12 fixed-margin-m"/>
 
-                <app-m-news-card-multi-img-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
-                </app-m-news-card-multi-img-4>
+            </ng-container>
+
+            <ng-container *ngIf="(newsIndex % 8 >= 5)">
+
+                <div class="col-md-4 col-xs-4">
+
+                    <app-m-news-card-3 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
+                    </app-m-news-card-3>
+
+                </div>
             </ng-container>
 
         </ng-container>
