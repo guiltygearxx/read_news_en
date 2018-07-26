@@ -59,12 +59,12 @@
 }
 
 .logo-color {
-    background-image: url("https://baomoi-static.zadn.vn/web/styles/img/desktop-logo.png");
-    background-size: 160px 77px;
-    display: inline-block;
+    background-image: url("../img/newspaper.png");
+    background-size: 36px 36px;
+    /*display: inline-block;*/
     height: 36px;
-    vertical-align: middle;
-    width: 160px;
+    /*vertical-align: middle;*/
+    width: 36px;
 }
 
 .social-networking .social-networking-title:hover {
@@ -415,4 +415,8 @@
 
 .col-xs-0 {
     display: none;
+}
+
+.fixed-padding-card-3-m{
+    padding-top: 3px !important;
 }

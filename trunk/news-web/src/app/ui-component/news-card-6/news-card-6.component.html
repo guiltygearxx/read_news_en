@@ -4,7 +4,7 @@
             <div class="">
                 <a [href]="news | redirectLink" target="_blank">
                     <img class="img-rounded img-responsive img-flash-link cover-img" alt="Rounded Image"
-                         [src]="image?.url" width="500" height="400">
+                         [src]="image?.url || 'assets/img/image_news.jpg'" width="500" height="400">
                 </a>
             </div>
         </div>

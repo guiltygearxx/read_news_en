@@ -3,7 +3,7 @@
         <div class="card-image">
 
             <a [href]="news | redirectLink" target="_blank">
-                <img class="img img-raised img-content-card-5 cover-img" [src]="image?.url" width="500" height="400"/>
+                <img class="img img-raised img-content-card-5 cover-img" [src]="image?.url || 'assets/img/image_news.jpg'" width="500" height="400"/>
             </a>
 
             <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>

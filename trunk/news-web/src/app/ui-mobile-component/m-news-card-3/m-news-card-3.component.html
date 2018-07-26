@@ -1,11 +1,11 @@
 <div class="card card-plain card-blog">
     <div class="card-image">
         <a [href]="news | redirectLink" target="_blank">
-            <img class="img img-raised img-content-md-3 cover-img" [src]="image?.url" width="500" height="400"/>
+            <img class="img img-raised img-content-md-3 cover-img" [src]="image?.url || 'assets/img/image_news.jpg'" width="500" height="400"/>
         </a>
     </div>
 
-    <div class="card-content">
+    <div class="card-content fixed-padding-card-3-m">
         <h4 class="card-title fixed-font-m">
             <a [href]="news | redirectLink" target="_blank">{{news?.title}}</a>
         </h4>

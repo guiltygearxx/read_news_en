@@ -3,7 +3,7 @@
     <div id="container123" class="col-md-12 col-xs-4" style="padding-left: 0px; margin-top: 4px">
         <div class="card-image fixed-border-m">
             <a [href]="news | redirectLink" target="_blank">
-                <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
+                <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url || 'assets/img/image_news.jpg'"/>
             </a>
             <span class="label label-confix-content-video" *ngIf="news.typeContent != 'video'"><i
                     class="fa fa-picture-o"></i></span>
