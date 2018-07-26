@@ -1,104 +1,101 @@
 <div class="page-header header-filter header-small" data-parallax="true"
-     style="background-image: url('https://baomoi-photo-3-td.zadn.vn/w700_r16x9/18/06/21/7/26598425/5_141201.jpg');">
+     [style.background-image]="'url(' + getTinChinhNewsImage(fixedTinChinhNews2)?.url + ')'">
+
     <div class="container">
+
         <div class="row">
-            <div class="col-md-6">
-                <h3 class="title no-margin">Hà Nội: Cháy dữ dội ở chợ Sóc Sơn</h3>
-                <h4>Đám cháy phát ra từ khu vực bán giày dép rồi nhanh chóng lan ra toàn bộ khu chợ Sóc Sơn (Hà Nội) vào
-                    sáng sớm nay</h4>
+
+            <div class="col-md-12">
+
+                <h3 class="title no-margin">{{fixedTinChinhNews2?.title}}</h3>
+
+                <h4>{{fixedTinChinhNews2?.description}}</h4>
+
                 <div>
-                    <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
 
-                        VOV
-                    </a>
+                    <a class="source-news">{{fixedTinChinhNews2?.rssSourceGroupTitle}}</a>
 
-                    <span class="time-news-title" datetime="2018-06-17T17:07:10.000+07:00 ">10 phút</span>
+                    <span class="time-news-title">{{fixedTinChinhNews2?.pubDate | displayNewsTime : now}}</span>
 
-
-                    <a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>
+                    <!--<a class="relate-news" href="/tin-lien-quan/t/6458801.epi ">1 liên quan</a>-->
 
                 </div>
+
                 <br/>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-lg">
+
+                <a [href]="fixedTinChinhNews2?.link" target="_blank" class="btn btn-danger btn-lg">
                     <i class="fa fa-eye"></i> Chi tiết
                 </a>
-            </div>
-            <div class="col-md-6">
+
             </div>
 
+            <div class="col-md-6"></div>
+
         </div>
+
     </div>
+
 </div>
 
 <div class="section-space"></div>
 
 <div class="col-md-12 change-background-web-page">
 
-    <div class="col-sm-1 col-md-1">
+    <div class="col-sm-1 col-md-1"></div>
 
-    </div>
     <!--phan tin tuc chinh-->
     <div *ngIf="!isLoadingTinChinh()" infinite-scroll class="col-sm-7 col-md-7" (scrolled)="showMore()"
          [infiniteScrollDistance]="1">
-        <div class="col-md-12 nopadding" style="background: #fff">
-            <div class="col-md-4">
-                <div class="col-md-12 nopadding">
-                    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(1))" [news]="getTinChinhNews2(1)"
-                                     [now]="now">
-                    </app-news-card-2>
-                </div>
-                <div class="col-md-12 nopadding">
-                    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(1)"
-                                     [now]="now">
-                    </app-news-card-2>
-                </div>
-            </div>
 
-            <div class="col-md-4 fake-cusor">
+        <!--phan 7 card tin tuc chinh tren trang chu-->
+        <div class="col-md-12 nopadding" style="background: #fff">
+            <div class="col-md-8 fake-cusor">
+
                 <app-news-card [image]="getTinChinhNewsImage(getTinChinhNews2(0))" [news]="getTinChinhNews2(0)"
                                [now]="now">
                 </app-news-card>
+
             </div>
-            <div class="col-md-4">
-                <div class="col-md-12 nopadding">
-                    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(1)"
-                                     [now]="now">
-                    </app-news-card-2>
-                </div>
-                <div class="col-md-12 nopadding">
-                    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(1)"
-                                     [now]="now">
-                    </app-news-card-2>
-                </div>
+            <div class="col-md-4 col-xs-12">
+
+                <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(1))" [news]="getTinChinhNews2(1)"
+                                 [now]="now">
+                </app-news-card-2>
+
+            </div>
+            <div class="col-md-4 col-xs-12">
+
+                <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(2)"
+                                 [now]="now">
+                </app-news-card-2>
+
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12">
+
             <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(3))" [news]="getTinChinhNews2(3)"
                              [now]="now">
             </app-news-card-3>
+
         </div>
 
-        <div class="col-md-4">
-            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(3)"
+        <div class="col-md-4 col-xs-12">
+
+            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(4)"
                              [now]="now">
             </app-news-card-3>
+
         </div>
 
-        <div class="col-md-4">
-            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(3)"
+        <div class="col-md-4 col-xs-12">
+
+            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(5)"
                              [now]="now">
             </app-news-card-3>
+
         </div>
-
-
-        <hr class="col-md-12"/>
-
-        <div class="col-md-12">
-            <a class="text-info text-sub-category-default" href="#pablo">
-                Lựa chọn của biên tập viên
-            </a>
-        </div>
+        <!--end:phan 7 card tin tuc chinh tren trang chu-->
 
         <ng-container *ngFor="let news of getTinChinhNewsList(); let newsIndex = index">
 
@@ -126,58 +123,46 @@
 
         <div class="col-md-12 nopadding" style="background: #fff">
 
-            <div class="col-md-4">
-                <div class="col-md-12 nopadding">
-                    <app-news-loading-card-2></app-news-loading-card-2>
-                </div>
-
-                <div class="col-md-12 nopadding">
-                    <app-news-loading-card-2></app-news-loading-card-2>
-                </div>
-            </div>
-
-            <div class="col-md-4 fake-cusor">
+            <div class="col-md-8 fake-cusor">
                 <app-news-loading-card></app-news-loading-card>
             </div>
 
             <div class="col-md-4">
-                <div class="col-md-12 nopadding">
-                    <app-news-loading-card-2></app-news-loading-card-2>
-                </div>
-
-                <div class="col-md-12 nopadding">
-                    <app-news-loading-card-2></app-news-loading-card-2>
-                </div>
+                <app-news-loading-card-2></app-news-loading-card-2>
             </div>
 
             <div class="col-md-4">
-                <app-news-loading-card-3></app-news-loading-card-3>
+                <app-news-loading-card-2></app-news-loading-card-2>
             </div>
-
-            <div class="col-md-4">
-                <app-news-loading-card-3></app-news-loading-card-3>
-            </div>
-
-            <div class="col-md-4">
-                <app-news-loading-card-3></app-news-loading-card-3>
-            </div>
-
-            <hr class="col-md-12"/>
-
-            <app-news-loading-card-4></app-news-loading-card-4>
-
-            <hr class="col-md-12"/>
-
-            <app-news-loading-card-4></app-news-loading-card-4>
-
         </div>
+
+        <div class="col-md-4">
+            <app-news-loading-card-3></app-news-loading-card-3>
+        </div>
+
+        <div class="col-md-4">
+            <app-news-loading-card-3></app-news-loading-card-3>
+        </div>
+
+        <div class="col-md-4">
+            <app-news-loading-card-3></app-news-loading-card-3>
+        </div>
+
+        <hr class="col-md-12"/>
+
+        <app-news-loading-card-4></app-news-loading-card-4>
+
+        <hr class="col-md-12"/>
+
+        <app-news-loading-card-4></app-news-loading-card-4>
+
     </div>
     <!--phan loading cho tin chinh:end-->
 
     <div class="col-sm-3 col-md-3" style="background: #fff">
 
         <!--Hien thi card dang slider tu dong  -->
-        <app-new-card-carousel></app-new-card-carousel>
+        <!--<app-new-card-carousel></app-new-card-carousel>-->
 
         <!--Hien thi tin tuc - Tin nong-->
         <h5 style="font-weight: bold;margin-bottom: 0px;">Tin nóng</h5>
@@ -202,34 +187,9 @@
         <hr class="col-md-12"/>
 
         <div class="col-md-12 nopadding">
-            <ul class="nav nav-pills nav-pills-warning">
-                <li class="active">
-                    <a href="#pillThoiTiet" data-toggle="tab">BTC</a>
-                </li>
-                <li>
-                    <a href="#pillGiaVang" data-toggle="tab">Giá vàng</a>
-                </li>
-                <li>
-                    <a href="#pillSoSo" data-toggle="tab">Ngoại tệ</a>
-                </li>
-            </ul>
-            <div class="tab-content tab-space">
-                <div class="tab-pane active" id="pillThoiTiet">
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <iframe id="fr75" style="border: none;width:100%" src="//www.tygia.com/api.php?column=2&amp;title=0&amp;chart=1&amp;gold=0&amp;rate=1&amp;expand=2&amp;color=284C84&amp;nganhang=Crypto&amp;fontsize=80&amp;change=2&amp;limit_rate=100&amp;ngoaite=BTC" width="320" height="900"></iframe>
-                    </div>
-                </div>
-                <div class="tab-pane" id="pillGiaVang">
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <iframe id="fr5" style="border: none;" src="//www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=1&amp;rate=1&amp;expand=0&amp;color=1D4C75&amp;nganhang=VIETCOM&amp;ngoaite=usd,jpy,chf,eur,gbp,aud&amp;fontsize=80&amp;change=0" width="320" height="320"></iframe>
-                    </div>
-                </div>
-                <div class="tab-pane" id="pillSoSo">
-                    <div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
-                        <iframe id="fr2" style="border: none;" src="//www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=0&amp;rate=1&amp;expand=1&amp;color=aa1111&amp;nganhang=VIETCOM&amp;fontsize=80&amp;ngay=" width="320" height="400"></iframe>
-                    </div>
-                </div>
-            </div>
+
+            <app-tin-tuc-phu></app-tin-tuc-phu>
+
         </div>
 
         <hr class="col-md-12"/>

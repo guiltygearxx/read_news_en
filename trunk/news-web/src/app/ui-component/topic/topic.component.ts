@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentChecked, Component, OnInit} from '@angular/core';
 import {NewsView} from "../../bean/news-view";
 import {NewsViewService} from "../../service/news-view.service";
 import {
@@ -12,13 +12,14 @@ import {ImageService} from "../../service/image.service";
 import {Image} from "../../bean/image";
 import {Observable} from "rxjs/Observable";
 import {isNullOrUndefined} from "util";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-topic',
-  templateUrl: './topic.component.html',
-  styleUrls: ['./topic.component.css']
+    selector: 'app-topic',
+    templateUrl: './topic.component.html',
+    styleUrls: ['./topic.component.css']
 })
-export class TopicComponent implements OnInit {
+export class TopicComponent implements OnInit, AfterContentChecked {
 
     now: Date;
 
@@ -26,6 +27,8 @@ export class TopicComponent implements OnInit {
      * 7 tin tuc se hien o phan card chinh cua trang chu;
      */
     fixedTinChinhNews: NewsView[];
+
+    fixedTinChinhNews2: NewsView;
 
     tinChinhNews: NewsView[];
 
@@ -44,8 +47,11 @@ export class TopicComponent implements OnInit {
      */
     stopLoadMoreTinChinh: boolean;
 
+    categoryId: string;
+
     constructor(protected newsViewService: NewsViewService,
-                protected imageService: ImageService) {
+                protected imageService: ImageService,
+                protected route: ActivatedRoute,) {
     }
 
     ngOnInit(): void {
@@ -67,9 +73,33 @@ export class TopicComponent implements OnInit {
         this.loadNewsByCategories();
     }
 
+    ngAfterContentChecked(): void {
+
+        let categoryId: string = this.route.snapshot.paramMap.get('categoryId');
+
+        if (categoryId != this.categoryId) {
+
+            this.newsViewsGroupByCategoryId[this.categoryId] = null;
+
+            this.imagesGroupByCategoryId[this.categoryId] = null;
+
+            this.loadingFlagByCategoryId[this.categoryId] = null;
+
+            this.newsTinChinhOffset = 0;
+
+            this.isLoadingMoreTinChinh = false;
+
+            this.stopLoadMoreTinChinh = false;
+
+            this.categoryId = categoryId;
+
+            this.loadTinChinhNews();
+        }
+    }
+
     getTinChinhNewsList(): NewsView[] {
 
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH];
+        return this.newsViewsGroupByCategoryId[this.categoryId];
     }
 
     getThoiSuNewsList(): NewsView[] {
@@ -96,14 +126,14 @@ export class TopicComponent implements OnInit {
 
     getTinChinhNews(index: number): NewsView {
 
-        let news = this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH];
+        let news = this.newsViewsGroupByCategoryId[this.categoryId];
 
         return news ? news[index] : null;
     }
 
     getTinChinhNewsImage(news: NewsView): Image {
 
-        return this.getNewsImage(CATEGORY_ID_TINCHINH, news);
+        return this.getNewsImage(this.categoryId, news);
     }
 
     getThoiSuNewsImage(news: NewsView): Image {
@@ -123,6 +153,8 @@ export class TopicComponent implements OnInit {
 
     getNewsImage(categoryId: string, news: NewsView): Image {
 
+        if (isNullOrUndefined(news)) return null;
+
         let images = this.imagesGroupByCategoryId[categoryId]
 
         let image = news && images ? images.find(item => item.referenceId == news.newsId) : null;
@@ -132,7 +164,7 @@ export class TopicComponent implements OnInit {
 
     showMore(): void {
 
-        let newsList = this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH];
+        let newsList = this.newsViewsGroupByCategoryId[this.categoryId];
 
         this.tinChinhNews.splice(0, 10).forEach(item => newsList.push(item));
 
@@ -149,14 +181,14 @@ export class TopicComponent implements OnInit {
 
     isLoadingTinChinh(): boolean {
 
-        return this._isLoading(CATEGORY_ID_TINCHINH);
+        return this._isLoading(this.categoryId);
     }
 
     protected loadMoreTinChinh(): void {
 
         this.stopLoadMoreTinChinh = true;
 
-        this.loadNewsViews(CATEGORY_ID_TINCHINH, 50, this.newsTinChinhOffset).subscribe(newsViews => {
+        this.loadNewsViews(this.categoryId, 50, this.newsTinChinhOffset).subscribe(newsViews => {
 
             newsViews.forEach((news) => this.tinChinhNews.push(news));
 
@@ -171,7 +203,7 @@ export class TopicComponent implements OnInit {
 
             (newsViews && newsViews.length) && (this.loadImages(newsViews).subscribe(images => {
 
-                let tinChinhImages = this.imagesGroupByCategoryId[CATEGORY_ID_TINCHINH];
+                let tinChinhImages = this.imagesGroupByCategoryId[this.categoryId];
 
                 images.forEach((image) => tinChinhImages.push(image));
             }));
@@ -181,7 +213,6 @@ export class TopicComponent implements OnInit {
     protected loadNewsByCategories(): void {
 
         [
-            {categoryId: CATEGORY_ID_TINCHINH, max: 26, offset: 0},
             {categoryId: CATEGORY_ID_THOISU, max: 5, offset: 0},
             {categoryId: CATEGORY_ID_TINNONG, max: 5, offset: 0},
             {categoryId: CATEGORY_ID_VIDEO, max: 5, offset: 0},
@@ -196,10 +227,6 @@ export class TopicComponent implements OnInit {
                 this.loadingFlagByCategoryId[categoryId] = false;
 
                 switch (categoryId) {
-
-                    case CATEGORY_ID_TINCHINH:
-                        this.afterLoadTinChinhNews(newsViews);
-                        break;
 
                     case CATEGORY_ID_THOISU:
 
@@ -238,6 +265,20 @@ export class TopicComponent implements OnInit {
         });
     }
 
+    protected loadTinChinhNews(): void {
+
+        let categoryId = this.categoryId;
+
+        this.loadingFlagByCategoryId[categoryId] = true;
+
+        this.loadNewsViews(categoryId, 27, 0).subscribe(newsViews => {
+
+            this.loadingFlagByCategoryId[categoryId] = false;
+
+            this.afterLoadTinChinhNews(newsViews);
+        });
+    }
+
     protected afterLoadTinChinhNews(newsViews: NewsView[]): void {
 
         this.newsTinChinhOffset += newsViews.length;
@@ -246,13 +287,15 @@ export class TopicComponent implements OnInit {
 
         this.tinChinhNews = newsViews;
 
+        this.fixedTinChinhNews2 = newsViews.splice(0, 1)[0];
+
         this.fixedTinChinhNews = newsViews.splice(0, 6);
 
-        this.newsViewsGroupByCategoryId[CATEGORY_ID_TINCHINH] = newsViews.splice(0, 10);
+        this.newsViewsGroupByCategoryId[this.categoryId] = newsViews.splice(0, 10);
 
         (allNews && allNews.length) && (
             this.loadImages(allNews)
-                .subscribe(images => this.imagesGroupByCategoryId[CATEGORY_ID_TINCHINH] = images)
+                .subscribe(images => this.imagesGroupByCategoryId[this.categoryId] = images)
         )
     }
 
@@ -271,5 +314,4 @@ export class TopicComponent implements OnInit {
 
         return this.imageService.get({referenceIds: newsIds, referenceType: IMAGE_REFERENCE_TYPE_NEWS});
     }
-
 }

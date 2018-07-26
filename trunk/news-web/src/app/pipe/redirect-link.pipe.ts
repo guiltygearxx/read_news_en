@@ -12,6 +12,8 @@ export class RedirectLinkPipe implements PipeTransform {
 
         let news: NewsView = value;
 
+        if (!news) return null;
+
         let title = this.applicationUtils.convertTitleToURLParam(news.title);
 
         title = title.split(" ").join("-");

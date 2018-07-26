@@ -56,6 +56,7 @@ import { MNewsLoadingCardMulti4Component } from './ui-mobile-component/m-news-lo
 import { MHeaderComponent } from './ui-mobile-component/m-header/m-header.component';
 import { MTopicComponent } from './ui-mobile-component/m-topic/m-topic.component';
 import { MNewsCard3Component } from './ui-mobile-component/m-news-card-3/m-news-card-3.component';
+import { TinTucPhuComponent } from './ui-component/tin-tuc-phu/tin-tuc-phu.component';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { MNewsCard3Component } from './ui-mobile-component/m-news-card-3/m-news-
         MHeaderComponent,
         MTopicComponent,
         MNewsCard3Component,
+        TinTucPhuComponent,
     ],
     imports: [
         BrowserModule,

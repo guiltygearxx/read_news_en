@@ -34,12 +34,11 @@ import {MTopicComponent} from "../ui-mobile-component/m-topic/m-topic.component"
 
                     {path: '', redirectTo: 'trangChu', pathMatch: 'full'},
                     {path: 'trangChu', component: IndexMobileComponent},
-                    {path: 'chuyenMuc', component: MTopicComponent},
+                    {path: 'chuDe/:categoryId', component: MTopicComponent}
                 ],
             },
 
             {path: 'newsDetail/:title/:id', component: NewsDetailComponent},
-            {path: 'chuyenMuc/:idTopic', component: MTopicComponent}
         ])
     ],
     declarations: [],

@@ -1,16 +1,16 @@
-<div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size" (click)="viewNewsDetail($event)">
+<div class="col-sm-12 card-content padding-left-fix-7px padding-bottom-fix-size">
     <div class="row ">
         <div class="col-md-3">
             <div class="">
-                <a [href]="news | redirectLink">
-                    <img class="img-rounded img-responsive img-flash-link cover-img" alt="Rounded Image" [src]="image?.url"
-                         width="500" height="400">
+                <a [href]="news | redirectLink" target="_blank">
+                    <img class="img-rounded img-responsive img-flash-link cover-img" alt="Rounded Image"
+                         [src]="image?.url" width="500" height="400">
                 </a>
             </div>
         </div>
         <div class="col-md-9">
             <h6 class="card-title no-margin no-uppercase">
-                <a [href]="news | redirectLink">{{news?.title}}</a>
+                <a [href]="news | redirectLink" target="_blank">{{news?.title}}</a>
             </h6>
             <div>
                 <a class="source-news" href="/bao-thanh-nien-thanh-nien/p/19.epi ">
