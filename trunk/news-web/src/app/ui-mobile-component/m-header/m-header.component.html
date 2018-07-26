@@ -6,7 +6,7 @@
         <div class="navbar-header">
 
             <button type="button" class="navbar-toggle fixed-padding-m" data-toggle="collapse"
-                    data-target="#navigation-example">
+                    data-target="#navigation-example" #navbarToggleButton>
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -23,14 +23,14 @@
 
         </div>
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" #navbarMenu>
             <ul class="nav navbar-nav">
 
-                <li class="hover-element-li">
-                    <div class="fixed-input-m">
-                        <input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm...">
-                    </div>
-                </li>
+                <!--<li class="hover-element-li">-->
+                <!--<div class="fixed-input-m">-->
+                <!--<input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm...">-->
+                <!--</div>-->
+                <!--</li>-->
 
                 <ng-container *ngFor="let category of getCategories(null)">
 
@@ -48,7 +48,7 @@
                             <ul class="dropdown-menu dropdown-with-icons">
 
                                 <li *ngFor="let subCategory of getCategories(category)"
-                                    (click)="childMenuClicked($event, category)">
+                                    (click)="childMenuClicked($event, subCategory)">
 
                                     <a>{{subCategory.title}}</a>
 
@@ -62,7 +62,7 @@
                     <ng-template #menu>
 
                         <li class="hover-element-li">
-                            <a (click)="viewTopic($event, category)">{{category.title}}</a>
+                            <a (click)="singleMenuClicked($event, category)">{{category.title}}</a>
                         </li>
 
                     </ng-template>
@@ -80,35 +80,3 @@
     </div>
 </nav>
 
-
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-login">
-        <div class="modal-content">
-            <div class="card card-signup card-plain">
-                <div class="modal-header">
-                    <button type="button" class="close header-primary" data-dismiss="modal" aria-hidden="true"
-                            style="margin-top: -16px;">
-                        <i class="material-icons">clear</i>
-                    </button>
-
-                </div>
-                <div class="modal-body">
-                    <div class="card-content">
-
-                        <div class="input-group">
-								<span class="input-group-addon">
-									<i class="material-icons">search</i>
-								</span>
-                            <input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm...">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer text-center">
-                    <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Tìm</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--  End Modal -->

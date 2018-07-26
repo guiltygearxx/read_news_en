@@ -1,13 +1,14 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Category} from "../../bean/category";
-import {ALL_CATEGORIES, ALL_CATEGORIES_MOBILE} from "../../service/category-fixed-datasource";
+import {ALL_CATEGORIES} from "../../service/category-fixed-datasource";
 import {isNullOrUndefined} from "util";
 import {Router} from "@angular/router";
 import {ApplicationUtils} from "../../common/application-utils";
-import {ActivatedRoute} from '@angular/router';
 import {CATEGORY_ID_TINCHINH, CATEGORY_ID_TINNONG, CATEGORY_ID_VIDEO} from "../../common/application-constants";
 
 declare var $: any;
+
+const RELOAD_NEWS_AFTER_MENU_CLICKED_TIMEOUT = 300;
 
 @Component({
     selector: 'app-m-header',
@@ -19,6 +20,9 @@ export class MHeaderComponent implements OnInit {
     categories: Category[];
 
     openingParentMenu: any;
+
+    @ViewChild("navbarToggleButton")
+    navbarToggleButton: ElementRef;
 
     constructor(protected router: Router,
                 protected applicationUtils: ApplicationUtils) {
@@ -45,10 +49,6 @@ export class MHeaderComponent implements OnInit {
         return !isNullOrUndefined(subCategory);
     }
 
-    openSubMenus(event: any): void {
-
-    }
-
     viewTinNongTopic(event: any): void {
 
         this.goToTopic(CATEGORY_ID_TINNONG);
@@ -70,18 +70,22 @@ export class MHeaderComponent implements OnInit {
 
     goToTopic(categoryId: string): void {
 
-        console.log("goToTopic: " + categoryId);
+        // console.log("goToTopic: " + categoryId);
 
         this.router.navigate(['mobile/chuDe', categoryId]);
     }
 
     parentMenuClicked(event: any, category: Category): void {
 
+        // console.log(event.currentTarget);
+
         let parentMenu: any = event.currentTarget;
 
         if ($(parentMenu).is(this.openingParentMenu)) {
 
-            this.goToTopic(category.id);
+            $(this.navbarToggleButton.nativeElement).trigger("click");
+
+            setTimeout(() => this.goToTopic(category.id), RELOAD_NEWS_AFTER_MENU_CLICKED_TIMEOUT);
 
         } else {
 
@@ -97,12 +101,29 @@ export class MHeaderComponent implements OnInit {
 
         event.stopPropagation();
 
-        this.goToTopic(category.id);
+        $(this.navbarToggleButton.nativeElement).trigger("click");
+
+        setTimeout(() => this.goToTopic(category.id), RELOAD_NEWS_AFTER_MENU_CLICKED_TIMEOUT);
+    }
+
+    singleMenuClicked(event: any, category: Category): void {
+
+        let menu: any = event.currentTarget;
+
+        if (!$(menu).is(this.openingParentMenu)) {
+
+            $(this.openingParentMenu).removeClass("open");
+
+            this.openingParentMenu = menu;
+        }
+
+        $(this.navbarToggleButton.nativeElement).trigger("click");
+
+        setTimeout(() => this.goToTopic(category.id), RELOAD_NEWS_AFTER_MENU_CLICKED_TIMEOUT);
     }
 
     protected loadCategories(): void {
 
         this.categories = ALL_CATEGORIES;
     }
-
 }
