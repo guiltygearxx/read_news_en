@@ -1,45 +1,50 @@
-<div class="card card-plain card-blog hover-element-type fixed-width-m" (click)="viewNewsDetail($event)">
+<div class="card card-plain card-blog hover-element-type fixed-width-m">
 
-  <div class="col-md-12 col-xs-12 social-networking nopadding">
-    <div class="social-networking-title">
-      <h5 class="card-title fixed-font-m" style="margin-bottom: 0px">
-        <a [href]="news | redirectLink">{{news?.title}}</a>
-      </h5>
+    <div class="col-md-12 col-xs-12 social-networking nopadding">
+        <div class="social-networking-title">
+            <h5 class="card-title fixed-font-m" style="margin-bottom: 0px">
+                <a [href]="news | redirectLink" target="_blank">{{news?.title}}</a>
+            </h5>
+        </div>
     </div>
-  </div>
 
-  <div  id="container123" class="col-md-4 col-xs-4" style="padding-left: 0px; margin-top: 4px">
-    <div class="card-image fixed-border-m">
-      <a [href]="news | redirectLink">
-        <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
-      </a>
-      <span class="label label-confix-content-video" *ngIf="news.typeContent !='video'"><i class="fa fa-video-camera"></i></span>
+    <div id="container123" class="col-md-4 col-xs-4" style="padding-left: 0px; margin-top: 4px">
+        <div class="card-image fixed-border-m">
+            <a [href]="news | redirectLink" target="_blank">
+                <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
+            </a>
+            <span class="label label-confix-content-video" *ngIf="news.typeContent !='video'"><i
+                    class="fa fa-video-camera"></i></span>
+        </div>
     </div>
-  </div>
 
-  <div  id="container1235" class="col-md-4 col-xs-4" style="padding-left: 0px; margin-top: 4px">
-    <div class="card-image fixed-border-m">
-      <a [href]="news | redirectLink">
-        <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
-      </a>
-      <span class="label label-confiprkl-element x-content-video" *ngIf="news.typeContent == 'video'"><i class="fa fa-play-circle-o fa-2x"></i></span>
+    <div id="container1235" class="col-md-4 col-xs-4" style="padding-left: 0px; margin-top: 4px">
+        <div class="card-image fixed-border-m">
+            <a [href]="news | redirectLink" target="_blank">
+                <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
+            </a>
+            <span class="label label-confiprkl-element x-content-video" *ngIf="news.typeContent == 'video'"><i
+                    class="fa fa-play-circle-o fa-2x"></i></span>
+        </div>
     </div>
-  </div>
 
-  <div  id="container1234" class="col-md-4 col-xs-4" style="padding-left: 0px; margin-top: 4px">
-    <div class="card-image fixed-border-m">
-      <a [href]="news | redirectLink">
-        <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
-      </a>
-      <span class="label label-confiprkl-element x-content-video" *ngIf="news.typeContent == 'video'"><i class="fa fa-play-circle-o fa-2x"></i></span>
+    <div id="container1234" class="col-md-4 col-xs-4" style="padding-left: 0px; margin-top: 4px">
+        <div class="card-image fixed-border-m">
+            <a [href]="news | redirectLink" target="_blank">
+                <img class="img img-raised cover-img fixed-img-m fixed-border-m" [src]="image?.url"/>
+            </a>
+            <span class="label label-confiprkl-element x-content-video" *ngIf="news.typeContent == 'video'"><i
+                    class="fa fa-play-circle-o fa-2x"></i></span>
+        </div>
     </div>
-  </div>
 
-  <div class="col-md-12 col-xs-12 nopadding">
+    <div class="col-md-12 col-xs-12 nopadding">
 
-      <a href="#pablo" class="source-news">{{news?.rssSourceGroupTitle}} - {{news?.pubDate | displayNewsTime : now}}</a>
+        <a href="#pablo" class="source-news">
+            {{news?.rssSourceGroupTitle}} - {{news?.pubDate | displayNewsTime :now}}
+        </a>
 
-  </div>
+    </div>
 
-  <div class="affect-on-div" [@readyStateChanged]="readyState"></div>
+    <div class="affect-on-div" [@readyStateChanged]="readyState"></div>
 </div>
