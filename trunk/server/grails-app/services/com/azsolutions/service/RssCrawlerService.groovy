@@ -15,7 +15,7 @@ import java.util.concurrent.Future
 @Transactional
 class RssCrawlerService {
 
-    public static final int READ_RSS_THREAD_POOL_SIZE = 10;
+    public static final int READ_RSS_THREAD_POOL_SIZE = 1;
 
     def readRssService;
     def applicationUtilsService;
@@ -51,11 +51,16 @@ class RssCrawlerService {
 
                 futures << threadPool.submit({ ->
 
+                    println "RssCrawlerService.crawler_: start| rssSourceGroup.id=${rssSourceGroup.id}";
+
                     RssConfig.withNewSession {
                         this.crawler_(now, rssSources, rssConfigs);
                     }
 
+                    println "RssCrawlerService.crawler_: end| rssSourceGroup.id=${rssSourceGroup.id}";
+
                 } as Callable);
+
             }
 
             futures.each { it.get() };
@@ -178,7 +183,9 @@ class RssCrawlerService {
 
                 println "RssCrawlerService.crawler: error| rssConfig.id=${rssConfig.id}";
 
-                ex.printStackTrace();
+                println ex.getMessage();
+
+//                ex.printStackTrace();
             }
         }
     }

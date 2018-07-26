@@ -27,4 +27,19 @@ class ExampleController {
 
         render([isSuccess: true] as JSON);
     }
+
+    def example3() {
+
+        String url = "http://vtc.vn/the-thao.rss";
+
+        XmlSlurper parser = new XmlSlurper();
+
+        BufferedReader reader = url.toURL().newReader(requestProperties: ['User-Agent': 'AZNews']);
+
+        String text = reader.text;
+
+        def channel = parser.parseText(text).channel;
+
+        render([isSuccess: true] as JSON);
+    }
 }

@@ -142,4 +142,4 @@ environments:
             baseDir: /root/uploadFiles/
 
         quartz:
-            pluginEnabled: true
+            pluginEnabled: false
