@@ -14,13 +14,12 @@
             </button>
 
             <a class="navbar-brand fixed-padding-m fixed-height-m fixed-button-active-m"
-               (click)="viewNewsTopic($event, 'tinNong')">NÓNG</a>
+               (click)="viewTinNongTopic($event)">NÓNG
+            </a>
 
-            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, 'tinMoi')">MỚI</a>
+            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewTinMoiTopic($event)">MỚI</a>
 
-            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, 'video')">VIDEO</a>
-
-            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewNewsTopic($event, 'chuDe')">CHỦ ĐỀ</a>
+            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewVideoTopic($event)">VIDEO</a>
 
         </div>
 
@@ -40,18 +39,21 @@
 
                     <ng-template #menuHasSubMenus>
 
-                        <li class="dropdown hover-element-li" (mouseenter)="openSubMenus($event)">
+                        <li class="dropdown hover-element-li" (click)="parentMenuClicked($event, category)">
 
-                            <a class="dropdown-toggle" data-toggle="dropdown"
-                               (click)="viewNewsTopic($event, category.id)">
-                                {{category.title}}
-                                <b class="caret"></b>
+                            <a class="dropdown-toggle">
+                                {{category.title}} <b class="caret"></b>
                             </a>
 
                             <ul class="dropdown-menu dropdown-with-icons">
-                                <li *ngFor="let subCategory of getCategories(category)">
-                                    <a (click)="viewNewsTopic($event, subCategory.id)">{{subCategory.title}}</a>
+
+                                <li *ngFor="let subCategory of getCategories(category)"
+                                    (click)="childMenuClicked($event, category)">
+
+                                    <a>{{subCategory.title}}</a>
+
                                 </li>
+
                             </ul>
                         </li>
 
@@ -60,7 +62,7 @@
                     <ng-template #menu>
 
                         <li class="hover-element-li">
-                            <a (click)="viewNewsTopic($event, category.id)">{{category.title}}</a>
+                            <a (click)="viewTopic($event, category)">{{category.title}}</a>
                         </li>
 
                     </ng-template>

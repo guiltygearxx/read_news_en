@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {Category} from "../../bean/category";
 import {ALL_CATEGORIES, ALL_CATEGORIES_MOBILE} from "../../service/category-fixed-datasource";
 import {isNullOrUndefined} from "util";
 import {Router} from "@angular/router";
 import {ApplicationUtils} from "../../common/application-utils";
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import {CATEGORY_ID_TINCHINH, CATEGORY_ID_TINNONG, CATEGORY_ID_VIDEO} from "../../common/application-constants";
 
 declare var $: any;
 
@@ -16,6 +17,8 @@ declare var $: any;
 export class MHeaderComponent implements OnInit {
 
     categories: Category[];
+
+    openingParentMenu: any;
 
     constructor(protected router: Router,
                 protected applicationUtils: ApplicationUtils) {
@@ -46,11 +49,55 @@ export class MHeaderComponent implements OnInit {
 
     }
 
-    viewNewsTopic($event: any, idTopic: string): void {
+    viewTinNongTopic(event: any): void {
 
-        $event.preventDefault();
+        this.goToTopic(CATEGORY_ID_TINNONG);
+    }
 
-        this.router.navigate(['mobile/chuDe', idTopic]);
+    viewTinMoiTopic(event: any): void {
+
+        this.goToTopic(CATEGORY_ID_TINCHINH);
+    }
+
+    viewVideoTopic(event: any): void {
+
+        this.goToTopic(CATEGORY_ID_VIDEO);
+    }
+
+    viewTopic(event: any, categoryId: string): void {
+
+    }
+
+    goToTopic(categoryId: string): void {
+
+        console.log("goToTopic: " + categoryId);
+
+        this.router.navigate(['mobile/chuDe', categoryId]);
+    }
+
+    parentMenuClicked(event: any, category: Category): void {
+
+        let parentMenu: any = event.currentTarget;
+
+        if ($(parentMenu).is(this.openingParentMenu)) {
+
+            this.goToTopic(category.id);
+
+        } else {
+
+            $(this.openingParentMenu).removeClass("open");
+
+            this.openingParentMenu = parentMenu;
+
+            $(parentMenu).addClass("open");
+        }
+    }
+
+    childMenuClicked(event: any, category: Category): void {
+
+        event.stopPropagation();
+
+        this.goToTopic(category.id);
     }
 
     protected loadCategories(): void {

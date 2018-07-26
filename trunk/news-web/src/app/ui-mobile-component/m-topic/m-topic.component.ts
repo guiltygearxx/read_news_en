@@ -23,10 +23,10 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
     now: Date;
 
-    /**loadingFlagByCategoryId
-     * 7 tin tuc se hien o phan card chinh cua trang chu;
+    /**
+     * tin to nhat tren trang;
      */
-    fixedTinChinhNews: NewsView[];
+    fixedTinChinhNews: NewsView;
 
     tinChinhNews: NewsView[];
 
@@ -40,15 +40,14 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
     isLoadingMoreTinChinh: boolean;
 
-    tinChinhTopic: string;
+    categoryId: string;
 
     /**
      * = true neu nhu so luong tin chinh load qua nhieu hoac khong con tin tuc de load nua;
      */
     stopLoadMoreTinChinh: boolean;
 
-    constructor(private router: Router,
-                protected route: ActivatedRoute,
+    constructor(protected route: ActivatedRoute,
                 protected newsViewService: NewsViewService,
                 protected imageService: ImageService) {
     }
@@ -74,86 +73,36 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
     ngAfterContentChecked(): void {
 
-        let currentNewsName: string = this.route.snapshot.paramMap.get("idTopic");
+        let categoryId: string = this.route.snapshot.paramMap.get('categoryId');
 
-        switch (currentNewsName) {
-            case CATEGORY_NAME_TINNONG:
-                this.tinChinhTopic = CATEGORY_ID_TINNONG;
-                break;
-            case CATEGORY_NAME_TINMOI:
-                this.tinChinhTopic = CATEGORY_ID_TINNOIBAT;
-                break;
-            case CATEGORY_NAME_VIDEO:
-                this.tinChinhTopic = CATEGORY_ID_VIDEO;
-                break;
-            case CATEGORY_NAME_CHUDE:
-                this.tinChinhTopic = CATEGORY_ID_TINNONG;
-                break;
+        if (categoryId != this.categoryId) {
+
+            this.newsViewsGroupByCategoryId[this.categoryId] = null;
+
+            this.imagesGroupByCategoryId[this.categoryId] = null;
+
+            this.loadingFlagByCategoryId[this.categoryId] = null;
+
+            this.newsTinChinhOffset = 0;
+
+            this.isLoadingMoreTinChinh = false;
+
+            this.stopLoadMoreTinChinh = false;
+
+            this.categoryId = categoryId;
+
+            this.loadNewsByCategories();
         }
     }
 
     getTinChinhNewsList(): NewsView[] {
 
-        return this.newsViewsGroupByCategoryId[this.tinChinhTopic];
-    }
-
-    getThoiSuNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_THOISU];
-    }
-
-    getVideoNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_VIDEO];
-    }
-
-    getTinNongNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNONG];
-    }
-
-    getTinNoiBatNewsList(): NewsView[] {
-
-        return this.newsViewsGroupByCategoryId[CATEGORY_ID_TINNOIBAT];
-    }
-
-    getTinChinhNews2(index: number): NewsView {
-
-        let news = this.fixedTinChinhNews;
-
-        return news ? news[index] : null;
-    }
-
-    getTinChinhNews(index: number): NewsView {
-
-        let news = this.newsViewsGroupByCategoryId[this.tinChinhTopic];
-
-        return news ? news[index] : null;
+        return this.newsViewsGroupByCategoryId[this.categoryId];
     }
 
     getTinChinhNewsImage(news: NewsView): Image {
 
-        return this.getNewsImage(this.tinChinhTopic, news);
-    }
-
-    getThoiSuNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_THOISU, news);
-    }
-
-    getVideoNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_VIDEO, news);
-    }
-
-    getTinNoiBatNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_TINNOIBAT, news);
-    }
-
-    getTinNongNewsImage(news: NewsView): Image {
-
-        return this.getNewsImage(CATEGORY_ID_TINNONG, news);
+        return this.getNewsImage(this.categoryId, news);
     }
 
     getNewsImage(categoryId: string, news: NewsView): Image {
@@ -167,7 +116,7 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
     showMore(): void {
 
-        let newsList = this.newsViewsGroupByCategoryId[this.tinChinhTopic];
+        let newsList = this.newsViewsGroupByCategoryId[this.categoryId];
 
         this.tinChinhNews.splice(0, 10).forEach(item => newsList.push(item));
 
@@ -184,34 +133,14 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
     isLoadingTinChinh(): boolean {
 
-        return this._isLoading(this.tinChinhTopic);
-    }
-
-    isLoadingThoiSu(): boolean {
-
-        return this._isLoading(CATEGORY_ID_THOISU);
-    }
-
-    isLoadingTinNoiBat(): boolean {
-
-        return this._isLoading(CATEGORY_ID_TINNOIBAT);
-    }
-
-    isLoadingTinNong(): boolean {
-
-        return this._isLoading(CATEGORY_ID_TINNONG);
-    }
-
-    isLoadingVideo(): boolean {
-
-        return this._isLoading(CATEGORY_ID_VIDEO);
+        return this._isLoading(this.categoryId);
     }
 
     protected loadMoreTinChinh(): void {
 
         this.stopLoadMoreTinChinh = true;
 
-        this.loadNewsViews(this.tinChinhTopic, 50, this.newsTinChinhOffset).subscribe(newsViews => {
+        this.loadNewsViews(this.categoryId, 50, this.newsTinChinhOffset).subscribe(newsViews => {
 
             newsViews.forEach((news) => this.tinChinhNews.push(news));
 
@@ -226,7 +155,7 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
             (newsViews && newsViews.length) && (this.loadImages(newsViews).subscribe(images => {
 
-                let tinChinhImages = this.imagesGroupByCategoryId[this.tinChinhTopic];
+                let tinChinhImages = this.imagesGroupByCategoryId[this.categoryId];
 
                 images.forEach((image) => tinChinhImages.push(image));
             }));
@@ -235,73 +164,17 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
     protected loadNewsByCategories(): void {
 
-        [
-            {categoryId: this.tinChinhTopic, max: 26, offset: 0},
-            {categoryId: CATEGORY_ID_THOISU, max: 5, offset: 0},
-            {categoryId: CATEGORY_ID_TINNONG, max: 5, offset: 0},
-            {categoryId: CATEGORY_ID_TINNOIBAT, max: 5, offset: 0},
-            {categoryId: CATEGORY_ID_VIDEO, max: 5, offset: 0},
-        ].forEach(options => {
+        let categoryId = this.categoryId;
 
-            let categoryId = options.categoryId;
+        this.loadingFlagByCategoryId[categoryId] = true;
 
-            this.loadingFlagByCategoryId[categoryId] = true;
+        this.loadNewsViews(categoryId, 21, 0).subscribe(newsViews => {
 
-            this.loadNewsViews(categoryId, options.max, options.offset).subscribe(newsViews => {
+            this.loadingFlagByCategoryId[categoryId] = false;
 
-                this.loadingFlagByCategoryId[categoryId] = false;
-
-                switch (categoryId) {
-
-                    case this.tinChinhTopic:
-                        this.afterLoadTinChinhNews(newsViews);
-                        break;
-
-                    case CATEGORY_ID_THOISU:
-
-                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
-
-                        (newsViews && newsViews.length) && (
-                            this.loadImages(newsViews)
-                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
-                        );
-
-                        break;
-
-                    case CATEGORY_ID_TINNONG:
-
-                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
-
-                        (newsViews && newsViews.length) && (
-                            this.loadImages(newsViews)
-                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
-                        );
-
-                        break;
-                    case CATEGORY_ID_TINNOIBAT:
-
-                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
-
-                        (newsViews && newsViews.length) && (
-                            this.loadImages(newsViews)
-                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
-                        );
-
-                        break;
-
-                    case CATEGORY_ID_VIDEO:
-
-                        this.newsViewsGroupByCategoryId[categoryId] = newsViews;
-
-                        (newsViews && newsViews.length) && (
-                            this.loadImages(newsViews)
-                                .subscribe(images => this.imagesGroupByCategoryId[categoryId] = images)
-                        );
-
-                        break;
-                }
-            });
+            this.afterLoadTinChinhNews(newsViews);
         });
+
     }
 
     protected afterLoadTinChinhNews(newsViews: NewsView[]): void {
@@ -312,13 +185,13 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
         this.tinChinhNews = newsViews;
 
-        this.fixedTinChinhNews = newsViews.splice(0, 6);
+        this.fixedTinChinhNews = newsViews.splice(0, 1)[0];
 
-        this.newsViewsGroupByCategoryId[this.tinChinhTopic] = newsViews.splice(0, 10);
+        this.newsViewsGroupByCategoryId[this.categoryId] = newsViews.splice(0, 10);
 
         (allNews && allNews.length) && (
             this.loadImages(allNews)
-                .subscribe(images => this.imagesGroupByCategoryId[this.tinChinhTopic] = images)
+                .subscribe(images => this.imagesGroupByCategoryId[this.categoryId] = images)
         )
     }
 
