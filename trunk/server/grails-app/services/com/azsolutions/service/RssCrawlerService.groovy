@@ -46,13 +46,13 @@ class RssCrawlerService {
 
                 futures << threadPool.submit({ ->
 
+                    Long start_ = new Date().time;
+
                     println "RssCrawlerService.crawler_: start| rssSourceGroup.id=${rssSourceGroup.id}";
 
-                    RssConfig.withNewSession {
-                        this.crawler_(now, rssConfigs);
-                    }
+                    this.crawler_(now, rssConfigs);
 
-                    println "RssCrawlerService.crawler_: end| rssSourceGroup.id=${rssSourceGroup.id}";
+                    println "RssCrawlerService.crawler_: end| rssSourceGroup.id=${rssSourceGroup.id} | duration= ${new Date().time - start_}";
 
                 } as Callable);
 
@@ -66,97 +66,144 @@ class RssCrawlerService {
         }
     }
 
+    private NewsRssSource saveNewsRssSource(RssSource rssSource, News news, Date now) {
+
+        NewsRssSource newsRssSource =
+                NewsRssSource.findByNewsIdAndRssSourceIdAndIsDeleted(news.id, rssSource.id, false);
+
+        if (!newsRssSource) {
+
+            newsRssSource = new NewsRssSource(
+                    rssSourceId: rssSource.id, newsId: news.id,
+                    isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
+            );
+
+            newsRssSource.save(flush: true);
+        }
+
+        return newsRssSource;
+    }
+
+    private CategoryNews saveCategoryNews(RssSource rssSource, News news, Date now) {
+
+        CategoryNews categoryNews =
+                CategoryNews.findByNewsIdAndCategoryIdAndIsDeleted(news.id, rssSource.categoryId, false);
+
+        if (!categoryNews) {
+
+            categoryNews = new CategoryNews(
+                    categoryId: rssSource.categoryId, newsId: news.id,
+                    isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
+            );
+
+            categoryNews.save(flush: true);
+        }
+
+        return categoryNews;
+    }
+
+    private News saveNews(RssConfig rssConfig, RssSource rssSource, Rss.Item item, Date now) {
+
+        def pubDate = applicationUtilsService.parseRssDate(
+                item.pubDate, rssConfig.dateFormat, rssConfig.timeZone
+        );
+
+        News news = new News(
+                title: item.title, link: item.link,
+                pubDate: pubDate,
+                guid: item.guid, description: item.description, rssSourceId: rssConfig.rssSourceId,
+                rssSourceGroupId: rssSource.rssSourceGroupId,
+                isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now,
+        );
+
+        news.save(flush: true);
+
+        return news;
+    }
+
+    private Image saveImage(Rss.Thumbnail thumbnail, News news, Date now) {
+
+        Image image = new Image(
+                type: thumbnail.type, width: thumbnail.width, height: thumbnail.height,
+                url: thumbnail.url, referenceId: news.id,
+                referenceType: ApplicationConstant.IMAGE_REFERENCE_TYPE_NEWS,
+                isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
+        );
+
+        image.save(flush: true);
+
+        return image;
+    }
+
     private void crawler_(Date now, List<RssConfig> rssConfigs) {
 
         rssConfigs.each { RssConfig rssConfig ->
 
-            try {
+            Long start_ = new Date().time;
 
-                List<String> checkedGuids = [];
+            println "RssCrawlerService.crawler_: start| rssConfig.id=${rssConfig.id}";
 
-                Rss rss = readRssService.readRss(rssConfig);
+            RssConfig.withNewSession {
 
-                RssSource rssSource = rssSourceService.findRssSourceById(rssConfig.rssSourceId);
+                try {
 
-                rss?.items.each { Rss.Item item ->
+                    List<String> checkedGuids = [];
 
-                    if (checkedGuids.contains(item.guid)) return;
+                    RssSource rssSource = rssSourceService.findRssSourceById(rssConfig.rssSourceId);
 
-                    checkedGuids << item.guid;
+                    News news;
 
-                    News news = News.findByGuidAndIsDeleted(item.guid, false);
+                    Boolean isExistedNews = false;
 
-                    /**
-                     * neu news da duoc dong bo thi khong dong bo nua;
-                     */
-                    if (!news) {
+                    readRssService.readRss(rssConfig, new RssReaderEventHandler() {
 
-                        def pubDate = applicationUtilsService.parseRssDate(
-                                item.pubDate, rssConfig.dateFormat, rssConfig.timeZone
-                        );
+                        @Override
+                        void handleEvent(Map<String, Object> context, String mappingPath) {
 
-                        news = new News(
-                                title: item.title, link: item.link,
-                                pubDate: pubDate,
-                                guid: item.guid, description: item.description, rssSourceId: rssConfig.rssSourceId,
-                                rssSourceGroupId: rssSource.rssSourceGroupId,
-                                isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now,
-                        );
+                            switch (mappingPath) {
 
-                        news.save(flush: true);
+                                case "root.items":
 
-                        item?.thumbnails.each { Rss.Thumbnail thumbnail ->
+                                    Rss.Item item = context.get("item");
 
-                            Image image = new Image(
-                                    type: thumbnail.type, width: thumbnail.width, height: thumbnail.height,
-                                    url: thumbnail.url, referenceId: news.id,
-                                    referenceType: ApplicationConstant.IMAGE_REFERENCE_TYPE_NEWS,
-                                    isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
-                            );
+                                    if (checkedGuids.contains(item.guid)) break;
 
-                            image.save(flush: true);
+                                    checkedGuids << item.guid;
+
+                                    isExistedNews = (news = News.findByGuidAndIsDeleted(item.guid, false)) ? true : false;
+
+                                    (!news) && (news = saveNews(rssConfig, rssSource, item, now));
+
+                                    saveNewsRssSource(rssSource, news, now);
+
+                                    saveCategoryNews(rssSource, news, now);
+
+                                    break;
+
+                                case "root.items.thumbnails":
+
+                                    if (isExistedNews) break;
+
+                                    Rss.Thumbnail thumbnail = context.get("thumbnail");
+
+                                    saveImage(thumbnail, news, now);
+
+                                    break;
+                            }
                         }
-                    }
+                    });
 
-                    /**
-                     * luu news_rss_source;
-                     */
-                    NewsRssSource existNewsRssSource =
-                            NewsRssSource.findByNewsIdAndRssSourceIdAndIsDeleted(news.id, rssSource.id, false);
+                } catch (Exception ex) {
 
-                    if (!existNewsRssSource) {
+                    println "RssCrawlerService.crawler: error| rssConfig.id=${rssConfig.id}";
 
-                        NewsRssSource newsRssSource = new NewsRssSource(
-                                rssSourceId: rssSource.id, newsId: news.id,
-                                isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
-                        );
+                    println ex.getMessage();
 
-                        newsRssSource.save(flush: true);
-                    }
-
-                    /**
-                     * luu category_news;
-                     */
-                    CategoryNews existCategoryNews =
-                            CategoryNews.findByNewsIdAndCategoryIdAndIsDeleted(news.id, rssSource.categoryId, false);
-
-                    if (!existCategoryNews) {
-
-                        CategoryNews categoryNews = new CategoryNews(
-                                categoryId: rssSource.categoryId, newsId: news.id,
-                                isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
-                        );
-
-                        categoryNews.save(flush: true);
-                    }
+                    ex.printStackTrace();
                 }
-
-            } catch (Exception ex) {
-
-                println "RssCrawlerService.crawler: error| rssConfig.id=${rssConfig.id}";
-
-                println ex.getMessage();
             }
+
+            println "RssCrawlerService.crawler_: end| rssConfig.id=${rssConfig.id} | duration= ${new Date().time - start_}";
         }
     }
 }

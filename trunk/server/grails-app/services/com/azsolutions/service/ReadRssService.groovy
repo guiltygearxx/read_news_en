@@ -91,11 +91,15 @@ class ReadRssService {
             switch (convertType) {
 
                 case "integer":
+
                     bean."${key}" = convertToInteger(childNodes);
+
                     break;
 
                 case "object":
+
                     bean."${key}" = parseXML(propertyConfig["config"], childNodes, mappingPath + "." + key);
+
                     break;
 
                 case "list":
@@ -110,7 +114,9 @@ class ReadRssService {
                     break;
 
                 default:
+
                     bean."${key}" = expression ? runExpression(childNodes, expression) : childNodes?.text()?.trim();
+
                     break;
             }
         }
@@ -118,20 +124,16 @@ class ReadRssService {
         return bean;
     }
 
-    Rss readRss(RssConfig rssConfig) {
+    Rss readRss(RssConfig rssConfig, RssReaderEventHandler eventHandler) {
 
-        String url = rssConfig.rssUrl;
+        RssReader rssReader = new RssReader(
 
-//        println "ReadRssService.readRss: url=${url}";
+                applicationUtilsService: applicationUtilsService,
+                jsoupUtilsService: jsoupUtilsService,
+                rssConfigService: rssConfigService,
+                eventHandler: eventHandler
+        );
 
-        Map mappingConfig = rssConfigService.getConfigJsonByRssConfigId(rssConfig.id);
-
-        XmlSlurper parser = new XmlSlurper();
-
-        BufferedReader reader = url.toURL().newReader(requestProperties: ['User-Agent': 'AZNews']);
-
-        def channel = parser.parse(reader).channel;
-
-        return parseXML(mappingConfig, channel, "root");
+        rssReader.readRss(rssConfig);
     }
 }
