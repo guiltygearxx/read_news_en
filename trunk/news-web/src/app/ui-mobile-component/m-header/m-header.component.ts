@@ -4,7 +4,12 @@ import {ALL_CATEGORIES} from "../../service/category-fixed-datasource";
 import {isNullOrUndefined} from "util";
 import {Router} from "@angular/router";
 import {ApplicationUtils} from "../../common/application-utils";
-import {CATEGORY_ID_TINCHINH, CATEGORY_ID_TINNONG, CATEGORY_ID_VIDEO} from "../../common/application-constants";
+import {
+    CATEGORY_ID_TINCHINH,
+    CATEGORY_ID_TINNOIBAT,
+    CATEGORY_ID_TINNONG,
+    CATEGORY_ID_VIDEO
+} from "../../common/application-constants";
 
 declare var $: any;
 
@@ -55,6 +60,11 @@ export class MHeaderComponent implements OnInit {
     }
 
     viewTinMoiTopic(event: any): void {
+
+        this.goToTopic(CATEGORY_ID_TINNOIBAT);
+    }
+
+    viewTinChinhTopic(event: any): void {
 
         this.goToTopic(CATEGORY_ID_TINCHINH);
     }

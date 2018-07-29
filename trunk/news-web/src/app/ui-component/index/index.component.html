@@ -36,7 +36,7 @@
 
         <div class="col-md-4 col-xs-12">
 
-            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(3))" [news]="getTinChinhNews2(3)"
+            <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(3))" [news]="getTinChinhNews2(3)"
                              [now]="now">
             </app-news-card-3>
 
@@ -44,7 +44,7 @@
 
         <div class="col-md-4 col-xs-12">
 
-            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(4)"
+            <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(4)"
                              [now]="now">
             </app-news-card-3>
 
@@ -52,7 +52,7 @@
 
         <div class="col-md-4 col-xs-12">
 
-            <app-news-card-3 [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(5)"
+            <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(5)"
                              [now]="now">
             </app-news-card-3>
 
@@ -123,7 +123,7 @@
 
     <div class="col-sm-3 col-md-3 border-radius-fix" style="background: #fff">
 
-        <div class="col-md-12" style="margin-top: 8px;">
+        <div class="col-md-12 nopadding" style="margin-top: 3px;">
             <ul class="nav nav-pills nav-pills-square">
                 <li class="active">
                     <a href="#pill1" data-toggle="tab">Tin mới</a>
@@ -205,9 +205,24 @@
         </ng-container>
 
         <ng-container *ngIf="!isLoadingVideo()">
-            <ng-container *ngFor="let news of getVideoNewsList();">
-                <app-news-card-video-small [image]="getVideoNewsImage(news)" [news]="news" [now]="now">
-                </app-news-card-video-small>
+            <ng-container *ngFor="let news of getVideoNewsList(); let newsIndex = index">
+
+                <ng-container *ngIf="(newsIndex % 8 < 5)">
+
+                    <app-news-card-video-small [image]="getVideoNewsImage(news)" [news]="news" [now]="now">
+                    </app-news-card-video-small>
+
+                </ng-container>
+                <ng-container *ngIf="(newsIndex % 8 > 6)">
+
+                    <hr class="col-md-12 fixed-margin-m"/>
+
+                    <app-news-card-3 [iFlagVideo]="true" [image]="getVideoNewsImage(news)" [news]="news" [now]="now" style="height: 214px">
+                    </app-news-card-3>
+
+                    <hr class="col-md-12 fixed-margin-m"/>
+
+                </ng-container>
             </ng-container>
         </ng-container>
 

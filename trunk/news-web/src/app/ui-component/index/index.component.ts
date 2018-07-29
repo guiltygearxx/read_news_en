@@ -13,6 +13,7 @@ import {ImageService} from "../../service/image.service";
 import {Image} from "../../bean/image";
 import {Observable} from "rxjs/Observable";
 import {isNullOrUndefined} from "util";
+import {FacebookService, InitParams, UIParams, UIResponse} from "ngx-facebook";
 
 @Component({
     selector: 'app-index',
@@ -46,7 +47,16 @@ export class IndexComponent implements OnInit {
     stopLoadMoreTinChinh: boolean;
 
     constructor(protected newsViewService: NewsViewService,
-                protected imageService: ImageService) {
+                protected imageService: ImageService,
+                private fb: FacebookService) {
+
+        let initParams: InitParams = {
+            appId: '1234566778',
+            xfbml: true,
+            version: 'v2.8'
+        };
+
+        fb.init(initParams);
     }
 
     ngOnInit(): void {
@@ -183,6 +193,19 @@ export class IndexComponent implements OnInit {
         return this._isLoading(CATEGORY_ID_VIDEO);
     }
 
+    share(url: string) {
+
+        let params: UIParams = {
+            href: url,
+            method: 'share'
+        };
+
+        this.fb.ui(params)
+            .then((res: UIResponse) => console.log(res))
+            .catch((e: any) => console.error(e));
+
+    }
+
     protected loadMoreTinChinh(): void {
 
         this.stopLoadMoreTinChinh = true;
@@ -216,7 +239,7 @@ export class IndexComponent implements OnInit {
             {categoryId: CATEGORY_ID_THOISU, max: 5, offset: 0},
             {categoryId: CATEGORY_ID_TINNONG, max: 5, offset: 0},
             {categoryId: CATEGORY_ID_TINNOIBAT, max: 5, offset: 0},
-            {categoryId: CATEGORY_ID_VIDEO, max: 5, offset: 0},
+            {categoryId: CATEGORY_ID_VIDEO, max: 20, offset: 0},
         ].forEach(options => {
 
             let categoryId = options.categoryId;
