@@ -12,6 +12,7 @@ class ReadRssService {
 
     def applicationUtilsService;
     def jsoupUtilsService;
+    def rssConfigService;
 
     private Object getChildNodes(def node, String path) {
 
@@ -119,13 +120,11 @@ class ReadRssService {
 
     Rss readRss(RssConfig rssConfig) {
 
-        String json = rssConfig.configJson;
-
         String url = rssConfig.rssUrl;
 
 //        println "ReadRssService.readRss: url=${url}";
 
-        Map mappingConfig = JSON.parse(json);
+        Map mappingConfig = rssConfigService.getConfigJsonByRssConfigId(rssConfig.id);
 
         XmlSlurper parser = new XmlSlurper();
 
