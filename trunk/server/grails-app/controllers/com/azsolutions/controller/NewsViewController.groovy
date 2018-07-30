@@ -15,4 +15,17 @@ class NewsViewController extends DefaultRestfulController<NewsView> {
     NewsViewController(Class<NewsView> resource, boolean readOnly) {
         super(resource, readOnly)
     }
+
+    @Override
+    protected Closure buildFilterClosure() {
+
+        return {
+
+            List<String> categoryIds = params.getList("categoryIds");
+
+            if (categoryIds) (inList("categoryId", categoryIds));
+
+            delegate.with super.buildFilterClosure();
+        }
+    }
 }

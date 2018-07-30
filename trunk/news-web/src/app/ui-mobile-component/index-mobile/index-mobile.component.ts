@@ -6,6 +6,7 @@ import {Image} from "../../bean/image";
 import {isNullOrUndefined} from "util";
 import {CATEGORY_ID_TINCHINH, IMAGE_REFERENCE_TYPE_NEWS} from "../../common/application-constants";
 import {Observable} from "rxjs/Observable";
+import {CategoryService} from "../../service/category.service";
 
 @Component({
     selector: 'app-index-mobile',
@@ -39,7 +40,8 @@ export class IndexMobileComponent implements OnInit {
     stopLoadMoreTinChinh: boolean;
 
     constructor(protected newsViewService: NewsViewService,
-                protected imageService: ImageService) {
+                protected imageService: ImageService,
+                protected categoryService: CategoryService) {
     }
 
     ngOnInit(): void {
@@ -188,8 +190,10 @@ export class IndexMobileComponent implements OnInit {
 
         (isNullOrUndefined(offset)) && (offset = 0);
 
+        let categoryIds = this.categoryService.getAllCategoryIdsByParentCategoryId(categoryId);
+
         return this.newsViewService.get({
-            categoryId: categoryId, sort: "pubDate", order: "desc", max: max, offset: offset
+            categoryIds: categoryIds, sort: "pubDate", order: "desc", max: max, offset: offset
         });
     }
 

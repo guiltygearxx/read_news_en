@@ -4,7 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  // serviceBaseURL: "http://45.32.251.39:8080/docBaoServer-0.1/"
-  serviceBaseURL: "http://localhost:8080/"
+
+    production: false,
+    serviceBaseURL: "http://localhost:8080/",
+    prefixDomain: ""
 };

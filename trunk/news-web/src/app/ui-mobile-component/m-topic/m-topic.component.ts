@@ -1,18 +1,13 @@
 import {AfterContentChecked, Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {isNullOrUndefined} from "util";
 import {Image} from "../../bean/image";
 import {NewsViewService} from "../../service/news-view.service";
 import {NewsView} from "../../bean/news-view";
 import {Observable} from "rxjs/Observable";
 import {ImageService} from "../../service/image.service";
-import {
-    CATEGORY_ID_THOISU,
-    CATEGORY_ID_TINCHINH,
-    CATEGORY_ID_TINNOIBAT, CATEGORY_ID_TINNONG,
-    CATEGORY_ID_VIDEO, CATEGORY_NAME_CHUDE, CATEGORY_NAME_TINMOI, CATEGORY_NAME_TINNONG, CATEGORY_NAME_VIDEO,
-    IMAGE_REFERENCE_TYPE_NEWS
-} from "../../common/application-constants";
+import {IMAGE_REFERENCE_TYPE_NEWS} from "../../common/application-constants";
+import {CategoryService} from "../../service/category.service";
 
 @Component({
     selector: 'app-m-topic',
@@ -49,7 +44,8 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
     constructor(protected route: ActivatedRoute,
                 protected newsViewService: NewsViewService,
-                protected imageService: ImageService) {
+                protected imageService: ImageService,
+                protected categoryService: CategoryService) {
     }
 
     ngOnInit(): void {
@@ -199,8 +195,10 @@ export class MTopicComponent implements OnInit, AfterContentChecked {
 
         (isNullOrUndefined(offset)) && (offset = 0);
 
+        let categoryIds = this.categoryService.getAllCategoryIdsByParentCategoryId(categoryId);
+
         return this.newsViewService.get({
-            categoryId: categoryId, sort: "pubDate", order: "desc", max: max, offset: offset
+            categoryIds: categoryIds, sort: "pubDate", order: "desc", max: max, offset: offset
         });
     }
 

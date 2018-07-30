@@ -48,15 +48,16 @@ import {MobileComponent} from './ui-mobile-component/mobile/mobile.component';
 import {IndexMobileComponent} from './ui-mobile-component/index-mobile/index-mobile.component';
 import {DesktopCanActivate} from "./app-routing/desktop-can-activate";
 import {MobileCanActivate} from "./app-routing/mobile-can-activate";
-import { MNewsCard4Component } from './ui-mobile-component/m-news-card-4/m-news-card-4.component';
-import { MNewsCardMultiImg4Component } from './ui-mobile-component/m-news-card-multi-img-4/m-news-card-multi-img-4.component';
-import { MNewsCardHeaderComponent } from './ui-mobile-component/m-news-card-header/m-news-card-header.component';
-import { MNewsLoadingCard4Component } from './ui-mobile-component/m-news-loading-card-4/m-news-loading-card-4.component';
-import { MNewsLoadingCardMulti4Component } from './ui-mobile-component/m-news-loading-card-multi-4/m-news-loading-card-multi-4.component';
-import { MHeaderComponent } from './ui-mobile-component/m-header/m-header.component';
-import { MTopicComponent } from './ui-mobile-component/m-topic/m-topic.component';
-import { MNewsCard3Component } from './ui-mobile-component/m-news-card-3/m-news-card-3.component';
-import { TinTucPhuComponent } from './ui-component/tin-tuc-phu/tin-tuc-phu.component';
+import {MNewsCard4Component} from './ui-mobile-component/m-news-card-4/m-news-card-4.component';
+import {MNewsCardMultiImg4Component} from './ui-mobile-component/m-news-card-multi-img-4/m-news-card-multi-img-4.component';
+import {MNewsCardHeaderComponent} from './ui-mobile-component/m-news-card-header/m-news-card-header.component';
+import {MNewsLoadingCard4Component} from './ui-mobile-component/m-news-loading-card-4/m-news-loading-card-4.component';
+import {MNewsLoadingCardMulti4Component} from './ui-mobile-component/m-news-loading-card-multi-4/m-news-loading-card-multi-4.component';
+import {MHeaderComponent} from './ui-mobile-component/m-header/m-header.component';
+import {MTopicComponent} from './ui-mobile-component/m-topic/m-topic.component';
+import {MNewsCard3Component} from './ui-mobile-component/m-news-card-3/m-news-card-3.component';
+import {TinTucPhuComponent} from './ui-component/tin-tuc-phu/tin-tuc-phu.component';
+import {CategoryService} from "./service/category.service";
 
 
 @NgModule({
@@ -123,7 +124,8 @@ import { TinTucPhuComponent } from './ui-component/tin-tuc-phu/tin-tuc-phu.compo
         AuthActivateGuard,
         ImageService,
         DesktopCanActivate,
-        MobileCanActivate
+        MobileCanActivate,
+        CategoryService
     ],
     bootstrap: [AppComponent]
 })

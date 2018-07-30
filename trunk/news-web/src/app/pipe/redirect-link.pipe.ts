@@ -1,6 +1,7 @@
 import {Pipe, PipeTransform} from "@angular/core";
 import {ApplicationUtils} from "../common/application-utils";
 import {NewsView} from "../bean/news-view";
+import {environment} from "../../environments/environment";
 
 @Pipe({name: 'redirectLink'})
 export class RedirectLinkPipe implements PipeTransform {
@@ -18,6 +19,6 @@ export class RedirectLinkPipe implements PipeTransform {
 
         title = title.split(" ").join("-");
 
-        return "/newsDetail/" + title + "/" + news.id;
+        return environment.prefixDomain + "/newsDetail/" + title + "/" + news.id;
     }
 }

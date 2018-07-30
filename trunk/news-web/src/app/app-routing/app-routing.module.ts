@@ -23,7 +23,7 @@ import {MTopicComponent} from "../ui-mobile-component/m-topic/m-topic.component"
 
                     {path: '', redirectTo: 'trangChu', pathMatch: 'full'},
                     {path: 'trangChu', component: IndexComponent},
-                    {path: 'chuDe/:categoryId', component: TopicComponent}
+                    {path: 'chuDe/:categoryCode/:categoryId', component: TopicComponent}
                 ],
             },
 
@@ -34,7 +34,7 @@ import {MTopicComponent} from "../ui-mobile-component/m-topic/m-topic.component"
 
                     {path: '', redirectTo: 'trangChu', pathMatch: 'full'},
                     {path: 'trangChu', component: IndexMobileComponent},
-                    {path: 'chuDe/:categoryId', component: MTopicComponent}
+                    {path: 'chuDe/:categoryCode/:categoryId', component: MTopicComponent}
                 ],
             },
 

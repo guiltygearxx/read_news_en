@@ -1,10 +1,11 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Category} from "../../bean/category";
 import {ALL_CATEGORIES} from "../../service/category-fixed-datasource";
 import {isNullOrUndefined} from "util";
 import {Router} from "@angular/router";
 import {ApplicationUtils} from "../../common/application-utils";
 import {CATEGORY_ID_TINCHINH, CATEGORY_ID_TINNONG, CATEGORY_ID_VIDEO} from "../../common/application-constants";
+import {CategoryService} from "../../service/category.service";
 
 declare var $: any;
 
@@ -25,7 +26,8 @@ export class MHeaderComponent implements OnInit {
     navbarToggleButton: ElementRef;
 
     constructor(protected router: Router,
-                protected applicationUtils: ApplicationUtils) {
+                protected applicationUtils: ApplicationUtils,
+                protected categoryService: CategoryService) {
     }
 
     ngOnInit() {
@@ -72,7 +74,9 @@ export class MHeaderComponent implements OnInit {
 
         // console.log("goToTopic: " + categoryId);
 
-        this.router.navigate(['mobile/chuDe', categoryId]);
+        let category = this.categoryService.getById(categoryId);
+
+        this.router.navigate(['mobile/chuDe', category.code, categoryId]);
     }
 
     parentMenuClicked(event: any, category: Category): void {

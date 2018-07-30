@@ -3,7 +3,6 @@ import {NewsView} from "../../bean/news-view";
 import {NewsViewService} from "../../service/news-view.service";
 import {
     CATEGORY_ID_THOISU,
-    CATEGORY_ID_TINCHINH,
     CATEGORY_ID_TINNONG,
     CATEGORY_ID_VIDEO,
     IMAGE_REFERENCE_TYPE_NEWS
@@ -13,6 +12,7 @@ import {Image} from "../../bean/image";
 import {Observable} from "rxjs/Observable";
 import {isNullOrUndefined} from "util";
 import {ActivatedRoute} from "@angular/router";
+import {CategoryService} from "../../service/category.service";
 
 @Component({
     selector: 'app-topic',
@@ -51,7 +51,8 @@ export class TopicComponent implements OnInit, AfterContentChecked {
 
     constructor(protected newsViewService: NewsViewService,
                 protected imageService: ImageService,
-                protected route: ActivatedRoute,) {
+                protected route: ActivatedRoute,
+                protected categoryService: CategoryService) {
     }
 
     ngOnInit(): void {
@@ -303,8 +304,10 @@ export class TopicComponent implements OnInit, AfterContentChecked {
 
         (isNullOrUndefined(offset)) && (offset = 0);
 
+        let categoryIds = this.categoryService.getAllCategoryIdsByParentCategoryId(categoryId);
+
         return this.newsViewService.get({
-            categoryId: categoryId, sort: "pubDate", order: "desc", max: max, offset: offset
+            categoryIds: categoryIds, sort: "pubDate", order: "desc", max: max, offset: offset
         });
     }
 

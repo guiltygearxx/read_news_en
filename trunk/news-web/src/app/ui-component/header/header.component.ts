@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
 
         event.stopPropagation();
 
-        this.router.navigate(['desktop/chuDe/', category.id]);
+        this.router.navigate(['desktop/chuDe', category.code, category.id]);
     }
 
     protected loadCategories(): void {

@@ -13,6 +13,7 @@ import {ImageService} from "../../service/image.service";
 import {Image} from "../../bean/image";
 import {Observable} from "rxjs/Observable";
 import {isNullOrUndefined} from "util";
+import {CategoryService} from "../../service/category.service";
 
 @Component({
     selector: 'app-index',
@@ -46,7 +47,8 @@ export class IndexComponent implements OnInit {
     stopLoadMoreTinChinh: boolean;
 
     constructor(protected newsViewService: NewsViewService,
-                protected imageService: ImageService) {
+                protected imageService: ImageService,
+                protected categoryService: CategoryService) {
     }
 
     ngOnInit(): void {
@@ -302,8 +304,10 @@ export class IndexComponent implements OnInit {
 
         (isNullOrUndefined(offset)) && (offset = 0);
 
+        let categoryIds = this.categoryService.getAllCategoryIdsByParentCategoryId(categoryId);
+
         return this.newsViewService.get({
-            categoryId: categoryId, sort: "pubDate", order: "desc", max: max, offset: offset
+            categoryIds: categoryIds, sort: "pubDate", order: "desc", max: max, offset: offset
         });
     }
 

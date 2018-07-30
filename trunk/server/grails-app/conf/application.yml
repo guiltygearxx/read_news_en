@@ -107,7 +107,7 @@ environments:
             baseDir: d:/uploadFile/
 
         quartz:
-            pluginEnabled: true
+            pluginEnabled: false
 
     test:
         dataSource:
