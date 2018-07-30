@@ -114,6 +114,10 @@
     padding: 0px !important;
 }
 
+.padding-right-fix-5{
+    padding-right: 5px !important;
+}
+
 .no-margin {
     margin: 0px !important;
 }
@@ -208,7 +212,11 @@
 }
 
 .img-content-md-3-loading-m {
-    height: 60px !important;
+    height: 214px !important;
+}
+
+.img-content-md-4-loading-m {
+    height: 80px !important;
 }
 
 .img-content-card-5 {
@@ -345,12 +353,15 @@
 }
 
 .fixed-img-m {
-    min-height: 70px;
+    height: 100%;
     width: 100% !important;
+    min-height: 80px;
+    min-width: 120px;
+    object-fit: contain;
 }
 
 .fixed-font-m {
-    font-weight: initial !important;
+    font-weight: bold !important;
     font-size: 1.0em !important;
 }
 
@@ -419,4 +430,10 @@
 
 .fixed-padding-card-3-m{
     padding-top: 3px !important;
+}
+
+.fixed-material-icon{
+    height: 100%;
+    font-size: 30px;
+    margin-bottom: 5px;
 }

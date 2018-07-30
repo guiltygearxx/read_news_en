@@ -179,9 +179,24 @@
 
         <hr class="col-md-12"/>
 
-        <ng-container *ngFor="let news of getVideoNewsList();">
-            <app-news-card-video-small [image]="getVideoNewsImage(news)" [news]="news" [now]="now">
-            </app-news-card-video-small>
+        <ng-container *ngFor="let news of getVideoNewsList(); let newsIndex = index">
+            <ng-container *ngIf="(newsIndex % 8 < 5)">
+
+                <app-news-card-video-small [image]="getVideoNewsImage(news)" [news]="news" [now]="now">
+                </app-news-card-video-small>
+
+            </ng-container>
+            <ng-container *ngIf="(newsIndex % 8 > 6)">
+
+                <hr class="col-md-12 fixed-margin-m"/>
+
+                <app-news-card-3 [iFlagVideo]="true" [image]="getVideoNewsImage(news)" [news]="news" [now]="now"
+                                 style="height: 214px">
+                </app-news-card-3>
+
+                <hr class="col-md-12 fixed-margin-m"/>
+
+            </ng-container>
         </ng-container>
 
         <hr class="col-md-12"/>

@@ -216,7 +216,7 @@ export class TopicComponent implements OnInit, AfterContentChecked {
         [
             {categoryId: CATEGORY_ID_THOISU, max: 5, offset: 0},
             {categoryId: CATEGORY_ID_TINNONG, max: 5, offset: 0},
-            {categoryId: CATEGORY_ID_VIDEO, max: 5, offset: 0},
+            {categoryId: CATEGORY_ID_VIDEO, max: 20, offset: 0},
         ].forEach(options => {
 
             let categoryId = options.categoryId;

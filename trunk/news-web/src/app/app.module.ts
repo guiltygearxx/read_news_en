@@ -57,6 +57,7 @@ import {MHeaderComponent} from './ui-mobile-component/m-header/m-header.componen
 import {MTopicComponent} from './ui-mobile-component/m-topic/m-topic.component';
 import {MNewsCard3Component} from './ui-mobile-component/m-news-card-3/m-news-card-3.component';
 import {TinTucPhuComponent} from './ui-component/tin-tuc-phu/tin-tuc-phu.component';
+import {FacebookModule} from "ngx-facebook";
 import {CategoryService} from "./service/category.service";
 
 
@@ -107,7 +108,8 @@ import {CategoryService} from "./service/category.service";
         BrowserAnimationsModule,
         FormsModule,
         InfiniteScrollModule,
-        DeviceDetectorModule.forRoot()
+        DeviceDetectorModule.forRoot(),
+        FacebookModule.forRoot()
     ],
     providers: [
         NewsViewService,
