@@ -8,7 +8,6 @@ import grails.gorm.transactions.Transactional
 class ImageDetectSizeService {
 
     def imageUtilsService;
-    def sessionFactory;
 
     private List<Image> getMissingSizeImages(Integer max) {
 
@@ -18,6 +17,8 @@ class ImageDetectSizeService {
                 isNull("width");
                 isNull("height");
             }
+
+            eq("isDeleted", false);
         });
     }
 
