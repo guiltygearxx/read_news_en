@@ -9,6 +9,7 @@ import {IndexMobileComponent} from "../ui-mobile-component/index-mobile/index-mo
 import {DesktopCanActivate} from "./desktop-can-activate";
 import {MobileCanActivate} from "./mobile-can-activate";
 import {MTopicComponent} from "../ui-mobile-component/m-topic/m-topic.component";
+import {MDetailComponent} from "../ui-mobile-component/m-detail/m-detail.component";
 
 @NgModule({
     imports: [
@@ -39,6 +40,7 @@ import {MTopicComponent} from "../ui-mobile-component/m-topic/m-topic.component"
             },
 
             {path: 'newsDetail/:title/:id', component: NewsDetailComponent},
+            {path: 'mobileDetail', component: MDetailComponent},
         ])
     ],
     declarations: [],

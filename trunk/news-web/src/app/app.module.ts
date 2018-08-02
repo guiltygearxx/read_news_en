@@ -59,6 +59,8 @@ import {MNewsCard3Component} from './ui-mobile-component/m-news-card-3/m-news-ca
 import {TinTucPhuComponent} from './ui-component/tin-tuc-phu/tin-tuc-phu.component';
 import {FacebookModule} from "ngx-facebook";
 import {CategoryService} from "./service/category.service";
+import { MDetailComponent } from './ui-mobile-component/m-detail/m-detail.component';
+import { RedirectLinkMobilePipe } from './pipe/redirect-link-mobile.pipe';
 
 
 @NgModule({
@@ -98,6 +100,8 @@ import {CategoryService} from "./service/category.service";
         MTopicComponent,
         MNewsCard3Component,
         TinTucPhuComponent,
+        MDetailComponent,
+        RedirectLinkMobilePipe,
     ],
     imports: [
         BrowserModule,

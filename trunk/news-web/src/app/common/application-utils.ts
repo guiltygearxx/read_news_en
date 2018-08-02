@@ -184,6 +184,15 @@ export class ApplicationUtils {
         this.router.navigate(['/newsDetail/', title, news.id]).then();
     }
 
+    viewNewsMobileDetail(newsCard: NewsCardCommon): void {
+
+        let news: NewsView = newsCard.news;
+
+        let title: string = this.convertTitleToURLParam(news.title);
+
+        this.router.navigate(['/mobileDetail/', title, news.id]).then();
+    }
+
     scrollTopTop(completeFn ?: (() => void)): void {
 
         $("html, body").stop().animate({scrollTop: 0}, 500, 'swing', completeFn);
