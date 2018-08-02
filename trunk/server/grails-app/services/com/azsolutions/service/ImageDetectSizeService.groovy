@@ -48,7 +48,7 @@ class ImageDetectSizeService {
                         lastModifiedUser = 'system';
                     }
 
-                } catch (IOException e) {
+                } catch (FileNotFoundException e) {
 
                     image.with {
 
