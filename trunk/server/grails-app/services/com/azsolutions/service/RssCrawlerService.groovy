@@ -78,7 +78,7 @@ class RssCrawlerService {
                     isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
             );
 
-            newsRssSource.save(flush: true);
+            newsRssSource.save();
         }
 
         return newsRssSource;
@@ -96,7 +96,7 @@ class RssCrawlerService {
                     isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
             );
 
-            categoryNews.save(flush: true);
+            categoryNews.save();
         }
 
         return categoryNews;
@@ -116,7 +116,7 @@ class RssCrawlerService {
                 isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now,
         );
 
-        news.save(flush: true);
+        news.save();
 
         return news;
     }
@@ -130,7 +130,7 @@ class RssCrawlerService {
                 isDeleted: false, lastModifiedUser: "system", lastModifiedTime: now
         );
 
-        image.save(flush: true);
+        image.save();
 
         return image;
     }
@@ -143,7 +143,7 @@ class RssCrawlerService {
 
             println "RssCrawlerService.crawler_: start| rssConfig.id=${rssConfig.id}";
 
-            RssConfig.withNewSession {
+            RssConfig.withNewSession { def session ->
 
                 try {
 
@@ -201,6 +201,10 @@ class RssCrawlerService {
 
                     ex.printStackTrace();
                 }
+
+                session.flush();
+
+                session.clear();
             }
 
             println "RssCrawlerService.crawler_: end| rssConfig.id=${rssConfig.id} | duration= ${new Date().time - start_}";

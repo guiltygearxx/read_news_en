@@ -8,6 +8,8 @@ class ExampleController {
     def readRssService;
     def rssCrawlerService;
     def hotNewsCrawlerService;
+    def imageUtilsService;
+    def imageDetectSizeService;
 
     def crawler() {
 
@@ -39,6 +41,20 @@ class ExampleController {
         String text = reader.text;
 
         def channel = parser.parseText(text).channel;
+
+        render([isSuccess: true] as JSON);
+    }
+
+    def example4() {
+
+        String url = "https://images.vov.vn/80x80/Uploaded/ql0Rp46PYwc/2018_07_29/kho_vang_nga_UUEQ.jpg";
+
+        render([size: imageUtilsService.detectImageSize(url)] as JSON);
+    }
+
+    def example5() {
+
+        imageDetectSizeService.detect();
 
         render([isSuccess: true] as JSON);
     }
