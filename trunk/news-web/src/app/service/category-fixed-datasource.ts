@@ -464,40 +464,105 @@ export const ALL_CATEGORIES_MOBILE: Category[] = [
         "lastModifiedTime": "2018-06-27T07:08:02Z"
     },
     {
-        "id": "12f577d2-557b-405b-a418-0610cbded825",
+        "id": "23b0f84f-3828-4a4c-aec2-6501d2ec309a",
         "isDeleted": false,
-        "code": "ThoiSu",
+        "code": "TheGioi",
         "lastModifiedUser": "admin",
-        "title": "Thời sự",
+        "title": "Thế giới",
         "parentCategoryId": null,
         "lastModifiedTime": "2018-06-27T07:08:02Z"
     },
     {
-        "id": "2556fab6-1139-4dd7-bc52-c124aebbc40d",
+        "id": "1bc09a1e-d8d4-4b01-b081-cf14b1463444",
         "isDeleted": false,
-        "code": "giaothong",
+        "code": "vanhoa",
         "lastModifiedUser": "admin",
-        "title": "Giao thông",
+        "title": "Văn Hóa",
         "parentCategoryId": null,
         "lastModifiedTime": "2018-06-27T07:08:02Z"
     },
     {
-        "id": "6e93de2b-09bf-4e1b-a804-ea0b877dfb01",
+        "id": "1ebd44cb-1ad5-4597-858a-978882c57765",
         "isDeleted": false,
-        "code": "chinhtri",
+        "code": "kinhte",
         "lastModifiedUser": "admin",
-        "title": "Chính trị",
+        "title": "Kinh tế",
         "parentCategoryId": null,
         "lastModifiedTime": "2018-06-27T07:08:02Z"
     },
     {
-        "id": "5e483401-2466-45b2-a521-bbf22ea7bde2",
+        "id": "70da8161-7f75-474f-acdf-6b76e825d96c",
         "isDeleted": false,
-        "code": "moitruong",
+        "code": "giaoduc",
         "lastModifiedUser": "admin",
-        "title": "Môi trường",
+        "title": "Giáo dục",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "c548902c-9338-4b93-aac1-f25aa252e935",
+        "isDeleted": false,
+        "code": "thethao",
+        "lastModifiedUser": "admin",
+        "title": "Thể thao",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "d6cc2752-5d45-43ca-860e-a9c675e1fd2d",
+        "isDeleted": false,
+        "code": "giaitri",
+        "lastModifiedUser": "admin",
+        "title": "Giải trí",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "f0b2ebb7-83ab-4087-ab9a-9ec38d14bfc8",
+        "isDeleted": false,
+        "code": "phatluat",
+        "lastModifiedUser": "admin",
+        "title": "Pháp luật",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "82483751-ff0c-44cf-88aa-3fbde77d2040",
+        "isDeleted": false,
+        "code": "congnghe",
+        "lastModifiedUser": "admin",
+        "title": "Công nghệ",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "90916f71-d10d-4540-b5ac-a7f857721b96",
+        "isDeleted": false,
+        "code": "khoahoc",
+        "lastModifiedUser": "admin",
+        "title": "Khoa học",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "2fb4c139-9e35-4eaa-9660-8422fbf6db72",
+        "isDeleted": false,
+        "code": "doisong",
+        "lastModifiedUser": "admin",
+        "title": "Đời sống",
+        "parentCategoryId": null,
+        "lastModifiedTime": "2018-06-27T07:08:02Z"
+    },
+    {
+        "id": "c0e3235c-424e-4cbb-acfa-471f18671c8d",
+        "isDeleted": false,
+        "code": "xe",
+        "lastModifiedUser": "admin",
+        "title": "Xe cộ",
         "parentCategoryId": null,
         "lastModifiedTime": "2018-06-27T07:08:02Z"
     }
 ];
+
+
 

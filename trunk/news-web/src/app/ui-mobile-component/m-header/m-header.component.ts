@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Category} from "../../bean/category";
-import {ALL_CATEGORIES} from "../../service/category-fixed-datasource";
+import {ALL_CATEGORIES, ALL_CATEGORIES_MOBILE} from "../../service/category-fixed-datasource";
 import {isNullOrUndefined} from "util";
 import {Router} from "@angular/router";
 import {ApplicationUtils} from "../../common/application-utils";
@@ -138,6 +138,6 @@ export class MHeaderComponent implements OnInit {
 
     protected loadCategories(): void {
 
-        this.categories = ALL_CATEGORIES;
+        this.categories = ALL_CATEGORIES_MOBILE;
     }
 }
