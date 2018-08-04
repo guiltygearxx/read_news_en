@@ -1,14 +1,16 @@
 <div class="card card-plain card-blog hover-element-type">
-
-    <div id="container123" class="col-md-3" style="padding-left: 0px">
-        <div class="card-image">
-            <a [href]="news | redirectLink" target="_blank">
-                <img class="img img-raised img-content-card-4 cover-img" [src]="image?.url || 'assets/img/image_news.jpg'"/>
-            </a>
-            <span class="label label-confix-content-video" *ngIf="news.typeContent == 'video'"><i
-                    class="fa fa-play-circle-o fa-2x"></i></span>
+    <a [href]="news | redirectLink" target="_blank">
+        <div id="container123" class="col-md-3" style="padding-left: 0px">
+            <div class="card-image">
+                <a [href]="news | redirectLink" target="_blank">
+                    <img class="img img-raised img-content-card-4 cover-img"
+                         [src]="image?.url || 'assets/img/image_news.jpg'"/>
+                </a>
+                <span class="label label-confix-content-video" *ngIf="news.typeContent == 'video'"><i
+                        class="fa fa-play-circle-o fa-2x"></i></span>
+            </div>
         </div>
-    </div>
+    </a>
     <div class="col-md-9 social-networking">
         <div class="col-md-12 social-networking-title">
             <h5 class="card-title" style="margin-bottom: 0px">
@@ -22,11 +24,12 @@
         </div>
 
         <p class="col-md-12 card-description text-dark">
-            <a [href]="news | redirectLink" class="fixed-color-description-m" target="_blank">
+            <a class="fixed-color-description-m" target="_blank">
                 {{news?.description}}
             </a>
         </p>
     </div>
 
     <div class="affect-on-div" [@readyStateChanged]="readyState"></div>
+
 </div>

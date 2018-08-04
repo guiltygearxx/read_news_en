@@ -1,19 +1,23 @@
-<div class="card card-plain card-blog hover-element-type" >
-    <div class="card-image">
-        <a [href]="news | redirectLink" target="_blank">
-            <img class="img img-raised img-content-md-3 cover-img" [src]="image?.url || 'assets/img/image_news.jpg'" width="335" height="214"/>
-        </a>
-        <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>
-        <ng-container *ngIf="iFlagVideo == true">
-        <span class="video-icon" onclick="player.play(); this.parentNode.style.display = 'none'; return false;"></span>
-        </ng-container>
-    </div>
+<div class="card card-plain card-blog hover-element-type">
+    <a [href]="news | redirectLink" target="_blank">
+        <div class="card-image">
+            <a [href]="news | redirectLink" target="_blank">
+                <img class="img img-raised img-content-md-3 cover-img" [src]="image?.url || 'assets/img/image_news.jpg'"
+                     width="335" height="214"/>
+            </a>
+            <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>
+            <ng-container *ngIf="iFlagVideo == true">
+                <span class="video-icon"
+                      onclick="player.play(); this.parentNode.style.display = 'none'; return false;"></span>
+            </ng-container>
+        </div>
 
-    <div class="card-content">
-        <h4 class="card-title">
-            <a [href]="news | redirectLink" target="_blank">{{news?.title}}</a>
-        </h4>
-    </div>
+        <div class="card-content">
+            <h4 class="card-title">
+                <a [href]="news | redirectLink" target="_blank">{{news?.title}}</a>
+            </h4>
+        </div>
 
-    <div class="affect-on-div" [@readyStateChanged]="readyState"></div>
+        <div class="affect-on-div" [@readyStateChanged]="readyState"></div>
+    </a>
 </div>
