@@ -8,6 +8,8 @@ class Image implements BaseDomain {
     String url;
     String referenceId;
     String referenceType;
+    Long size; // = width * height
+    Date createdTime;
 
     static constraints = {
 
@@ -17,7 +19,9 @@ class Image implements BaseDomain {
 
         height nullable: true
         width nullable: true
+        size nullable: true
         type nullable: true
+        createdTime nullable: true
     }
 
     static mapping = {

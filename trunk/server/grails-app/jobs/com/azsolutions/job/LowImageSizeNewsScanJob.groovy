@@ -2,15 +2,16 @@ package com.azsolutions.job
 
 import groovy.time.TimeCategory;
 
-class ImageDetectSizeJob {
+class LowImageSizeNewsScanJob {
 
     public static final int DELAY_TIME_IN_MINUTES = 5;
     public static final int SCAN_RANGE_IN_MINUTES = 15;
+    public static final long MIN_SIZE = 6400;
 
-    def imageDetectSizeService;
+    def lowImageSizeNewsScanService;
 
     static triggers = {
-        simple name: 'ImageDetectSizeJob', startDelay: 10000, repeatInterval: 5 * 60 * 1000l; //5 minutes;
+        simple name: 'LowImageSizeNewsScanJob', startDelay: 10000, repeatInterval: 5 * 60 * 1000l; // 5 minues;
     }
 
     def execute() {
@@ -26,6 +27,6 @@ class ImageDetectSizeJob {
             fromDate = toDate - SCAN_RANGE_IN_MINUTES.minutes;
         }
 
-        imageDetectSizeService.detect(fromDate, toDate);
+        lowImageSizeNewsScanService.scan(fromDate, toDate, MIN_SIZE);
     }
 }

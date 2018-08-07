@@ -1,8 +1,9 @@
-package com.azsolutions.service
+package com.azsolutions.service.crawler
 
 import com.azsolutions.ApplicationConstant
 import com.azsolutions.bean.Rss
 import com.azsolutions.domain.*
+import com.azsolutions.service.RssReaderEventHandler
 import grails.gorm.transactions.Transactional
 
 import java.util.concurrent.Callable
@@ -13,7 +14,7 @@ import java.util.concurrent.Future
 @Transactional
 class RssCrawlerService {
 
-    public static final int READ_RSS_THREAD_POOL_SIZE = 1;
+    public static final int READ_RSS_THREAD_POOL_SIZE = 10;
 
     def readRssService;
     def applicationUtilsService;
