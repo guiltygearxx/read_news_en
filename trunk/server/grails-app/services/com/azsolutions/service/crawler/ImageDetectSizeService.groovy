@@ -2,6 +2,7 @@ package com.azsolutions.service.crawler
 
 import com.azsolutions.bean.ImageSize
 import com.azsolutions.domain.Image
+import com.azsolutions.domain.MissingSizeImage
 import grails.gorm.transactions.Transactional
 
 import java.util.concurrent.Callable
@@ -11,6 +12,10 @@ import java.util.concurrent.Future
 
 @Transactional
 class ImageDetectSizeService {
+
+    public static final String MISSING_IMAGE_SIZE_SCAN_STATUS_DONE = 'done';
+    public static final String MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR = 'error';
+    public static final String MISSING_IMAGE_SIZE_SCAN_STATUS_NEW = 'new';
 
     public static final int MAX_SCANNED_NEWS_LIST_SIZE = 100;
     public static final int MAX_SCANNED_PERIOD_RANGE_IN_MINUTES = 5;
@@ -26,16 +31,11 @@ class ImageDetectSizeService {
      * @param toDate
      * @return
      */
-    private List<Image> getMissingSizeImages(Integer max, Date fromDate, Date toDate) {
+    private List<MissingSizeImage> getMissingSizeImages(Integer max, Date fromDate, Date toDate) {
 
-        return Image.createCriteria().list([max: max], {
+        return MissingSizeImage.createCriteria().list([max: max], {
 
-            or {
-                isNull("width");
-                isNull("height");
-            }
-
-            eq("isDeleted", false);
+            eq("scanStatus", MISSING_IMAGE_SIZE_SCAN_STATUS_NEW);
             ge("createdTime", fromDate);
             lt("createdTime", toDate);
 
@@ -43,62 +43,102 @@ class ImageDetectSizeService {
         });
     }
 
+    private List<Image> getImages(List<MissingSizeImage> missingSizeImageList) {
+
+        return !missingSizeImageList ? null : Image.createCriteria().list {
+
+            inList("id", missingSizeImageList.id);
+            eq("isDeleted", false);
+            or {
+                isNull("width");
+                isNull("height");
+            }
+        }
+    }
+
     void detect(Date fromDate_, Date toDate_) {
 
         List<Image> images;
+
+        List<MissingSizeImage> missingSizeImages;
 
         Date now = new Date();
 
         applicationUtilsService.scan(fromDate_, toDate_, MAX_SCANNED_PERIOD_RANGE_IN_MINUTES, { Date fromDate, Date toDate ->
 
-            while (images = this.getMissingSizeImages(MAX_SCANNED_NEWS_LIST_SIZE, fromDate, toDate)) {
+            while (missingSizeImages = this.getMissingSizeImages(MAX_SCANNED_NEWS_LIST_SIZE, fromDate, toDate)) {
 
-                println images.size();
+                images = this.getImages(missingSizeImages);
 
-                ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+                if (images) {
 
-                List<Future> futures = images.collect { Image image ->
+                    ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
-                    threadPool.submit({ ->
+                    List<Future> futures = images.collect { Image image ->
 
-                        try {
+                        MissingSizeImage missingSizeImage = MissingSizeImage.get(image.id);
 
-                            ImageSize size_ = imageUtilsService.detectImageSize(image.url);
+                        threadPool.submit({ ->
 
-                            if (size_) image.with {
+                            String scanStatus_;
 
-                                height = size_.height;
-                                width = size_.width;
-                                lastModifiedTime = now;
-                                lastModifiedUser = 'system';
+                            try {
+
+                                ImageSize size_ = imageUtilsService.detectImageSize(image.url);
+
+                                if (size_) image.with {
+
+                                    height = size_.height;
+                                    width = size_.width;
+                                    lastModifiedTime = now;
+                                    lastModifiedUser = 'system';
+                                }
+
+                                scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
+
+                            } catch (FileNotFoundException e) {
+
+                                image.with {
+
+                                    isDeleted = false;
+                                    lastModifiedTime = now;
+                                    lastModifiedUser = 'system';
+                                }
+
+                                scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
+
+                            } catch (Exception e) {
+
+                                println "ImageDetectSizeService.detect: error: image.id=${image.id}";
+
+                                e.printStackTrace();
+
+                                scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR;
+
+                            } finally {
+
+                                missingSizeImage.with {
+
+                                    scanStatus = scanStatus_;
+                                    lastModifiedTime = now;
+                                }
                             }
 
-                        } catch (FileNotFoundException e) {
+                        } as Callable);
+                    }
 
-                            image.with {
-
-                                isDeleted = false;
-                                lastModifiedTime = now;
-                                lastModifiedUser = 'system';
-                            }
-                        } catch (Exception e) {
-
-                            println "ImageDetectSizeService.detect: error: image.id=${image.id}";
-
-                            e.printStackTrace();
-                        }
-
-                    } as Callable);
+                    futures.each { it.get() };
                 }
 
-                futures.each { it.get() };
+                missingSizeImages.each {
+                    (it.scanStatus == MISSING_IMAGE_SIZE_SCAN_STATUS_NEW) && (it.scanStatus = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE);
+                };
 
                 Image.withSession { def session ->
 
-                    images.each {
+                    missingSizeImages.each { it.save() };
 
-                        it.save()
-                    };
+                    images?.each { it.save() };
 
                     session.flush();
 
