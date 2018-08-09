@@ -35,8 +35,14 @@ class ImageDetectSizeService {
 
         return MissingSizeImage.createCriteria().list([max: max], {
 
-            eq("scanStatus", MISSING_IMAGE_SIZE_SCAN_STATUS_NEW);
-            eq("scannedTimes", scannedTimes);
+            or {
+                eq("scanStatus", MISSING_IMAGE_SIZE_SCAN_STATUS_NEW);
+                and {
+                    eq("scannedTimes", scannedTimes);
+                    eq("scanStatus", MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR);
+                }
+            }
+
             ge("createdTime", fromDate);
             lt("createdTime", toDate);
 
