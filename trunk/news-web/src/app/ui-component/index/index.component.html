@@ -7,75 +7,75 @@
 
     <!--phan tin tuc chinh-->
     <div *ngIf="!isLoadingTinChinh()" infinite-scroll class="col-sm-7 col-md-7" (scrolled)="showMore()"
-         [infiniteScrollDistance]="1">
+    [infiniteScrollDistance]="1">
 
-        <!--phan 7 card tin tuc chinh tren trang chu-->
-        <div class="col-md-12 nopadding" style="background: #fff">
-            <div class="col-md-8 fake-cusor">
+    <!--phan 7 card tin tuc chinh tren trang chu-->
+    <div class="col-md-12 nopadding" style="background: #fff">
+    <div class="col-md-8 fake-cusor">
 
-                <app-news-card [image]="getTinChinhNewsImage(getTinChinhNews2(0))" [news]="getTinChinhNews2(0)"
-                               [now]="now">
-                </app-news-card>
+    <app-news-card [image]="getTinChinhNewsImage(getTinChinhNews2(0))" [news]="getTinChinhNews2(0)"
+    [now]="now">
+    </app-news-card>
 
-            </div>
-            <div class="col-md-4 col-xs-12">
+    </div>
+    <div class="col-md-4 col-xs-12">
 
-                <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(1))" [news]="getTinChinhNews2(1)"
-                                 [now]="now">
-                </app-news-card-2>
+    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(1))" [news]="getTinChinhNews2(1)"
+    [now]="now">
+    </app-news-card-2>
 
-            </div>
-            <div class="col-md-4 col-xs-12">
+    </div>
+    <div class="col-md-4 col-xs-12">
 
-                <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(2)"
-                                 [now]="now">
-                </app-news-card-2>
+    <app-news-card-2 [image]="getTinChinhNewsImage(getTinChinhNews2(2))" [news]="getTinChinhNews2(2)"
+    [now]="now">
+    </app-news-card-2>
 
-            </div>
-        </div>
+    </div>
+    </div>
 
-        <div class="col-md-4 col-xs-12">
+    <div class="col-md-4 col-xs-12">
 
-            <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(3))" [news]="getTinChinhNews2(3)"
-                             [now]="now">
-            </app-news-card-3>
+    <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(3))" [news]="getTinChinhNews2(3)"
+    [now]="now">
+    </app-news-card-3>
 
-        </div>
+    </div>
 
-        <div class="col-md-4 col-xs-12">
+    <div class="col-md-4 col-xs-12">
 
-            <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(4)"
-                             [now]="now">
-            </app-news-card-3>
+    <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(4))" [news]="getTinChinhNews2(4)"
+    [now]="now">
+    </app-news-card-3>
 
-        </div>
+    </div>
 
-        <div class="col-md-4 col-xs-12">
+    <div class="col-md-4 col-xs-12">
 
-            <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(5)"
-                             [now]="now">
-            </app-news-card-3>
+    <app-news-card-3 [iFlagVideo]="false" [image]="getTinChinhNewsImage(getTinChinhNews2(5))" [news]="getTinChinhNews2(5)"
+    [now]="now">
+    </app-news-card-3>
 
-        </div>
-        <!--end:phan 7 card tin tuc chinh tren trang chu-->
+    </div>
+    <!--end:phan 7 card tin tuc chinh tren trang chu-->
 
-        <ng-container *ngFor="let news of getTinChinhNewsList(); let newsIndex = index">
+    <ng-container *ngFor="let news of getTinChinhNewsList(); let newsIndex = index">
 
-            <ng-container *ngIf="(newsIndex % 10 < 6)">
-                <hr class="col-md-12"/>
+    <ng-container *ngIf="(newsIndex % 10 < 6)">
+    <hr class="col-md-12"/>
 
-                <app-news-card-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
-                </app-news-card-4>
-            </ng-container>
+    <app-news-card-4 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
+    </app-news-card-4>
+    </ng-container>
 
-            <ng-container *ngIf="(newsIndex % 10 >= 6)">
+    <ng-container *ngIf="(newsIndex % 10 >= 6)">
 
-                <app-news-card-5 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
-                </app-news-card-5>
+    <app-news-card-5 [image]="getTinChinhNewsImage(news)" [news]="news" [now]="now">
+    </app-news-card-5>
 
-            </ng-container>
+    </ng-container>
 
-        </ng-container>
+    </ng-container>
 
     </div>
     <!--phan tin tuc chinh:end-->

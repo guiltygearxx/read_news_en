@@ -6,19 +6,19 @@
                     <img class="img img-raised cover-img fixed-img-m fixed-border-m"
                          [src]="image?.url || 'assets/img/image_news.jpg'" width="335" height="214"/>
                 </a>
-                <span class="label label-confix-content-video" *ngIf="news.typeContent != 'video'"><i
+                <span class="label label-confix-content-video" *ngIf="news.typeContent == 'video'"><i
                         class="fa fa-picture-o"></i></span>
 
             </div>
         </div>
         <div class="col-md-12 col-xs-8 social-networking nopadding">
             <div class="social-networking-title">
-                <h5 class="card-title fixed-font-m" style="margin-bottom: 0px">
+                <h5 class="card-title fixed-font-m font-baode-small" style="margin-bottom: 0px">
                     <a [href]="news | redirectLinkMobile" target="_blank">{{news?.title}}</a>
                 </h5>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-12 nopadding">
                 <a href="#pablo" class="source-news">
                     {{news?.rssSourceGroupTitle}} - {{news?.pubDate | displayNewsTime :now}}
                 </a>

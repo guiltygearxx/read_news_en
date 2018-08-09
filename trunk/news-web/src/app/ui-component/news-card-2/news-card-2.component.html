@@ -1,4 +1,4 @@
-<div class="card card-plain card-blog">
+<div class="card card-plain card-blog hover-element-type">
     <a [href]="news | redirectLink" target="_blank">
         <div class="card-image">
 
@@ -9,7 +9,7 @@
 
             <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>
 
-            <div class="card-title fix-font-size-title underline-title">
+            <div class="card-title fix-font-size-title underline-title font-baode-small">
                 <a [href]="news | redirectLink" target="_blank"> {{news?.title}}</a>
             </div>
         </div>

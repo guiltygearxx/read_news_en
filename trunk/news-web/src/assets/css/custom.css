@@ -171,15 +171,16 @@
 
 .card-image img {
     max-width: 100%;
+    transform: scale(1.3);
     -moz-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
 
 .card-image:hover img {
-    -moz-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
 }
 
 .btn-social-confix {
@@ -200,7 +201,7 @@
 }
 
 .img-big-loading {
-    height: 416px !important;
+    height: 410px !important;
 }
 
 .img-content-md-3 {
@@ -313,7 +314,7 @@
 .label-confix-content-video {
     bottom: 4px !important;
     position: absolute;
-    right: 4px;
+    right: 10px;
     z-index: 2;
     border-radius: 8px;
     background-color: #0006 !important;
@@ -355,7 +356,7 @@
 .fixed-img-m {
     height: 100%;
     width: 100% !important;
-    min-height: 80px;
+    min-height: 90px;
     min-width: 120px;
     object-fit: contain;
 }
@@ -436,4 +437,42 @@
     height: 100%;
     font-size: 30px;
     margin-bottom: 5px;
+}
+
+.font-baode-big{
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.font-baode-description{
+    font-size: 1.6rem !important;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.font-baode-small{
+    font-size: 1.8rem !important;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.font-header{
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+    font-family: 'Comfortaa', cursive;
+}
+
+.hover-element-type:hover .social-networking .card-title a {
+   color: #767598;
+}
+
+.hover-element-type:hover .col-md-9 .card-title a {
+    color: #767598;
+}
+
+.hover-element-type:hover .card-content .card-title a {
+    color: #767598;
+}
+
+.hover-element-type:hover .card-image .card-title a {
+    color: #92f9cd;
 }

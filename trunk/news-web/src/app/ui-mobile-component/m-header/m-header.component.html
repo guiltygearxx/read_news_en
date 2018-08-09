@@ -17,13 +17,13 @@
                (click)="viewTinChinhTopic($event)"><i class="material-icons fixed-material-icon">home</i>
             </a>
 
-            <a class="navbar-brand fixed-padding-m fixed-height-m fixed-button-active-m"
+            <a class="navbar-brand fixed-padding-m fixed-height-m fixed-button-active-m font-header"
                (click)="viewTinNongTopic($event)">NÓNG
             </a>
 
-            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewTinMoiTopic($event)">MỚI</a>
+            <a class="navbar-brand fixed-padding-m fixed-height-m font-header" (click)="viewTinMoiTopic($event)">MỚI</a>
 
-            <a class="navbar-brand fixed-padding-m fixed-height-m" (click)="viewVideoTopic($event)">VIDEO</a>
+            <a class="navbar-brand fixed-padding-m fixed-height-m font-header" (click)="viewVideoTopic($event)">VIDEO</a>
 
         </div>
 
@@ -45,7 +45,7 @@
 
                         <li class="dropdown hover-element-li" (click)="parentMenuClicked($event, category)">
 
-                            <a class="dropdown-toggle">
+                            <a class="dropdown-toggle font-header">
                                 {{category.title}} <b class="caret"></b>
                             </a>
 
@@ -54,7 +54,7 @@
                                 <li *ngFor="let subCategory of getCategories(category)"
                                     (click)="childMenuClicked($event, subCategory)">
 
-                                    <a>{{subCategory.title}}</a>
+                                    <a class="font-header">{{subCategory.title}}</a>
 
                                 </li>
 
@@ -66,7 +66,7 @@
                     <ng-template #menu>
 
                         <li class="hover-element-li">
-                            <a (click)="singleMenuClicked($event, category)">{{category.title}}</a>
+                            <a (click)="singleMenuClicked($event, category)" class="font-header">{{category.title}}</a>
                         </li>
 
                     </ng-template>

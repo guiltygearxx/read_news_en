@@ -5,12 +5,12 @@
                 <img class="img img-raised img-content-md-3 fixed-img-m cover-img fixed-border-m"
                      [src]="image?.url || 'assets/img/image_news.jpg'" width="335" height="214"/>
             </a>
-            <span class="label label-confix-content-video" *ngIf="news.typeContent != 'video'"><i
+            <span class="label label-confix-content-video" *ngIf="news.typeContent == 'video'"><i
                     class="fa fa-picture-o"></i></span>
         </div>
 
         <div class="card-content fixed-padding-card-3-m">
-            <h4 class="card-title fixed-font-m">
+            <h4 class="card-title fixed-font-m font-baode-small">
                 <a [href]="news | redirectLinkMobile" target="_blank">{{news?.title}}</a>
             </h4>
         </div>

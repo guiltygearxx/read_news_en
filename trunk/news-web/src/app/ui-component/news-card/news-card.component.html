@@ -3,7 +3,7 @@
         <div class="card-image card-image-square">
 
             <a [href]="news | redirectLink" class="min-height-40vh" target="_blank">
-                <img class="img img-raised img-big cover-img" [src]="image?.url || 'assets/img/image_news.jpg'"/>
+                <img class="img img-raised img-big font-baode-big" [src]="image?.url || 'assets/img/image_news.jpg'"/>
             </a>
 
             <span class="label label-confix-content">{{news?.rssSourceGroupTitle}} {{news?.pubDate | displayNewsTime : now}}</span>
@@ -14,7 +14,7 @@
             </ng-container>
 
             <div class="card-title fix-font-size-title underline-title" style="right: 15px !important;">
-                <a [href]="news | redirectLink" style="font-size: 3.0rem !important; line-height: 3.4rem !important;"
+                <a [href]="news | redirectLink" class="font-baode-small" style="font-size: 3.0rem !important; line-height: 3.4rem !important;"
                    target="_blank"> {{news?.title}}</a>
             </div>
 
