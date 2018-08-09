@@ -31,11 +31,12 @@ class ImageDetectSizeService {
      * @param toDate
      * @return
      */
-    private List<MissingSizeImage> getMissingSizeImages(Integer max, Date fromDate, Date toDate) {
+    private List<MissingSizeImage> getMissingSizeImages(Integer max, Date fromDate, Date toDate, Integer scannedTimes) {
 
         return MissingSizeImage.createCriteria().list([max: max], {
 
             eq("scanStatus", MISSING_IMAGE_SIZE_SCAN_STATUS_NEW);
+            eq("scannedTimes", scannedTimes);
             ge("createdTime", fromDate);
             lt("createdTime", toDate);
 
@@ -56,7 +57,7 @@ class ImageDetectSizeService {
         }
     }
 
-    void detect(Date fromDate_, Date toDate_) {
+    void detect(Date fromDate_, Date toDate_, Integer maxScannedTimes) {
 
         List<Image> images;
 
@@ -64,87 +65,94 @@ class ImageDetectSizeService {
 
         Date now = new Date();
 
-        applicationUtilsService.scan(fromDate_, toDate_, MAX_SCANNED_PERIOD_RANGE_IN_MINUTES, { Date fromDate, Date toDate ->
+        applicationUtilsService.scan(
+                fromDate_, toDate_, MAX_SCANNED_PERIOD_RANGE_IN_MINUTES, maxScannedTimes,
+                { Date fromDate, Date toDate, Integer scannedTimes_ ->
 
-            while (missingSizeImages = this.getMissingSizeImages(MAX_SCANNED_NEWS_LIST_SIZE, fromDate, toDate)) {
+                    while (missingSizeImages = this.getMissingSizeImages(MAX_SCANNED_NEWS_LIST_SIZE, fromDate, toDate, scannedTimes_)) {
 
-                images = this.getImages(missingSizeImages);
+                        images = this.getImages(missingSizeImages);
 
-                if (images) {
+                        if (images) {
 
-                    ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+                            ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
-                    List<Future> futures = images.collect { Image image ->
+                            List<Future> futures = images.collect { Image image ->
 
-                        MissingSizeImage missingSizeImage = MissingSizeImage.get(image.id);
+                                MissingSizeImage missingSizeImage = MissingSizeImage.get(image.id);
 
-                        threadPool.submit({ ->
+                                threadPool.submit({ ->
 
-                            String scanStatus_;
+                                    String scanStatus_;
 
-                            try {
+                                    try {
 
-                                ImageSize size_ = imageUtilsService.detectImageSize(image.url);
+                                        ImageSize size_ = imageUtilsService.detectImageSize(image.url);
 
-                                if (size_) image.with {
+                                        if (size_) image.with {
 
-                                    height = size_.height;
-                                    width = size_.width;
-                                    lastModifiedTime = now;
-                                    lastModifiedUser = 'system';
-                                }
+                                            height = size_.height;
+                                            width = size_.width;
+                                            lastModifiedTime = now;
+                                            lastModifiedUser = 'system';
+                                        }
 
-                                scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
+                                        scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
 
-                            } catch (FileNotFoundException e) {
+                                    } catch (FileNotFoundException e) {
 
-                                image.with {
+                                        image.with {
 
-                                    isDeleted = false;
-                                    lastModifiedTime = now;
-                                    lastModifiedUser = 'system';
-                                }
+                                            isDeleted = false;
+                                            lastModifiedTime = now;
+                                            lastModifiedUser = 'system';
+                                        }
 
-                                scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
+                                        scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
 
-                            } catch (Exception e) {
+                                    } catch (Exception e) {
 
-                                println "ImageDetectSizeService.detect: error: image.id=${image.id}";
+                                        println "ImageDetectSizeService.detect: error: image.id=${image.id}";
 
-                                e.printStackTrace();
+                                        e.printStackTrace();
 
-                                scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR;
+                                        scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR;
 
-                            } finally {
+                                    } finally {
 
-                                missingSizeImage.with {
+                                        missingSizeImage.with {
 
-                                    scanStatus = scanStatus_;
-                                    lastModifiedTime = now;
-                                }
+                                            scannedTimes++;
+                                            scanStatus = scanStatus_;
+                                            lastModifiedTime = now;
+                                        }
+                                    }
+
+                                } as Callable);
                             }
 
-                        } as Callable);
+                            futures.each { it.get() };
+                        }
+
+                        missingSizeImages.each {
+                            if (it.scanStatus == MISSING_IMAGE_SIZE_SCAN_STATUS_NEW) {
+
+                                it.scanStatus = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
+                                it.scannedTimes++;
+                            };
+                        };
+
+                        Image.withSession { def session ->
+
+                            missingSizeImages.each { it.save() };
+
+                            images?.each { it.save() };
+
+                            session.flush();
+
+                            session.clear();
+                        }
                     }
-
-                    futures.each { it.get() };
-                }
-
-                missingSizeImages.each {
-                    (it.scanStatus == MISSING_IMAGE_SIZE_SCAN_STATUS_NEW) && (it.scanStatus = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE);
-                };
-
-                Image.withSession { def session ->
-
-                    missingSizeImages.each { it.save() };
-
-                    images?.each { it.save() };
-
-                    session.flush();
-
-                    session.clear();
-                }
-            }
-        })
+                })
     }
 }

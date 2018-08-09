@@ -41,18 +41,22 @@ class ApplicationUtilsService {
         return shell.evaluate(expression);
     }
 
-    void scan(Date fromDate, Date toDate, Integer scanRangeInMinutes, Closure processClosure) {
+    void scan(Date fromDate, Date toDate, Integer scanRangeInMinutes, Integer maxScannedTimes, Closure processClosure) {
 
         Date fromDate_;
         Date toDate_ = toDate;
+        Integer scannedTimes = maxScannedTimes ?: 1;
 
         while (toDate_ > fromDate) {
 
-            use(TimeCategory) { fromDate_ = [toDate_ - scanRangeInMinutes.minutes, fromDate].max() }
+            while (--scannedTimes >= 0) {
 
-            processClosure(fromDate_, toDate_);
+                use(TimeCategory) { fromDate_ = [toDate_ - scanRangeInMinutes.minutes, fromDate].max() }
 
-            toDate_ = fromDate_;
+                processClosure(fromDate_, toDate_, scannedTimes);
+
+                toDate_ = fromDate_;
+            }
         }
     }
 

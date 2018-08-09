@@ -6,6 +6,7 @@ class ImageDetectSizeJob {
 
     public static final int DELAY_TIME_IN_MINUTES = 5;
     public static final int SCAN_RANGE_IN_MINUTES = 15;
+    public static final int MAX_SCANNED_TIMES = 5;
 
     def imageDetectSizeService;
 
@@ -26,6 +27,6 @@ class ImageDetectSizeJob {
             fromDate = toDate - SCAN_RANGE_IN_MINUTES.minutes;
         }
 
-        imageDetectSizeService.detect(fromDate, toDate);
+        imageDetectSizeService.detect(fromDate, toDate, MAX_SCANNED_TIMES);
     }
 }

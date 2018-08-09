@@ -60,7 +60,7 @@ class ExampleController {
         println toDate;
         println fromDate;
 
-        imageDetectSizeService.detect(fromDate, toDate);
+        imageDetectSizeService.detect(fromDate, toDate, 5);
 
         render([isSuccess: true] as JSON);
     }

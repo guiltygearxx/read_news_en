@@ -74,7 +74,7 @@ class ImageListenerService {
             Date createdTime = event.entityAccess.getProperty('createdTime') as Date;
 
             new MissingSizeImage(
-                    id: id, createdTime: createdTime, lastModifiedTime: createdTime,
+                    id: id, createdTime: createdTime, lastModifiedTime: createdTime, scannedTimes: 0,
                     scanStatus: ImageDetectSizeService.MISSING_IMAGE_SIZE_SCAN_STATUS_NEW,
             ).save()
         }

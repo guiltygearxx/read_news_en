@@ -6,12 +6,14 @@ class MissingSizeImage {
     Date createdTime;
     Date lastModifiedTime;
     String scanStatus;
+    Integer scannedTimes;
 
     static constraints = {
 
         createdTime nullable: true
         scanStatus nullable: true
         lastModifiedTime nullable: true
+        scannedTimes nullable: true
     }
 
     static mapping = {
