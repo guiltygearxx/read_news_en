@@ -54,7 +54,7 @@ class ExampleController {
 
         use(TimeCategory) {
             toDate = new Date();
-            fromDate = toDate - 2.days;
+            fromDate = toDate - 3.days;
         }
 
         println toDate;

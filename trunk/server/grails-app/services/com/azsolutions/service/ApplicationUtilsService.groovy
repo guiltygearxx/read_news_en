@@ -45,18 +45,17 @@ class ApplicationUtilsService {
 
         Date fromDate_;
         Date toDate_ = toDate;
-        Integer scannedTimes = maxScannedTimes ?: 1;
 
         while (toDate_ > fromDate) {
 
-            while (--scannedTimes >= 0) {
+            use(TimeCategory) { fromDate_ = [toDate_ - scanRangeInMinutes.minutes, fromDate].max() }
 
-                use(TimeCategory) { fromDate_ = [toDate_ - scanRangeInMinutes.minutes, fromDate].max() }
+            ((maxScannedTimes ?: 1)..1).each { Integer scannedTimes ->
 
-                processClosure(fromDate_, toDate_, scannedTimes);
-
-                toDate_ = fromDate_;
+                processClosure(fromDate_, toDate_, scannedTimes - 1);
             }
+
+            toDate_ = fromDate_;
         }
     }
 

@@ -3,6 +3,7 @@ package com.azsolutions.service.crawler
 import com.azsolutions.bean.ImageSize
 import com.azsolutions.domain.Image
 import com.azsolutions.domain.MissingSizeImage
+import grails.converters.JSON
 import grails.gorm.transactions.Transactional
 
 import java.util.concurrent.Callable
@@ -35,14 +36,8 @@ class ImageDetectSizeService {
 
         return MissingSizeImage.createCriteria().list([max: max], {
 
-            or {
-                eq("scanStatus", MISSING_IMAGE_SIZE_SCAN_STATUS_NEW);
-                and {
-                    eq("scannedTimes", scannedTimes);
-                    eq("scanStatus", MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR);
-                }
-            }
-
+            ne("scanStatus", MISSING_IMAGE_SIZE_SCAN_STATUS_DONE);
+            eq("scannedTimes", scannedTimes);
             ge("createdTime", fromDate);
             lt("createdTime", toDate);
 
@@ -83,82 +78,87 @@ class ImageDetectSizeService {
 
                             ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
-                            List<Future> futures = images.collect { Image image ->
+                            try {
 
-                                MissingSizeImage missingSizeImage = MissingSizeImage.get(image.id);
+                                List<Future> futures = images.collect { Image image ->
 
-                                threadPool.submit({ ->
+//                                    println image.id;
 
-                                    String scanStatus_;
+                                    MissingSizeImage missingSizeImage = MissingSizeImage.get(image.id);
 
-                                    try {
+//                                    println "scannedTimes_: ${scannedTimes_} -- ${missingSizeImage as JSON}";
 
-                                        ImageSize size_ = imageUtilsService.detectImageSize(image.url);
+                                    threadPool.submit({ ->
 
-                                        if (size_) image.with {
+                                        String scanStatus_;
 
-                                            height = size_.height;
-                                            width = size_.width;
-                                            lastModifiedTime = now;
-                                            lastModifiedUser = 'system';
+                                        try {
+
+                                            ImageSize size_ = imageUtilsService.detectImageSize(image.url);
+
+                                            if (size_) image.with {
+
+                                                height = size_.height;
+                                                width = size_.width;
+                                                lastModifiedTime = now;
+                                                lastModifiedUser = 'system';
+                                            }
+
+                                            scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
+
+                                        } catch (FileNotFoundException e) {
+
+                                            image.with {
+
+                                                isDeleted = true;
+                                                lastModifiedTime = now;
+                                                lastModifiedUser = 'system';
+                                            }
+
+                                            scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR;
+
+                                        } catch (Exception e) {
+
+                                            scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR;
+
+                                            println "ImageDetectSizeService.detect: error: image.id=${image.id} | error=${e.message}";
                                         }
-
-                                        scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
-
-                                    } catch (FileNotFoundException e) {
-
-                                        image.with {
-
-                                            isDeleted = false;
-                                            lastModifiedTime = now;
-                                            lastModifiedUser = 'system';
-                                        }
-
-                                        scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
-
-                                    } catch (Exception e) {
-
-                                        println "ImageDetectSizeService.detect: error: image.id=${image.id}";
-
-                                        e.printStackTrace();
-
-                                        scanStatus_ = MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR;
-
-                                    } finally {
 
                                         missingSizeImage.with {
 
-                                            scannedTimes++;
+                                            scannedTimes = scannedTimes + 1;
                                             scanStatus = scanStatus_;
                                             lastModifiedTime = now;
                                         }
-                                    }
 
-                                } as Callable);
+                                        return missingSizeImage;
+
+                                    } as Callable<MissingSizeImage>);
+                                }
+
+                                (missingSizeImages - futures.collect { it.get() }).each {
+
+                                    it.scanStatus = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
+                                    it.scannedTimes = it.scannedTimes + 1;
+                                }
+                            } finally {
+
+                                threadPool.shutdown()
                             }
-
-                            futures.each { it.get() };
                         }
-
-                        missingSizeImages.each {
-                            if (it.scanStatus == MISSING_IMAGE_SIZE_SCAN_STATUS_NEW) {
-
-                                it.scanStatus = MISSING_IMAGE_SIZE_SCAN_STATUS_DONE;
-                                it.scannedTimes++;
-                            };
-                        };
 
                         Image.withSession { def session ->
 
                             missingSizeImages.each { it.save() };
 
-                            images?.each { it.save() };
+                            images.each { it.save() };
 
                             session.flush();
 
                             session.clear();
                         }
                     }
-                })
+                }
+        );
     }
 }
