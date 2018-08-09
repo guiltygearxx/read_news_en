@@ -54,8 +54,11 @@ class ExampleController {
 
         use(TimeCategory) {
             toDate = new Date();
-            fromDate = toDate - 1.days;
+            fromDate = toDate - 2.days;
         }
+
+        println toDate;
+        println fromDate;
 
         imageDetectSizeService.detect(fromDate, toDate);
 
