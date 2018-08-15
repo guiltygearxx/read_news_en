@@ -25,6 +25,9 @@ export class NewsCardComponent
     @Input()
     now: Date;
 
+    @Input()
+    iFlagVideo: boolean;
+
     readyState: string = "no";
 
     constructor(protected router: Router,

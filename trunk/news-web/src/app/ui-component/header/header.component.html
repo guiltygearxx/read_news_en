@@ -32,14 +32,14 @@
                         <li class="dropdown hover-element-li" (mouseenter)="openMenu($event)"
                             (mouseleave)="closeMenu($event)">
 
-                            <a class="dropdown-toggle" (click)="openCategory($event, category)">
+                            <a class="dropdown-toggle font-header" (click)="openCategory($event, category)">
                                 {{category.title}}
                                 <b class="caret"></b>
                             </a>
 
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li *ngFor="let subCategory of getCategories(category)">
-                                    <a (click)="openCategory($event, subCategory)">{{subCategory.title}}</a>
+                                    <a (click)="openCategory($event, subCategory)" class="font-header">{{subCategory.title}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -49,7 +49,7 @@
                     <ng-template #menu>
 
                         <li class="hover-element-li">
-                            <a (click)="openCategory($event, category)">{{category.title}}</a>
+                            <a (click)="openCategory($event, category)" class="font-header">{{category.title}}</a>
                         </li>
 
                     </ng-template>

@@ -11,93 +11,73 @@ export class MDetailComponent implements OnInit {
 
   innerContentNews: string;
   ngOnInit() {
-      this.innerContentNews  ="<meta itemprop=\"datePublished\" content=\"2018-07-22T21:20:00T+07:00\"> \n" +
-          "<h1 class=\"cms-title\">Top 3 con giáp cẩn thận khuynh ra bại sản cuối năm 2018</h1>  \n" +
-          "<div id=\"topContent\" style=\"position:relative;\">  \n" +
-          " <div class=\"text\"> \n" +
-          "  <h3 class=\"sapo cms-desc\">\n" +
-          "   <div>\n" +
-          "    3 con giáp được gọi tên dưới đây phải hết sức cẩn trọng bởi rất dễ bị tổn thất về tiền bạc vào cuối năm 2018. \n" +
-          "   </div></h3> \n" +
-          "  <!-- <div id=\"AdAsia\"></div> --> \n" +
-          "  <div id=\"abody\" class=\"cms-body\">\n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    <strong style=\"font-size: 16px;\">Tuổi Tuất</strong>\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    Năm nay là năm tuổi của người tuổi Tuất, vận thế cả năm có nhiều biến động, đặc biệt thời điểm cuối năm bước vào cục diện “bán hợp hỏa” khiến cho tài vận của con giáp này bị khắc chế. Chính vì thế, trong thời gian cuối năm, \n" +
-          "    <strong>con giáp</strong> này sẽ gặp nhiều rủi ro về tài chính. Con giáp này cần cẩn thận trong việc kết giao bạn bè để tránh tiểu nhân đặt điều, dựng chuyện gây tổn thất về tiền bạc.\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"> \n" +
-          "    <div style=\"text-align:center;\"> \n" +
-          "     <table class=\"contentimg\" style=\"text-align: center;\"> \n" +
-          "      <tbody> \n" +
-          "       <tr> \n" +
-          "        <td><img src=\"https://images.kienthuc.net.vn/uploaded/quynhtien/2018_07_22/top-3-con-giap-can-than-khuynh-ra-bai-san-cuoi-nam-2018.jpg\" style=\"width: 500px; height: 280px;\" alt=\"Top 3 con giap can than khuynh ra bai san cuoi nam 2018\" title=\"Top 3 con giáp cẩn thận khuynh ra bại sản cuối năm 2018\"></td> \n" +
-          "       </tr> \n" +
-          "       <tr> \n" +
-          "        <td style=\"text-align: center;\">Ảnh minh họa.&nbsp;</td> \n" +
-          "       </tr> \n" +
-          "      </tbody> \n" +
-          "     </table> \n" +
-          "    </div> \n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    Những người \n" +
-          "    <em>tuổi Tuất</em> kinh doanh buôn bán nên thận trọng khi ký kết hợp đồng và nên tìm hiểu kỹ càng trước khi quyết định đầu tư hay mở rộng kinh doanh để tránh rơi vào tình trạng “phá sản”.\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    <strong>Tuổi Thân</strong>\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    Năm nay, người tuổi Thân bước vào cục diện “Tam Hội Thái Tuế” đồng nghĩa với việc gặp được “Tam Hội quý nhân”. Tuy sẽ có được nhiều cơ hội phát triển nhưng do bị hung tinh “Mạch Việt” soi chiếu nên gặp rất nhiều khó khăn trong cuộc sống.\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    Cuối năm 2018, vận thế đi xuống, tài vận cũng không hanh thông nên lời khuyên cho người tuổi Thân trong thời gian này đó là cho dù kinh doanh, đầu tư hay làm công ăn lương nhất định phải cẩn thận trong quản lý tài chính và không nên quá mạo hiểm để tránh tổn thất về tiền bạc.\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    <strong>Tuổi Mão</strong>\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    Người tuổi Mão vào thời gian cuối năm gặp phải hao tinh phá tài. Hao tinh sẽ dẫn đến “phá tài, bại tài, bị lừa gạt về tiền bạc, đầu tư phá sản”, ảnh hưởng tiêu cực đến tài vận cả năm.\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    Năm nay, người tuổi Mão cần thận trọng khi bỏ tiền ra đầu tư, đặc biệt là trong lĩnh vực bất động sản, chứng khoán. Nếu không cẩn thận, con giáp này sẽ rất dễ bị lừa gạt tiền bạc do quá tin vào người khác.\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    <em>* Thông tin trong bài chỉ mang tính tham khảo.</em>\n" +
-          "   </div> \n" +
-          "   <div style=\"text-align: justify;\"></div> \n" +
-          "   <div style=\"text-align: justify;\">\n" +
-          "    <br> \n" +
-          "   </div>\n" +
-          "  </div>  \n" +
-          "  <div class=\"author\"> \n" +
-          "   <span class=\"name\">Theo Khoevadep</span> \n" +
-          "  </div>   \n" +
-          "  <div style=\"margin-bottom:10px;text-align: center;\"> \n" +
-          "  </div>    \n" +
-          " </div>  \n" +
-          " <div style=\"clear:both;\"></div> \n" +
-          "</div>  \n" +
-          "<!-- text -->            \n" +
-          "<div style=\"margin-bottom:10px;text-align: center;\"> \n" +
-          " <div style=\"width:300px; height:250px; margin:0 auto;\">  \n" +
+      this.innerContentNews  ="<p class=\"single-excerpt\" style=\"font-weight:700\"> <strong>(VTC News) - Cuối ngày hôm nay (22/7), Hà Nội vẫn còn không ít nơi bị ngập khiến cho việc đi lại của người dân rất khó khăn.</strong> </p> \n" +
+          "<style>.listNewsbvctlq .adv{text-align:left}</style>   \n" +
+          "<div class=\"single-main-content\" id=\"content_detail\"> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5937-29-1758506.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 1\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption> \n" +
+          "   <p class=\"expEdit\">Dù trời không còn mưa mà chuyển sang nắng ráo, song tại Hà Nội vẫn còn không ít điểm bị ngập lụt.&nbsp;</p> \n" +
+          "  </figcaption> \n" +
+          " </figure> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5902-26-1758459.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 2\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption> \n" +
+          "   <p class=\"expEdit\">Theo ghi nhận của PV <em>VTC News</em>, chiều 22/7, trên đường gom đại lộ Thăng Long vẫn còn hai điểm ngập sâu, trong đó có&nbsp;lối rẽ vào&nbsp;Thiên đường Bảo Sơn.</p> \n" +
+          "  </figcaption> \n" +
+          " </figure> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5891-24-1758429.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 3\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption> \n" +
+          "   <p class=\"expEdit\">Có nơi vẫn còn ngập tới 60cm, việc đi lại của người dân gặp nhiều khó khăn. Không ít xe máy, thậm chí cả ô tô bị chết máy.</p> \n" +
+          "  </figcaption> \n" +
+          " </figure> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5862-21-1758376.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 4\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption></figcaption> \n" +
+          " </figure> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5927-28-1758484.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 5\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption> \n" +
+          "   <p class=\"expEdit\">Những người dân sống&nbsp;sát đại lộ Thăng Long&nbsp;cho hay nước đã rút khá nhiều so với cách đây một ngày.&nbsp;</p> \n" +
+          "  </figcaption> \n" +
+          " </figure> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5732-12-1758226.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 6\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption></figcaption> \n" +
+          " </figure>\n" +
+          " <div class=\"adv\" style=\"margin-top:0px;margin-bottom:0px;\">\n" +
+          "  <div class=\"e\" style=\"\">\n" +
+          "   <!--Script tag (include before the closing </body> tag)--> \n" +
+          "   <script type=\"text/javascript\">      var abd_media = \"media.adnetwork.vn\";      var abd_width = 640; /*width of video player*/      var abd_height = 360; /*height of video player*/      var abd_skip =7;      var abd_flash =true;      var abd_popup = false;      var abd_wid =1280898471;      var abd_zid =1444355616;      var abd_content_id = \"#content_detail\"; /*.class or #id of content wrapper*/      var abd_position=4; /*the paragraph position where ads display*/  </script> \n" +
+          "   <script src=\"https://media.adnetwork.vn/assets/js/abd.inpage.preroll.v2.js\" type=\"text/javascript\"></script>\n" +
+          "  </div>\n" +
           " </div> \n" +
-          "</div>  \n" +
-          "<div style=\"margin-bottom:10px;margin-left:-10px;width: 670px;\">   \n" +
-          "</div>";
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5756-14-1758258.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 7\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption> \n" +
+          "   <p class=\"expEdit\">...tháo giày, dép trước khi đi qua đoạn đường ngập.</p> \n" +
+          "  </figcaption> \n" +
+          " </figure> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5658-7-1758134.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 8\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption></figcaption> \n" +
+          " </figure> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5597-4-1758085.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 9\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption></figcaption> \n" +
+          " </figure> \n" +
+          " <figure class=\"expNoEdit\">\n" +
+          "  <img src=\"https://image.vtc.vn/resize/685x456/files/ctv.truyenhinh/2018/07/22/img_5710-10-1758187.jpg\" alt=\"Anh: Dan Ha Noi bi bom vuot bien nuoc ve nha chieu cuoi tuan hinh anh 10\" width=\"685\" height=\"456\"> \n" +
+          "  <figcaption></figcaption> \n" +
+          " </figure> \n" +
+          " <p>&gt;&gt;&gt; Đọc thêm:&nbsp;<em><strong><a href=\"https://vtc.vn/canh-tho-mong-ngay-lut-ca-vang-keo-nhau-boi-tung-tang-tren-san-truong-d414891.html\">Cảnh thơ mộng ngày lụt: Cá vàng kéo nhau bơi tung tăng trên sân trường</a></strong></em></p> \n" +
+          " <footer style=\"text-transform: uppercase; color: #a3171e;font-weight:700;float:right\">\n" +
+          "  VIỆT AN \n" +
+          " </footer>   \n" +
+          " <div class=\"adv\" style=\"margin-top:0px;margin-bottom:0px;\"></div> \n" +
+          "</div> \n" +
+          "<!--End Article Body-->";
   }
 
 }
