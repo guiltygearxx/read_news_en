@@ -10,6 +10,8 @@ class ExampleController {
     def hotNewsCrawlerService;
     def imageUtilsService;
     def imageDetectSizeService;
+    def lowImageSizeNewsScanService;
+    def imageCrawlerService;
 
     def crawler() {
 
@@ -61,6 +63,36 @@ class ExampleController {
         println fromDate;
 
         imageDetectSizeService.detect(fromDate, toDate, 5);
+
+        render([isSuccess: true] as JSON);
+    }
+
+    def example6() {
+
+        Date fromDate;
+        Date toDate;
+
+        use(TimeCategory) {
+            toDate = new Date();
+            fromDate = toDate - 10.days;
+        }
+
+        lowImageSizeNewsScanService.scan(fromDate, toDate, 6400);
+
+        render([isSuccess: true] as JSON);
+    }
+
+    def example7() {
+
+        Date fromDate;
+        Date toDate;
+
+        use(TimeCategory) {
+            toDate = new Date();
+            fromDate = toDate - 10.days;
+        }
+
+        imageCrawlerService.crawl(fromDate, toDate);
 
         render([isSuccess: true] as JSON);
     }

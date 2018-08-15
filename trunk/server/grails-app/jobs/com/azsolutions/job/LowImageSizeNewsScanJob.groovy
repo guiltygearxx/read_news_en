@@ -4,7 +4,7 @@ import groovy.time.TimeCategory;
 
 class LowImageSizeNewsScanJob {
 
-    public static final int DELAY_TIME_IN_MINUTES = 5;
+    public static final int DELAY_TIME_IN_MINUTES = 10;
     public static final int SCAN_RANGE_IN_MINUTES = 15;
     public static final long MIN_SIZE = 6400;
 

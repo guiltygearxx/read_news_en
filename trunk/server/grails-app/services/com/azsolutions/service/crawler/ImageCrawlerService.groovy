@@ -6,81 +6,65 @@ import com.azsolutions.domain.Image
 import com.azsolutions.domain.LowImageSizeNews
 import com.azsolutions.domain.News
 import grails.gorm.transactions.Transactional
-import groovy.time.TimeCategory
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
+
+import java.util.concurrent.Callable
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+import java.util.concurrent.Future
 
 @Transactional
 class ImageCrawlerService {
 
     public static final int MAX_SCANNED_NEWS_LIST_SIZE = 100;
     public static final int MAX_SCANNED_TIMES = 5;
-    public static final int MAX_SCANNED_RANGE_IN_DATE = 5;
     public static final int MAX_SCANNED_PERIOD_RANGE_IN_MINUTES = 5;
-    public static final int DELAY_TIME_IN_MINUTES = 5;
+    public static final int THREAD_POOL_SIZE = 10;
 
     public static final String SCAN_STATUS_NEW = "new";
     public static final String SCAN_STATUS_DONE = "done";
     public static final String SCAN_STATUS_FAIL = "fail";
 
     def jsoupUtilsService;
-
     def imageUtilsService;
+    def applicationUtilsService;
 
-    void crawl(Date fromDate_, Date toDate_, Integer scanPeriodRangeInMinutes) {
+    void crawl(Date fromDate_, Date toDate_) {
 
         Date now = new Date();
 
-        Date fromDate;
+        applicationUtilsService.scan(
+                fromDate_, toDate_, MAX_SCANNED_PERIOD_RANGE_IN_MINUTES, MAX_SCANNED_TIMES,
 
-        Date toDate;
+                { Date fromDate, Date toDate, Integer scannedTimes ->
 
-        use(TimeCategory) {
+                    Image.withSession { def session ->
 
-            (!toDate_) && (toDate_ = now - DELAY_TIME_IN_MINUTES.minutes);
+                        List<LowImageSizeNews> lowImageSizeNewsList;
 
-            fromDate = fromDate_ ?: (toDate_ - MAX_SCANNED_RANGE_IN_DATE.days);
-        }
+                        while (lowImageSizeNewsList = this.getLowImageSizeNewsList(fromDate, toDate, scannedTimes, MAX_SCANNED_NEWS_LIST_SIZE)) {
 
-        (!scanPeriodRangeInMinutes) && (scanPeriodRangeInMinutes = MAX_SCANNED_PERIOD_RANGE_IN_MINUTES);
+                            this.crawlImages(lowImageSizeNewsList, now);
 
-        while (fromDate < toDate_) {
+                            session.flush();
 
-            use(TimeCategory) { toDate = [fromDate + scanPeriodRangeInMinutes.minutes, toDate_].min() }
-
-            Image.withSession { def session ->
-
-                List<LowImageSizeNews> lowImageSizeNewsList;
-
-                while (lowImageSizeNewsList = this.getLowImageSizeNewsList(fromDate, toDate, MAX_SCANNED_TIMES, MAX_SCANNED_NEWS_LIST_SIZE)) {
-
-                    this.crawlImages(lowImageSizeNewsList, now);
-
-                    session.flush();
-
-                    session.clear();
+                            session.clear();
+                        }
+                    }
                 }
-            }
-
-            fromDate = toDate;
-        }
+        )
     }
 
-    private List<LowImageSizeNews> getLowImageSizeNewsList(Date fromDate, Date toDate, Integer maxScannedTimes, Integer max) {
+    private List<LowImageSizeNews> getLowImageSizeNewsList(Date fromDate, Date toDate, Integer scannedTimes, Integer max) {
 
-        LowImageSizeNews.createCriteria().list([max: max], {
+        return LowImageSizeNews.createCriteria().list([max: max], {
 
-            or {
-                eq("scanStatus", SCAN_STATUS_NEW);
-                and {
-                    eq("scanStatus", SCAN_STATUS_FAIL);
-                    lt("scannedTimes", maxScannedTimes);
-                }
-            }
-
-            lt("createdTime", toDate);
+            ne("scanStatus", SCAN_STATUS_DONE);
+            eq("scannedTimes", scannedTimes);
             ge("createdTime", fromDate);
+            lt("createdTime", toDate);
 
             order("createdTime", "desc");
         });
@@ -90,44 +74,64 @@ class ImageCrawlerService {
 
         if (!newsList) return;
 
-        List<Image> images = newsList ? Image.findAllByIsDeletedAndReferenceIdInList(newsList.id) : [];
+        List<Image> images = newsList ? Image.findAllByIsDeletedAndReferenceIdInList(false, newsList.id) : [];
 
         Map imageMapByReferenceId = images?.groupBy { it.referenceId };
 
-        newsList?.each { LowImageSizeNews lowImageSizeNews ->
+        ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
-            String scanStatus_;
+        List<Image> scannedImages = [];
 
-            try {
+        try {
 
-                crawlImages_(imageMapByReferenceId.get(lowImageSizeNews.id), now)?.save();
+            List<Future> futures = newsList?.collect { LowImageSizeNews lowImageSizeNews ->
 
-                scanStatus_ = SCAN_STATUS_DONE;
+                threadPool.submit({
 
-            } catch (Exception ex) {
+                    String scanStatus_;
 
-                println "ImageCrawlerService.crawlImages: error| news.id=${lowImageSizeNews.id}";
+                    try {
 
-                ex.printStackTrace();
+                        Image scannedImage = crawlImages_(lowImageSizeNews, imageMapByReferenceId.get(lowImageSizeNews.id), now);
 
-                scanStatus_ = SCAN_STATUS_FAIL;
+                        if (scannedImage) scannedImages << scannedImage;
 
-            } finally {
+                        scanStatus_ = SCAN_STATUS_DONE;
 
-                lowImageSizeNews.with {
+                    } catch (Exception ex) {
 
-                    scannedTimes++;
-                    lastModifiedTime = now;
-                    scanStatus = scanStatus_;
+                        println "ImageCrawlerService.crawlImages: error| news.id=${lowImageSizeNews.id} | error=${ex.message}";
 
-                    save();
-                }
+//                        ex.printStackTrace();
+
+                        scanStatus_ = SCAN_STATUS_FAIL;
+
+                    } finally {
+
+                        lowImageSizeNews.with {
+
+                            scannedTimes++;
+                            lastModifiedTime = now;
+                            scanStatus = scanStatus_;
+                        }
+                    }
+
+                } as Callable);
             }
-        }
 
+            futures.each { it.get() };
+
+            newsList.each { it.save() };
+
+            scannedImages.each { it.save() };
+
+        } finally {
+
+            threadPool.shutdown();
+        }
     }
 
-    private Image crawlImages_(News news, List<Image> images, Date now) {
+    private Image crawlImages_(LowImageSizeNews news, List<Image> images, Date now) {
 
         Document document = this.jsoupUtilsService.toDocumentFromUrl(news.link);
 
@@ -137,9 +141,13 @@ class ImageCrawlerService {
 
         if (existedImage) return null;
 
-        Integer width = document.select("meta[property=og:image:width]")?.attr("content")?.trim()?.toInteger();
+        String widthStr = document.select("meta[property=og:image:width]")?.attr("content")?.trim();
 
-        Integer height = document.select("meta[property=og:image:height]")?.attr("content")?.trim()?.toInteger();
+        Integer width = (widthStr ?: null)?.toInteger();
+
+        String heightStr = document.select("meta[property=og:image:height]")?.attr("content")?.trim();
+
+        Integer height = (heightStr ?: null)?.toInteger();
 
         if (!width || !height) {
 

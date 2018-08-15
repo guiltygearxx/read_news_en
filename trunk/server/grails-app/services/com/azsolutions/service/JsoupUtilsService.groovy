@@ -8,7 +8,7 @@ import org.jsoup.nodes.Element
 @Transactional
 class JsoupUtilsService {
 
-    public static final int HOT_NEWS_CRAWLER_TIMEOUT = 2000;
+    public static final int HOT_NEWS_CRAWLER_TIMEOUT = 5000;
 
     Document toDocument(String content) {
 

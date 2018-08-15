@@ -8,6 +8,7 @@ class LowImageSizeNews {
     Long size;
     Integer scannedTimes;
     String scanStatus;
+    String link;
 
     static constraints = {
 
@@ -15,6 +16,7 @@ class LowImageSizeNews {
         createdTime nullable: true
         size nullable: true
         scannedTimes nullable: true
+        link nullable: true
     }
 
     static mapping = {

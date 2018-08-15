@@ -59,6 +59,11 @@ class ApplicationUtilsService {
         }
     }
 
+    void scan(Date fromDate, Date toDate, Integer scanRangeInMinutes, Closure processClosure) {
+
+        this.scan(fromDate, toDate, scanRangeInMinutes, 1, processClosure);
+    }
+
     static void main(String[] args) {
 
         println new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss").format(new Date());

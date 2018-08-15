@@ -3,7 +3,6 @@ package com.azsolutions.service.crawler
 import com.azsolutions.bean.ImageSize
 import com.azsolutions.domain.Image
 import com.azsolutions.domain.MissingSizeImage
-import grails.converters.JSON
 import grails.gorm.transactions.Transactional
 
 import java.util.concurrent.Callable
