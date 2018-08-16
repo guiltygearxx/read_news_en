@@ -7,7 +7,7 @@ export const environment = {
 
     production: false,
     serviceBaseURL: "http://45.32.251.39:8080/docBaoServer-0.1/",
-    prefixDomain: "/news-web"
+    prefixDomain: ""
     // serviceBaseURL: "http://localhost:8080/",
     // prefixDomain: ""
 };
