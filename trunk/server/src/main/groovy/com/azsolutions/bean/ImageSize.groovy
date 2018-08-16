@@ -1,6 +1,6 @@
 package com.azsolutions.bean;
 
-public class ImageSize {
+class ImageSize {
 
     Integer height;
     Integer width;

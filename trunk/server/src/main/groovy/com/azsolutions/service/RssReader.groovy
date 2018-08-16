@@ -1,5 +1,6 @@
 package com.azsolutions.service
 
+import com.azsolutions.ApplicationConstant
 import com.azsolutions.bean.Rss
 import com.azsolutions.domain.RssConfig
 
@@ -198,7 +199,7 @@ class RssReader {
 
         XmlSlurper parser = new XmlSlurper();
 
-        BufferedReader reader = url.toURL().newReader(requestProperties: ['User-Agent': 'AZNews']);
+        BufferedReader reader = url.toURL().newReader(requestProperties: ['User-Agent': ApplicationConstant.HTTP_REQUEST_DEFAULT_USER_AGENT]);
 
         def channel = parser.parse(reader).channel;
 

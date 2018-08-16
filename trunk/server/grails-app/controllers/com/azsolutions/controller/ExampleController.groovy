@@ -1,15 +1,17 @@
 package com.azsolutions.controller
 
-
+import com.azsolutions.ApplicationConstant
 import grails.converters.JSON
+import groovy.time.TimeCategory
 
 class ExampleController {
 
-    def readRssService;
     def rssCrawlerService;
     def hotNewsCrawlerService;
     def imageUtilsService;
     def imageDetectSizeService;
+    def lowImageSizeNewsScanService;
+    def imageCrawlerService;
 
     def crawler() {
 
@@ -17,11 +19,6 @@ class ExampleController {
 
         render([isSuccess: true] as JSON);
     }
-
-//    def example() {
-//
-//        render([isSuccess: true, result: readRssService.readRss(RssConfig.get("15af7393-e4ca-450e-8b39-2bc02c99dee6"))] as JSON);
-//    }
 
     def example2() {
 
@@ -36,7 +33,7 @@ class ExampleController {
 
         XmlSlurper parser = new XmlSlurper();
 
-        BufferedReader reader = url.toURL().newReader(requestProperties: ['User-Agent': 'AZNews']);
+        BufferedReader reader = url.toURL().newReader(requestProperties: ['User-Agent': ApplicationConstant.HTTP_REQUEST_DEFAULT_USER_AGENT]);
 
         String text = reader.text;
 
@@ -54,7 +51,48 @@ class ExampleController {
 
     def example5() {
 
-        imageDetectSizeService.detect();
+        Date fromDate;
+        Date toDate;
+
+        use(TimeCategory) {
+            toDate = new Date();
+            fromDate = toDate - 3.days;
+        }
+
+        println toDate;
+        println fromDate;
+
+        imageDetectSizeService.detect(fromDate, toDate, 5);
+
+        render([isSuccess: true] as JSON);
+    }
+
+    def example6() {
+
+        Date fromDate;
+        Date toDate;
+
+        use(TimeCategory) {
+            toDate = new Date();
+            fromDate = toDate - 10.days;
+        }
+
+        lowImageSizeNewsScanService.scan(fromDate, toDate, 6400);
+
+        render([isSuccess: true] as JSON);
+    }
+
+    def example7() {
+
+        Date fromDate;
+        Date toDate;
+
+        use(TimeCategory) {
+            toDate = new Date();
+            fromDate = toDate - 10.days;
+        }
+
+        imageCrawlerService.crawl(fromDate, toDate);
 
         render([isSuccess: true] as JSON);
     }

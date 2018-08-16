@@ -8,6 +8,7 @@ class News implements BaseDomain {
     String guid;
     String description;
     String rssSourceGroupId;
+    Date createdTime;
 
     static constraints = {
 
@@ -16,6 +17,7 @@ class News implements BaseDomain {
         isDeleted nullable: true
         description nullable: true
         rssSourceGroupId nullable: true
+        createdTime nullable: true
     }
 
     static mapping = {

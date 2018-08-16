@@ -1,4 +1,4 @@
-package com.azsolutions.service
+package com.azsolutions.service.crawler
 
 import com.azsolutions.ApplicationConstant
 import com.azsolutions.bean.Rss

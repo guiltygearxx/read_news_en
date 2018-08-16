@@ -1,18 +1,17 @@
 package com.azsolutions.job
 
-import groovy.time.TimeCategory;
+import groovy.time.TimeCategory
 
-class ImageDetectSizeJob {
+class ImageCrawlerJob {
 
-    public static final int DELAY_TIME_IN_MINUTES = 5;
+    public static final int DELAY_TIME_IN_MINUTES = 15;
     public static final int SCAN_RANGE_IN_MINUTES = 15;
-    public static final int MAX_SCANNED_TIMES = 5;
-
-    def imageDetectSizeService;
 
     static triggers = {
-        simple name: 'ImageDetectSizeJob', startDelay: 10000, repeatInterval: 5 * 60 * 1000l; //5 minutes;
+        simple name: 'ImageCrawlerJob', startDelay: 10000, repeatInterval: 5 * 60 * 1000l; // 5 minues;
     }
+
+    def imageCrawlerService;
 
     def execute() {
 
@@ -27,6 +26,6 @@ class ImageDetectSizeJob {
             fromDate = toDate - SCAN_RANGE_IN_MINUTES.minutes;
         }
 
-        imageDetectSizeService.detect(fromDate, toDate, MAX_SCANNED_TIMES);
+        imageCrawlerService.crawl(fromDate, toDate);
     }
 }
