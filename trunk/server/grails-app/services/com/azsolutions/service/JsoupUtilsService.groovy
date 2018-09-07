@@ -20,27 +20,25 @@ class JsoupUtilsService {
         return Jsoup.parse(url.toURL(), HOT_NEWS_CRAWLER_TIMEOUT);
     }
 
+    HtmlWrapper toHtmlWrapper(Element node) {
+
+        return new HtmlWrapper(node: node);
+    }
+
     public static void main(String[] args) {
 
-        String content = "http://vietnamnet.vn/";
+        String content = "http://www.tapchigiaothong.vn/truc-thang-mi-8-cho-cong-nhan-dau-mo-roi-tai-nga-18-nguoi-chet-d63694.html";
 
-        Element node = Jsoup.parse(content.toURL(), 1000);
+        Element node = Jsoup.parse(content.toURL(), 10000);
 
-        node = node.selectFirst('.TopArticle');
+        node = node.selectFirst("article");
 
-        println node.selectFirst('.articletype_1').text();
+        node.select("script, .list-related, .tags, .adsbygoogle, .fb-like, .comment, h1, .intro, .reg-date, .author, .item").remove();
 
-        println node.selectFirst('.TopLead').text();
+        new HtmlWrapper(node: node).removeEmptyNode([excludeImg: true]).removeStyle();
 
-        println "http://vietnamnet.vn" + node.selectFirst('.articletype_1').attr("href");
-
-        node.select("img").each {
-
-            println it.attr("src");
-
-            println it.attr("width");
-
-            println it.attr("height");
-        }
+        println node.html();
     }
+
+
 }

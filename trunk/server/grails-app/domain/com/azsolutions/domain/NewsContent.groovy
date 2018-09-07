@@ -1,22 +1,21 @@
 package com.azsolutions.domain
 
-class Category implements BaseDomain {
+class NewsContent implements BaseDomain {
 
-    String title;
-    String code;
-    String parentCategoryId;
+    String content;
 
     static constraints = {
 
         lastModifiedTime nullable: true
         lastModifiedUser nullable: true
-        isDeleted nullable: true    
-        parentCategoryId nullable: true
+        isDeleted nullable: true
+
+        content nullable: true
     }
 
     static mapping = {
 
-        id generator: 'uuid'
+        id generator: 'assigned'
         isDeleted defaultValue: false
     }
 }

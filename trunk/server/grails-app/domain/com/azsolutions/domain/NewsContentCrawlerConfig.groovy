@@ -1,17 +1,15 @@
 package com.azsolutions.domain
 
-class Category implements BaseDomain {
+class NewsContentCrawlerConfig implements BaseDomain {
 
-    String title;
-    String code;
-    String parentCategoryId;
+    String configJson;
+    String urlPattern;
 
     static constraints = {
 
         lastModifiedTime nullable: true
         lastModifiedUser nullable: true
-        isDeleted nullable: true    
-        parentCategoryId nullable: true
+        isDeleted nullable: true
     }
 
     static mapping = {

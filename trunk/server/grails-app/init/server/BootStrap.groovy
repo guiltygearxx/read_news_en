@@ -7,6 +7,7 @@ class BootStrap {
     def rssConfigService;
     def rssSourceGroupService;
     def rssSourceService;
+    def newsContentCrawlerConfigService;
 
     def init = { servletContext ->
 
@@ -15,6 +16,8 @@ class BootStrap {
         this.rssConfigService.cacheRssConfig();
 
         this.rssSourceService.cacheRssSources();
+
+        this.newsContentCrawlerConfigService.cacheConfigs();
     }
 
     def destroy = {
