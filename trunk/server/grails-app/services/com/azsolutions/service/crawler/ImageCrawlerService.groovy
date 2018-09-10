@@ -4,7 +4,6 @@ import com.azsolutions.ApplicationConstant
 import com.azsolutions.bean.ImageSize
 import com.azsolutions.domain.Image
 import com.azsolutions.domain.LowImageSizeNews
-import com.azsolutions.domain.News
 import grails.gorm.transactions.Transactional
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -18,10 +17,10 @@ import java.util.concurrent.Future
 @Transactional
 class ImageCrawlerService {
 
-    public static final int MAX_SCANNED_NEWS_LIST_SIZE = 100;
-    public static final int MAX_SCANNED_TIMES = 5;
-    public static final int MAX_SCANNED_PERIOD_RANGE_IN_MINUTES = 5;
-    public static final int THREAD_POOL_SIZE = 10;
+    public static int MAX_SCANNED_NEWS_LIST_SIZE;
+    public static int MAX_SCANNED_TIMES;
+    public static int MAX_SCANNED_PERIOD_RANGE_IN_MINUTES;
+    public static int THREAD_POOL_SIZE;
 
     public static final String SCAN_STATUS_NEW = "new";
     public static final String SCAN_STATUS_DONE = "done";

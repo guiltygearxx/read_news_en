@@ -14,7 +14,7 @@ import java.util.concurrent.Future
 @Transactional
 class RssCrawlerService {
 
-    public static final int READ_RSS_THREAD_POOL_SIZE = 10;
+    public static int READ_RSS_THREAD_POOL_SIZE;
 
     def readRssService;
     def applicationUtilsService;

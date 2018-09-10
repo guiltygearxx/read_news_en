@@ -17,9 +17,9 @@ class ImageDetectSizeService {
     public static final String MISSING_IMAGE_SIZE_SCAN_STATUS_ERROR = 'error';
     public static final String MISSING_IMAGE_SIZE_SCAN_STATUS_NEW = 'new';
 
-    public static final int MAX_SCANNED_NEWS_LIST_SIZE = 100;
-    public static final int MAX_SCANNED_PERIOD_RANGE_IN_MINUTES = 5;
-    public static final int THREAD_POOL_SIZE = 10;
+    public static int MAX_SCANNED_NEWS_LIST_SIZE;
+    public static int MAX_SCANNED_PERIOD_RANGE_IN_MINUTES;
+    public static int THREAD_POOL_SIZE;
 
     def imageUtilsService;
     def applicationUtilsService;
