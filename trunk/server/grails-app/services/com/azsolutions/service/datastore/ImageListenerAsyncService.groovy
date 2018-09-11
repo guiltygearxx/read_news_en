@@ -40,7 +40,9 @@ class ImageListenerAsyncService {
 
         Integer height = image.height;
 
-        String id = image.id;
+//        String id = image.id;
+
+        String id = event.entityAccess.getProperty('id') as String;
 
         if (!width || !height) {
 

@@ -29,8 +29,6 @@ class NewsListenerAsyncService {
 
     private void insertMissingContentNews(AbstractPersistenceEvent event) {
 
-        println "insertMissingContentNews";
-
         News news = event.entityObject;
 
         String newsId = event.entityAccess.getProperty('id') as String;
