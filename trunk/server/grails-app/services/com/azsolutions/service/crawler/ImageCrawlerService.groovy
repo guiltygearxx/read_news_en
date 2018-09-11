@@ -101,7 +101,7 @@ class ImageCrawlerService {
 
                         println "ImageCrawlerService.crawlImages: error| news.id=${lowImageSizeNews.id} | error=${ex.message}";
 
-//                        ex.printStackTrace();
+                        ex.printStackTrace();
 
                         scanStatus_ = SCAN_STATUS_FAIL;
 

@@ -21,7 +21,7 @@ class LowImageSizeNews {
 
     static mapping = {
 
-        id(column: "news_id")
+        id(column: "news_id", generator: "assigned", type: "string")
         version false;
     }
 }

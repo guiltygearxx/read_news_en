@@ -153,7 +153,7 @@ imageCrawler.MAX_SCANNED_PERIOD_RANGE_IN_MINUTES: 5
 imageCrawler.job.DELAY_TIME_IN_MINUTES: 15
 imageCrawler.job.SCAN_RANGE_IN_MINUTES: 15
 
-environments.development.imageCrawler.THREAD_POOL_SIZE: 10
+environments.development.imageCrawler.THREAD_POOL_SIZE: 1
 environments.production.imageCrawler.THREAD_POOL_SIZE: 1
 #imageCrawler configurations:end;
 
@@ -168,7 +168,7 @@ imageDetectSize.job.DELAY_TIME_IN_MINUTES: 5
 imageDetectSize.job.SCAN_RANGE_IN_MINUTES: 15
 imageDetectSize.job.MAX_SCANNED_TIMES: 5
 
-environments.development.imageDetectSize.THREAD_POOL_SIZE: 10
+environments.development.imageDetectSize.THREAD_POOL_SIZE: 1
 environments.production.imageDetectSize.THREAD_POOL_SIZE: 1
 #imageDetectSize configurations:end;
 
@@ -189,14 +189,14 @@ environments.production.newsContentCrawler.MAX_SCANNED_NEWS_LIST_SIZE: 10
 
 newsContentCrawler.MAX_SCANNED_PERIOD_RANGE_IN_MINUTES: 5
 
-environments.development.newsContentCrawler.THREAD_POOL_SIZE: 10
+environments.development.newsContentCrawler.THREAD_POOL_SIZE: 1
 environments.production.newsContentCrawler.THREAD_POOL_SIZE: 1
 #newsContentCrawler configurations:end;
 
 #rssCrawler configurations;
 rssCrawler.HOT_NEWS_CRAWLER_TIMEOUT: 5000
 
-environments.development.rssCrawler.READ_RSS_THREAD_POOL_SIZE: 10
+environments.development.rssCrawler.READ_RSS_THREAD_POOL_SIZE: 1
 environments.production.rssCrawler.READ_RSS_THREAD_POOL_SIZE: 1
 #newsContentCrawler configurations:end;
 

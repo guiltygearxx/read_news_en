@@ -40,18 +40,22 @@ class ImageListenerAsyncService {
 
         Integer height = image.height;
 
-//        String id = image.id;
+        String id = image.id;
 
-        String id = event.entityAccess.getProperty('id') as String;
+//        String id = event.entityAccess.getProperty('id') as String;
 
         if (!width || !height) {
 
             Date createdTime = image.createdTime;
 
-            new MissingSizeImage(
+            MissingSizeImage missingSizeImage = new MissingSizeImage(
                     id: id, createdTime: createdTime, lastModifiedTime: createdTime, scannedTimes: 0,
                     scanStatus: ImageDetectSizeService.MISSING_IMAGE_SIZE_SCAN_STATUS_NEW,
-            ).save()
+            );
+
+            missingSizeImage.id = id;
+
+            missingSizeImage.save();
         }
     }
 }
