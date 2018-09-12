@@ -91,7 +91,7 @@ class ImageCrawlerService {
 
                     try {
 
-                        Image scannedImage = crawlImages_(lowImageSizeNews, imageMapByReferenceId.get(lowImageSizeNews.id), now);
+                        Image scannedImage = crawlImage_(lowImageSizeNews, imageMapByReferenceId.get(lowImageSizeNews.id), now);
 
                         if (scannedImage) scannedImages << scannedImage;
 
@@ -130,13 +130,13 @@ class ImageCrawlerService {
         }
     }
 
-    private Image crawlImages_(LowImageSizeNews news, List<Image> images, Date now) {
+    private Image crawlImage_(LowImageSizeNews news, List<Image> images, Date now) {
 
         Document document = this.jsoupUtilsService.toDocumentFromUrl(news.link);
 
         String url = document.select("meta[property=og:image]")?.attr("content")?.trim();
 
-        Image existedImage = images?.findAll { it.url == url };
+        Image existedImage = images?.find { it.url == url };
 
         if (existedImage) return null;
 
