@@ -12,11 +12,21 @@
             </div>
         </div>
         <div class="col-md-12 col-xs-8 social-networking nopadding">
+
             <div class="social-networking-title">
+
                 <h5 class="card-title fixed-font-m font-baode-small" style="margin-bottom: 0px">
-                    <a [href]="news | redirectLinkMobile" target="_blank">{{news?.title}}</a>
+                    <a [href]="news | redirectLinkMobile" target="_blank"
+                       appNewsDetailMobileLink [newsId]="news?.newsId" [hasDetail]="news?.hasDetail"
+                       [title]="news?.title">
+
+                        {{news?.title}}
+
+                    </a>
                 </h5>
+
             </div>
+
 
             <div class="col-md-12 nopadding">
                 <a href="#pablo" class="source-news">

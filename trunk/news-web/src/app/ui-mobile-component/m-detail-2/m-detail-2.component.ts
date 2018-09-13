@@ -1,21 +1,20 @@
-import {AfterContentInit, AfterViewChecked, Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, OnInit} from '@angular/core';
+import {News} from "../../bean/news";
 import {ActivatedRoute} from "@angular/router";
 import {NewsService} from "../../service/news.service";
-import {News} from "../../bean/news";
 
 declare var window: any;
 
 @Component({
-    selector: 'app-news-detail',
-    templateUrl: './news-detail.component.html',
-    styleUrls: ['./news-detail.component.css']
+    selector: 'app-m-detail-2',
+    templateUrl: './m-detail-2.component.html',
+    styleUrls: ['./m-detail-2.component.css']
 })
-export class NewsDetailComponent
-    implements OnInit, AfterContentInit, AfterViewChecked {
+export class MDetail2Component implements OnInit, AfterContentInit {
 
-    protected id: string;
+    id: string;
 
-    protected news: News;
+    news: News;
 
     protected redirectToNewsDetailFn: () => void;
 
