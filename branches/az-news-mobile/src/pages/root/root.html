@@ -1,0 +1,48 @@
+<!--
+  Generated template for the RootPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-menu [type]="'overlay'" [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{ menuTitle }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button *ngFor="let category of menuCategories" ion-item detail-none (click)="menuCategoryClicked(category)">
+        {{ category.title }}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-header>
+
+  <ion-navbar>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>{{ 'Báo đê, báo đê !!!' }}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <super-tabs [scrollTabs]="true" [config]="tabsConfig">
+
+    <super-tab *ngFor="let category of categories" [root]="trangChu" [title]="category.title"
+               [rootParams]="{categoryId: category.id}"></super-tab>
+
+  </super-tabs>
+
+</ion-content>

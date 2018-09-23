@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>{{ 'Báo đê, báo đê !!!' }}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <super-tabs [scrollTabs]="true" [config]="tabsConfig">
+
+    <super-tab *ngFor="let category of categories" [root]="trangChu" [title]="category.title"
+               [rootParams]="{categoryId: category.id}"></super-tab>
+
+  </super-tabs>
+
+</ion-content>

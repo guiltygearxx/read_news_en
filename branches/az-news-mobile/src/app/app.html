@@ -1,0 +1,19 @@
+<ion-menu [type]="'overlay'" [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{ menuTitle }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button *ngFor="let category of menuCategories" ion-item detail-none (click)="menuCategoryClicked(category)">
+        {{ category.title }}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" main #content swipeBackEnabled="false"></ion-nav>
