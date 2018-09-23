@@ -8,7 +8,8 @@
 
   <ion-content>
     <ion-list>
-      <button *ngFor="let category of menuCategories" ion-item detail-none (click)="menuCategoryClicked(category)">
+      <button *ngFor="let category of menuCategories" ion-item detail-none (click)="menuCategoryClicked(category)"
+              menuClose>
         {{ category.title }}
       </button>
     </ion-list>

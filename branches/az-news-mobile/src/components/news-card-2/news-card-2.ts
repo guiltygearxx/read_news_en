@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NewsView} from "../../bean/news-view";
 import {Image} from "../../bean/image";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 /**
  * Generated class for the NewsCard_2Component component.
@@ -23,7 +24,11 @@ export class NewsCard_2Component {
   @Input()
   now: Date;
 
-  constructor() {
+  constructor(public inAppBrowser: InAppBrowser) {
   }
 
+  goToViewDetail(): void {
+
+    this.inAppBrowser.create(this.news.link, "_blank", {location: "no", zoom: "no"});
+  }
 }

@@ -12,6 +12,7 @@ import {Observable} from "rxjs";
 const environment = {
 
   serviceBaseURL: "http://192.168.11.2:8080/",
+  // serviceBaseURL: "http://45.32.251.39:8080/docBaoServer-0.1/",
 }
 
 @Injectable()
