@@ -59,8 +59,12 @@ import {MNewsCard3Component} from './ui-mobile-component/m-news-card-3/m-news-ca
 import {TinTucPhuComponent} from './ui-component/tin-tuc-phu/tin-tuc-phu.component';
 import {FacebookModule} from "ngx-facebook";
 import {CategoryService} from "./service/category.service";
-import { MDetailComponent } from './ui-mobile-component/m-detail/m-detail.component';
-import { RedirectLinkMobilePipe } from './pipe/redirect-link-mobile.pipe';
+import {MDetailComponent} from './ui-mobile-component/m-detail/m-detail.component';
+import {RedirectLinkMobilePipe} from './pipe/redirect-link-mobile.pipe';
+import {NewsContentService} from "./service/news-content.service";
+import {NewsService} from 'app/service/news.service';
+import { MDetail2Component } from './ui-mobile-component/m-detail-2/m-detail-2.component';
+import { NewsDetailMobileLinkDirective } from './directive/news-detail-mobile-link.directive';
 
 
 @NgModule({
@@ -102,6 +106,8 @@ import { RedirectLinkMobilePipe } from './pipe/redirect-link-mobile.pipe';
         TinTucPhuComponent,
         MDetailComponent,
         RedirectLinkMobilePipe,
+        MDetail2Component,
+        NewsDetailMobileLinkDirective,
     ],
     imports: [
         BrowserModule,
@@ -131,7 +137,9 @@ import { RedirectLinkMobilePipe } from './pipe/redirect-link-mobile.pipe';
         ImageService,
         DesktopCanActivate,
         MobileCanActivate,
-        CategoryService
+        CategoryService,
+        NewsContentService,
+        NewsService
     ],
     bootstrap: [AppComponent]
 })

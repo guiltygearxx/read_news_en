@@ -1,0 +1,9 @@
+{
+  "newTimes.lessThan1Hour": "{{value}} phút trước",
+  "newTimes.moreThan1Hour": "{{value}} tiếng trước",
+  "newTimes.moreThan1Day": "{{value}} ngày trước",
+  "newTimes.moreThan1Week": "{{value}} tuần trước",
+  "newTimes.moreThan1Month": "{{value}} tháng trước",
+
+  "menu.header.moreCategory": "Chủ đề khác"
+}

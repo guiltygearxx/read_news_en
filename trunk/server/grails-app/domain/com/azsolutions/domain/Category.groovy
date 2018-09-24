@@ -10,7 +10,7 @@ class Category implements BaseDomain {
 
         lastModifiedTime nullable: true
         lastModifiedUser nullable: true
-        isDeleted nullable: true
+        isDeleted nullable: true    
         parentCategoryId nullable: true
     }
 

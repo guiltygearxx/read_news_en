@@ -19,6 +19,6 @@ export class RedirectLinkPipe implements PipeTransform {
 
         title = title.split(" ").join("-");
 
-        return environment.prefixDomain + "/newsDetail/" + title + "/" + news.id;
+        return "desktop/noiDung/" + title + "/" + news.newsId;
     }
 }

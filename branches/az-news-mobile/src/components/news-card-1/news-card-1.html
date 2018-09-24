@@ -1,0 +1,19 @@
+<ion-card (click)="goToViewDetail()">
+
+  <img [src]="image?.url || 'assets/img/image_news.jpg'"/>
+
+  <ion-card-content>
+
+    <ion-card-title>
+      {{news?.title}}
+    </ion-card-title>
+
+    <ion-note>
+      {{news?.pubDate | displayNewsTime :now}} |
+    </ion-note>
+
+    {{news?.rssSourceGroupTitle}}
+
+  </ion-card-content>
+
+</ion-card>

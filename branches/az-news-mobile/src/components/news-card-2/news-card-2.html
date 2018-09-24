@@ -1,0 +1,31 @@
+<ion-card (click)="goToViewDetail()">
+
+  <ion-row>
+
+    <ion-col>
+
+      <img [src]="image?.url || 'assets/img/image_news.jpg'"/>
+
+    </ion-col>
+
+    <ion-col col-7>
+
+      <h2>
+        {{news?.title}}
+      </h2>
+
+      <div style="position: absolute; bottom: 0px; width: 100%; margin-bottom: 1px;">
+
+        <ion-note>
+          {{news?.pubDate | displayNewsTime :now}} |
+        </ion-note>
+
+        {{news?.rssSourceGroupTitle}}
+
+      </div>
+
+    </ion-col>
+
+  </ion-row>
+
+</ion-card>

@@ -11,6 +11,7 @@ class NewsView implements BaseDomain {
     String newsId;
     String rssSourceGroupId;
     String rssSourceGroupTitle;
+    Boolean hasDetail;
 
     static constraints = {
     }

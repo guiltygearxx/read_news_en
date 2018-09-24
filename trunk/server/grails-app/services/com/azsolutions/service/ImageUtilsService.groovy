@@ -10,8 +10,8 @@ import java.awt.image.BufferedImage
 @Transactional
 class ImageUtilsService {
 
-    public static final int HTTP_CONNECT_TIMEOUT = 5000;
-    public static final int HTTP_READ_TIMEOUT = 5000;
+    public static int HTTP_CONNECT_TIMEOUT;
+    public static int HTTP_READ_TIMEOUT;
 
     ImageSize detectImageSize(String urlStr) {
 

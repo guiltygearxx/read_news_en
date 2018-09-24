@@ -4,8 +4,8 @@ import groovy.time.TimeCategory
 
 class ImageCrawlerJob {
 
-    public static final int DELAY_TIME_IN_MINUTES = 15;
-    public static final int SCAN_RANGE_IN_MINUTES = 15;
+    public static int DELAY_TIME_IN_MINUTES;
+    public static int SCAN_RANGE_IN_MINUTES;
 
     static triggers = {
         simple name: 'ImageCrawlerJob', startDelay: 10000, repeatInterval: 5 * 60 * 1000l; // 5 minues;

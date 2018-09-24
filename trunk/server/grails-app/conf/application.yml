@@ -1,145 +1,202 @@
 grails:
-    profile: web
-    codegen:
-        defaultPackage: server
-    spring:
-        transactionManagement:
-            proxies: false
-    gorm:
-        failOnError: true
-        reactor:
-            # Whether to translate GORM events into Reactor events
-            # Disabled by default for performance reasons
-            events: false
-    mime:
-        disable:
-            accept:
-                header:
-                    userAgents:
-                        - Gecko
-                        - WebKit
-                        - Presto
-                        - Trident
-        types:
-            all: '*/*'
-            atom: application/atom+xml
-            css: text/css
-            csv: text/csv
-            form: application/x-www-form-urlencoded
-            html:
-              - text/html
-              - application/xhtml+xml
-            js: text/javascript
-            json:
-              - application/json
-              - text/json
-            multipartForm: multipart/form-data
-            pdf: application/pdf
-            rss: application/rss+xml
-            text: text/plain
-            hal:
-              - application/hal+json
-              - application/hal+xml
-            xml:
-              - text/xml
-              - application/xml
-    urlmapping:
-        cache:
-            maxsize: 1000
-    controllers:
-        defaultScope: request
-    converters:
-        encoding: UTF-8
-    views:
-        default:
-            codec: html
-        gsp:
-            encoding: UTF-8
-            htmlcodec: xml
-            codecs:
-                expression: html
-                scriptlets: html
-                taglib: none
-                staticparts: none
-    cors:
-        enabled: true
+  profile: web
+  codegen:
+    defaultPackage: server
+  spring:
+    transactionManagement:
+      proxies: false
+  gorm:
+    failOnError: true
+    reactor:
+      # Whether to translate GORM events into Reactor events
+      # Disabled by default for performance reasons
+      events: false
+  mime:
+    disable:
+      accept:
+        header:
+          userAgents:
+          - Gecko
+          - WebKit
+          - Presto
+          - Trident
+    types:
+      all: '*/*'
+      atom: application/atom+xml
+      css: text/css
+      csv: text/csv
+      form: application/x-www-form-urlencoded
+      html:
+      - text/html
+      - application/xhtml+xml
+      js: text/javascript
+      json:
+      - application/json
+      - text/json
+      multipartForm: multipart/form-data
+      pdf: application/pdf
+      rss: application/rss+xml
+      text: text/plain
+      hal:
+      - application/hal+json
+      - application/hal+xml
+      xml:
+      - text/xml
+      - application/xml
+  urlmapping:
+    cache:
+      maxsize: 1000
+  controllers:
+    defaultScope: request
+  converters:
+    encoding: UTF-8
+  views:
+    default:
+      codec: html
+    gsp:
+      encoding: UTF-8
+      htmlcodec: xml
+      codecs:
+        expression: html
+        scriptlets: html
+        taglib: none
+        staticparts: none
+  cors:
+    enabled: true
 
 info:
-    app:
-        name: '@info.app.name@'
-        version: '@info.app.version@'
-        grailsVersion: '@info.app.grailsVersion@'
+  app:
+    name: '@info.app.name@'
+    version: '@info.app.version@'
+    grailsVersion: '@info.app.grailsVersion@'
 spring:
-    main:
-        banner-mode: "off"
-    groovy:
-        template:
-            check-template-location: false
+  main:
+    banner-mode: "off"
+  groovy:
+    template:
+      check-template-location: false
 
 # Spring Actuator Endpoints are Disabled by Default
 endpoints:
-    enabled: false
-    jmx:
-        enabled: true
-        unique-names: true
+  enabled: false
+  jmx:
+    enabled: true
+    unique-names: true
 
 hibernate:
-    cache:
-        queries: false
-        use_second_level_cache: false
-        use_query_cache: false
+  cache:
+    queries: false
+    use_second_level_cache: false
+    use_query_cache: false
 dataSource:
-    pooled: true
-    jmxExport: true
-    driverClassName: com.mysql.jdbc.Driver
-    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  pooled: true
+  jmxExport: true
+  driverClassName: com.mysql.jdbc.Driver
+  dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 environments:
-    development:
-        dataSource:
-            dbCreate: none
-            url: jdbc:mysql://localhost:3306/aznews?useUnicode=yes&characterEncoding=UTF-8
-            username: root
-            password: root
-            logSql: false
+  development:
+    dataSource:
+      dbCreate: none
+      url: jdbc:mysql://localhost:3306/aznews?useUnicode=yes&characterEncoding=UTF-8
+      username: root
+      password: root
+      logSql: false
 
-        uploadFile:
-            baseDir: d:/uploadFile/
+    uploadFile:
+      baseDir: d:/uploadFile/
 
-        quartz:
-            pluginEnabled: false
+    quartz:
+      pluginEnabled: false
 
-    test:
-        dataSource:
-            dbCreate: update
-            url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
-    production:
-        dataSource:
-            dbCreate: none
-            url: jdbc:mysql://localhost:3306/aznews?useUnicode=yes&characterEncoding=UTF-8
-            username: root
-            password: ']*zL`\4s6n?M<]!k'
-            properties:
-                jmxEnabled: true
-                initialSize: 5
-                maxActive: 50
-                minIdle: 5
-                maxIdle: 25
-                maxWait: 10000
-                maxAge: 600000
-                timeBetweenEvictionRunsMillis: 5000
-                minEvictableIdleTimeMillis: 60000
-                validationQuery: SELECT 1
-                validationQueryTimeout: 3
-                validationInterval: 15000
-                testOnBorrow: true
-                testWhileIdle: true
-                testOnReturn: false
-                jdbcInterceptors: ConnectionState
-                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+  test:
+    dataSource:
+      dbCreate: update
+      url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+  production:
+    dataSource:
+      dbCreate: none
+      url: jdbc:mysql://localhost:3306/aznews?useUnicode=yes&characterEncoding=UTF-8
+      username: root
+      password: ']*zL`\4s6n?M<]!k'
+      properties:
+        jmxEnabled: true
+        initialSize: 5
+        maxActive: 50
+        minIdle: 5
+        maxIdle: 25
+        maxWait: 10000
+        maxAge: 600000
+        timeBetweenEvictionRunsMillis: 5000
+        minEvictableIdleTimeMillis: 60000
+        validationQuery: SELECT 1
+        validationQueryTimeout: 3
+        validationInterval: 15000
+        testOnBorrow: true
+        testWhileIdle: true
+        testOnReturn: false
+        jdbcInterceptors: ConnectionState
+        defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 
-        uploadFile:
-            baseDir: /root/uploadFiles/
+    uploadFile:
+      baseDir: /root/uploadFiles/
 
-        quartz:
-            pluginEnabled: true
+    quartz:
+      pluginEnabled: true
+
+#imageCrawler configurations;
+environments.development.imageCrawler.MAX_SCANNED_NEWS_LIST_SIZE: 100
+environments.production.imageCrawler.MAX_SCANNED_NEWS_LIST_SIZE: 10
+
+imageCrawler.MAX_SCANNED_TIMES: 5
+imageCrawler.MAX_SCANNED_PERIOD_RANGE_IN_MINUTES: 5
+imageCrawler.job.DELAY_TIME_IN_MINUTES: 15
+imageCrawler.job.SCAN_RANGE_IN_MINUTES: 15
+
+environments.development.imageCrawler.THREAD_POOL_SIZE: 1
+environments.production.imageCrawler.THREAD_POOL_SIZE: 1
+#imageCrawler configurations:end;
+
+#imageDetectSize configurations;
+environments.development.imageDetectSize.MAX_SCANNED_NEWS_LIST_SIZE: 100
+environments.production.imageDetectSize.MAX_SCANNED_NEWS_LIST_SIZE: 10
+
+imageDetectSize.MAX_SCANNED_PERIOD_RANGE_IN_MINUTES: 5
+imageDetectSize.HTTP_CONNECT_TIMEOUT: 5000
+imageDetectSize.HTTP_READ_TIMEOUT: 5000
+imageDetectSize.job.DELAY_TIME_IN_MINUTES: 5
+imageDetectSize.job.SCAN_RANGE_IN_MINUTES: 15
+imageDetectSize.job.MAX_SCANNED_TIMES: 5
+
+environments.development.imageDetectSize.THREAD_POOL_SIZE: 1
+environments.production.imageDetectSize.THREAD_POOL_SIZE: 1
+#imageDetectSize configurations:end;
+
+#lowImageSizeNewsScan configurations;
+lowImageSizeNewsScan.DELAY_TIME_IN_MINUTES: 10
+lowImageSizeNewsScan.SCAN_RANGE_IN_MINUTES: 15
+lowImageSizeNewsScan.MIN_SIZE: 6400
+lowImageSizeNewsScan.MAX_SCANNED_PERIOD_RANGE_IN_MINUTES: 5
+#lowImageSizeNewsScan configurations:end;
+
+#newsContentCrawler configurations;
+newsContentCrawler.job.DELAY_TIME_IN_MINUTES: 5
+newsContentCrawler.job.SCAN_RANGE_IN_MINUTES: 10
+newsContentCrawler.job.MAX_SCANNED_TIMES: 5
+
+environments.development.newsContentCrawler.MAX_SCANNED_NEWS_LIST_SIZE: 100
+environments.production.newsContentCrawler.MAX_SCANNED_NEWS_LIST_SIZE: 10
+
+newsContentCrawler.MAX_SCANNED_PERIOD_RANGE_IN_MINUTES: 5
+
+environments.development.newsContentCrawler.THREAD_POOL_SIZE: 1
+environments.production.newsContentCrawler.THREAD_POOL_SIZE: 1
+#newsContentCrawler configurations:end;
+
+#rssCrawler configurations;
+rssCrawler.HOT_NEWS_CRAWLER_TIMEOUT: 5000
+
+environments.development.rssCrawler.READ_RSS_THREAD_POOL_SIZE: 1
+environments.production.rssCrawler.READ_RSS_THREAD_POOL_SIZE: 1
+#newsContentCrawler configurations:end;
+

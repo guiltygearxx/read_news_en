@@ -1,7 +1,7 @@
 import {AfterContentInit, AfterViewChecked, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {NewsViewService} from "../../service/news-view.service";
-import {NewsView} from "../../bean/news-view";
+import {NewsService} from "../../service/news.service";
+import {News} from "../../bean/news";
 
 declare var window: any;
 
@@ -15,12 +15,12 @@ export class NewsDetailComponent
 
     protected id: string;
 
-    protected news: NewsView;
+    protected news: News;
 
     protected redirectToNewsDetailFn: () => void;
 
     constructor(protected route: ActivatedRoute,
-                protected newsViewService: NewsViewService) {
+                protected newsService: NewsService) {
     }
 
     ngOnInit(): void {
@@ -30,7 +30,7 @@ export class NewsDetailComponent
 
     ngAfterContentInit(): void {
 
-        this.newsViewService.getById(this.id).subscribe((news) => {
+        this.newsService.getById(this.id).subscribe((news) => {
 
             this.news = news;
 

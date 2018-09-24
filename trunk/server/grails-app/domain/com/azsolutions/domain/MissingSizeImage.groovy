@@ -18,7 +18,7 @@ class MissingSizeImage {
 
     static mapping = {
 
-        id(column: "image_id")
+        id(column: "image_id", generator: "assigned", type: "string")
         version false;
     }
 }

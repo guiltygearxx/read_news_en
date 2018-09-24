@@ -4,9 +4,9 @@ import groovy.time.TimeCategory;
 
 class ImageDetectSizeJob {
 
-    public static final int DELAY_TIME_IN_MINUTES = 5;
-    public static final int SCAN_RANGE_IN_MINUTES = 15;
-    public static final int MAX_SCANNED_TIMES = 5;
+    public static int DELAY_TIME_IN_MINUTES;
+    public static int SCAN_RANGE_IN_MINUTES;
+    public static int MAX_SCANNED_TIMES;
 
     def imageDetectSizeService;
 

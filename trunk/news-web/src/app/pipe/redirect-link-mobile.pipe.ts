@@ -10,6 +10,7 @@ export class RedirectLinkMobilePipe implements PipeTransform {
 
     constructor(protected applicationUtils: ApplicationUtils) {
     }
+
     transform(value: any, ...args: any[]): any {
 
         let news: NewsView = value;
@@ -20,7 +21,6 @@ export class RedirectLinkMobilePipe implements PipeTransform {
 
         title = title.split(" ").join("-");
 
-        return environment.prefixDomain + "/mobileDetail/" + title + "/" + news.id;
+        return environment.prefixDomain + "/mobile/noiDung2/" + title + "/" + news.newsId;
     }
-
 }

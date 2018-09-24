@@ -10,6 +10,7 @@ import {DesktopCanActivate} from "./desktop-can-activate";
 import {MobileCanActivate} from "./mobile-can-activate";
 import {MTopicComponent} from "../ui-mobile-component/m-topic/m-topic.component";
 import {MDetailComponent} from "../ui-mobile-component/m-detail/m-detail.component";
+import {MDetail2Component} from "../ui-mobile-component/m-detail-2/m-detail-2.component";
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import {MDetailComponent} from "../ui-mobile-component/m-detail/m-detail.compone
 
                     {path: '', redirectTo: 'trangChu', pathMatch: 'full'},
                     {path: 'trangChu', component: IndexComponent},
-                    {path: 'chuDe/:categoryCode/:categoryId', component: TopicComponent}
+                    {path: 'chuDe/:categoryCode/:categoryId', component: TopicComponent},
+                    {path: 'noiDung/:title/:id', component: NewsDetailComponent},
                 ],
             },
 
@@ -35,12 +37,11 @@ import {MDetailComponent} from "../ui-mobile-component/m-detail/m-detail.compone
 
                     {path: '', redirectTo: 'trangChu', pathMatch: 'full'},
                     {path: 'trangChu', component: IndexMobileComponent},
-                    {path: 'chuDe/:categoryCode/:categoryId', component: MTopicComponent}
+                    {path: 'chuDe/:categoryCode/:categoryId', component: MTopicComponent},
+                    {path: 'noiDung/:title/:id', component: MDetailComponent},
+                    {path: 'noiDung2/:title/:id', component: MDetail2Component},
                 ],
             },
-
-            {path: 'newsDetail/:title/:id', component: NewsDetailComponent},
-            {path: 'mobileDetail', component: MDetailComponent},
         ])
     ],
     declarations: [],
