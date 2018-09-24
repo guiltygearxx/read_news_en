@@ -12,7 +12,7 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content (ionScroll)="contentScroll($event)">
 
   <super-tabs [scrollTabs]="true" [config]="tabsConfig">
 

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, ScrollEvent} from 'ionic-angular';
 import {TrangChuPage} from "../trang-chu/trang-chu";
 import {
   CATEGORY_ID_TINCHINH,
@@ -36,6 +36,11 @@ export class HomePage {
               public categoryService: CategoryService) {
 
     this.initCategories();
+  }
+
+  contentScroll(event: ScrollEvent): void {
+
+    console.log(event);
   }
 
   private initCategories(): void {

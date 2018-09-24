@@ -22,6 +22,7 @@ import {NewsCard_1Component} from "../components/news-card-1/news-card-1";
 import {NewsCard_2Component} from "../components/news-card-2/news-card-2";
 import {DisplayNewsTimePipe} from "../pipes/display-news-time";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {ScrollHideDirective} from "../directives/scroll-hide";
 
 export function setTranslateLoader(http: HttpClient) {
 
@@ -37,7 +38,8 @@ export function setTranslateLoader(http: HttpClient) {
     ChuDePage,
     NewsCard_1Component,
     NewsCard_2Component,
-    DisplayNewsTimePipe
+    DisplayNewsTimePipe,
+    ScrollHideDirective
   ],
 
   imports: [
