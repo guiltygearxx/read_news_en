@@ -7,6 +7,7 @@ class UrlMappings {
         "/newsView"(resources: "newsView")
         "/image"(resources: "image")
         "/category"(resources: "category")
+        "/rssSourceGroup"(resources: "rssSourceGroup")
 
         "/$controller/$action?/$id?(.$format)?" {
             constraints {
