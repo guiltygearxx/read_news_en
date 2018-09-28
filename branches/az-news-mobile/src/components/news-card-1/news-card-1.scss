@@ -1,3 +1,24 @@
 news-card-1 {
 
 }
+
+.custom-card-img {
+  border-radius: 8px;
+}
+
+.custom-ion-card {
+  box-shadow: unset !important;
+}
+
+.card-content-md,.card-content-ios {
+  padding: 0px 5px;
+}
+
+.card-title-md, .card-title-ios {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+
+.card .note-md {
+  font-family: 'Quicksand', sans-serif;
+}

@@ -1,6 +1,6 @@
-<ion-card (click)="goToViewDetail()">
+<ion-card (click)="goToViewDetail()" class="custom-ion-card">
 
-  <img [src]="image?.url || 'assets/img/image_news.jpg'"/>
+  <img [src]="image?.url || 'assets/img/image_news.jpg'" class="custom-card-img"/>
 
   <ion-card-content>
 
@@ -9,10 +9,8 @@
     </ion-card-title>
 
     <ion-note>
-      {{news?.pubDate | displayNewsTime :now}} |
+      {{news?.pubDate | displayNewsTime :now}} | {{news?.rssSourceGroupTitle}}
     </ion-note>
-
-    {{news?.rssSourceGroupTitle}}
 
   </ion-card-content>
 

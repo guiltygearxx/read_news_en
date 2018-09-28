@@ -1,3 +1,18 @@
 page-home {
 
 }
+
+.toolbar-background-md, .toolbar-background-ios {
+  border-color: #ffffff;
+  background: #ffffff;
+}
+
+super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+
+.label-md, .label-ios {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
