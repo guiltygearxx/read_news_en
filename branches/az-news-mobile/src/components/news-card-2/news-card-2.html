@@ -14,10 +14,10 @@
         {{news?.title}}
       </h2>
 
-      <div style="position: absolute; bottom: 0px; width: 100%; margin-bottom: 1px;">
+      <div style="bottom: 0px; width: 100%; margin-bottom: 1px;">
 
         <ion-note>
-          {{news?.pubDate | displayNewsTime :now}} |  {{news?.rssSourceGroupTitle}}
+          {{news?.pubDate | displayNewsTime :now}} |  <span><a (click)="goToViewDetail" style="color: #7b7e84; font-weight: bold">{{news?.rssSourceGroupTitle}}</a></span>
         </ion-note>
 
       </div>
